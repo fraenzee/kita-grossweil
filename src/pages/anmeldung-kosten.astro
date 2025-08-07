@@ -1,0 +1,31 @@
+---
+// Importiere das Basis-Layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+// Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
+import { getCollection } from 'astro:content';
+
+// Lade den Inhalt der "Anmeldung und Kosten"-Seite aus der Markdown-Datei
+const pages = await getCollection('pages');
+const anmeldungKostenPage = pages.find(page => page.slug === 'anmeldung-kosten'); // Finde die "anmeldung-kosten.md" Seite
+
+// Stelle sicher, dass die Seite gefunden wurde, sonst leite um oder zeige Fehler
+if (!anmeldungKostenPage) {
+  return Astro.redirect('/404'); // Oder eine andere Fehlerbehandlung
+}
+
+// Extrahiere den gerenderten Inhalt
+const { Content } = await anmeldungKostenPage.render();
+---
+<BaseLayout title={anmeldungKostenPage.data.title}>
+    <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-4xl font-semibold text-gray-800 mb-4">{anmeldungKostenPage.data.title}</h2>
+        <div class="text-gray-700 text-lg leading-relaxed mb-6">
+            <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+        </div>
+        <div class="mt-6 text-center">
+            <a href="https://portal.little-bird.de/" target="_blank" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                Zum Little Bird Portal
+            </a>
+        </div>
+    </section>
+</BaseLayout>

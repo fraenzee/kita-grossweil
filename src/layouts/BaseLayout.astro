@@ -1,0 +1,29 @@
+---
+// Importiere die Header- und Footer-Komponenten
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+// Importiere die globalen Tailwind-Styles
+import '../styles/global.css';
+
+// Props für den Titel der Seite
+const { title } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title ? `${title} - Kindergarten St. Georg Großweil` : 'Kindergarten & Krippe St. Georg Großweil'}</title>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <Header /> <!-- Fügt die Header-Komponente ein -->
+
+    <main class="container mx-auto p-6 flex-grow">
+        <slot /> <!-- Hier wird der Inhalt der jeweiligen Seite eingefügt -->
+    </main>
+
+    <Footer /> <!-- Fügt die Footer-Komponente ein -->
+
+</body>
+</html>
