@@ -1,0 +1,35 @@
+---
+// Importiere das Basis-Layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+// Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
+import { getCollection } from 'astro:content';
+
+// Lade den Inhalt der "Galerie"-Seite aus der Markdown-Datei
+const pages = await getCollection('pages');
+const galeriePage = pages.find(page => page.slug === 'galerie'); // Finde die "galerie.md" Seite
+
+// Stelle sicher, dass die Seite gefunden wurde, sonst leite um oder zeige Fehler
+if (!galeriePage) {
+  return Astro.redirect('/404'); // Oder eine andere Fehlerbehandlung
+}
+
+// Extrahiere den gerenderten Inhalt
+const { Content } = await galeriePage.render();
+---
+<BaseLayout title={galeriePage.data.title}>
+    <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-4xl font-semibold text-gray-800 mb-4">{galeriePage.data.title}</h2>
+        <div class="text-gray-700 text-lg leading-relaxed mb-6">
+            <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+            <img src="https://placehold.co/400x250/cccccc/333333?text=Spielplatz" alt="Kinder spielen auf dem Spielplatz" class="w-full h-auto rounded-lg shadow-md">
+            <img src="https://placehold.co/400x250/cccccc/333333?text=Basteln" alt="Kinder beim Basteln" class="w-full h-auto rounded-lg shadow-md">
+            <img src="https://placehold.co/400x250/cccccc/333333?text=Lesen" alt="Erzieherin liest Kindern vor" class="w-full h-auto rounded-lg shadow-md">
+            <img src="https://placehold.co/400x250/cccccc/333333?text=Malen" alt="Kinder beim Malen" class="w-full h-auto rounded-lg shadow-md">
+            <img src="https://placehold.co/400x250/cccccc/333333?text=Garten" alt="Kinder im Garten" class="w-full h-auto rounded-lg shadow-md">
+            <img src="https://placehold.co/400x250/cccccc/333333?text=Ausflug" alt="Kinder bei einem Ausflug" class="w-full h-auto rounded-lg shadow-md">
+        </div>
+    </section>
+</BaseLayout>

@@ -1,0 +1,26 @@
+---
+// Importiere das Basis-Layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+// Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
+import { getCollection } from 'astro:content';
+
+// Lade den Inhalt der "Aktuelles"-Seite aus der Markdown-Datei
+const pages = await getCollection('pages');
+const aktuellesPage = pages.find(page => page.slug === 'aktuelles'); // Finde die "aktuelles.md" Seite
+
+// Stelle sicher, dass die Seite gefunden wurde, sonst leite um oder zeige Fehler
+if (!aktuellesPage) {
+  return Astro.redirect('/404'); // Oder eine andere Fehlerbehandlung
+}
+
+// Extrahiere den gerenderten Inhalt
+const { Content } = await aktuellesPage.render();
+---
+<BaseLayout title={aktuellesPage.data.title}>
+    <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-4xl font-semibold text-gray-800 mb-4">{aktuellesPage.data.title}</h2>
+        <div class="text-gray-700 text-lg leading-relaxed mb-6">
+            <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+        </div>
+    </section>
+</BaseLayout>
