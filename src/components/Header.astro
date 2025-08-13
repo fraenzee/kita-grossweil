@@ -1,46 +1,27 @@
     ---
     // Dies ist der Skript-Bereich für Astro-Komponenten (optional)
     ---
-    <header class="bg-blue-600 text-white p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold rounded-lg p-2">Kindergarten & Krippe St. Georg Großweil</h1>
-            <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="/" class="hover:underline text-lg">Startseite</a></li>
-                    <li><a href="/ueber-uns/" class="hover:underline text-lg">Über uns</a></li>
-                    <li><a href="/paedagogik/" class="hover:underline text-lg">Pädagogisches Konzept</a></li>
-                    <li><a href="/anmeldung-kosten/" class="hover:underline text-lg">Anmeldung und Kosten</a></li>
-                    <li><a href="/aktuelles/" class="hover:underline text-lg">Aktuelles</a></li>
-                    <li><a href="/galerie/" class="hover:underline text-lg">Galerie & Rundgang</a></li>
-                    <li><a href="/kontakt/" class="hover:underline text-lg">Kontakt</a></li>
-                    <li><a href="/stellenanzeigen/" class="hover:underline text-lg">Stellenangebote</a></li>
-                </ul>
+    <header class="bg-skyblue text-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <!-- Logo -->
+            <a href="/" class="flex items-center space-x-3">
+            <img src="/kita-grossweil-favicon.png" alt="Kita Großweil" class="h-10 w-auto" />
+            <span class="font-bold text-xl">Kita Großweil</span>
+            </a>
+
+            <!-- Menü -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="/" class="hover:underline">Startseite</a>
+                <a href="/ueber-uns/" class="hover:underline">Über uns</a>
+                <a href="/paedagogik/" class="hover:underline">Pädagogik</a>
+                <a href="/anmeldung-kosten/" class="hover:underline">Anmeldung</a>
+                <a href="/aktuelles/" class="hover:underline">Aktuelles</a>
+                <a href="/galerie/" class="hover:underline">Galerie</a>
+                <a href="/kontakt/" class="hover:underline">Kontakt</a>
+                <!-- CTA -->
+                <a href="/stellenanzeigen/" class="bg-sunyellow text-darkgray px-4 py-2 rounded-full hover:bg-hotpink hover:text-white transition">
+                    Karriere
+                </a>
             </nav>
         </div>
     </header>
-    
-    <!-- Navigation -->
-    <nav class="bg-skyblue text-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <!-- Logo -->
-                <a href="/" class="flex items-center">
-                    <img src="/logo.svg" alt="Kita Großweil" class="h-10 w-auto mr-3" />
-                    <span class="font-bold text-xl">Kita Großweil</span>
-                </a>
-
-                <!-- Menu -->
-                <div class="hidden md:flex space-x-6">
-                    <a href="/" class="hover:text-sunyellow">Start</a>
-                    <a href="/paedagogik" class="hover:text-sunyellow">Pädagogik</a>
-                    <a href="/anmeldung-kosten" class="hover:text-sunyellow">Anmeldung</a>
-                    <a href="/aktuelles" class="hover:text-sunyellow">Aktuelles</a>
-                    <a href="/galerie" class="hover:text-sunyellow">Galerie</a>
-                    <a href="/ueber-uns" class="hover:text-sunyellow">Über uns</a>
-                    <a href="/kontakt" class="bg-sunyellow text-darkgray px-4 py-2 rounded-full hover:bg-hotpink hover:text-white transition">
-                        Kontakt
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
