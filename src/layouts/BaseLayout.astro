@@ -14,13 +14,22 @@ const { title } = Astro.props;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
+    <link rel="icon" href="/kita-grossweil-favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/kita-grossweil-favicon.png" type="image/x-icon">
+    <!-- Optional: Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/kita-grossweil-favicon-apple.png">
+    <meta property="og:title" content="Kindergarten St. Georg Großweil">
+    <meta property="og:description" content="Unsere Kita bietet Platz für 107 Kindern, mit einer Krippen- und vier Kindergartengruppen.">
+    <meta property="og:image" content="/kita-grossweil-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kita-grossweil.netlify.app/">
     <title>{title ? `${title} - Kindergarten St. Georg Großweil` : 'Kindergarten & Krippe St. Georg Großweil'}</title>
 </head>
 <body class="bg-beige flex flex-col min-h-screen text-darkgray font-sans">
 
     <Header /> <!-- Fügt die Header-Komponente ein -->
 
-    <main class="container mx-auto p-6 flex-grow">
+    <main class="container mx-auto p-6 flex-grow sm:p-4 md:p-6 lg:p-8">
         <slot /> <!-- Hier wird der Inhalt der jeweiligen Seite eingefügt -->
     </main>
 
