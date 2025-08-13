@@ -2,26 +2,73 @@
     // Dies ist der Skript-Bereich für Astro-Komponenten (optional)
     ---
     <header class="bg-skyblue text-white shadow-md">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <!-- Logo -->
-            <a href="/" class="flex items-center space-x-3">
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-3">
             <img src="/kita-grossweil-favicon.png" alt="Kita Großweil" class="h-10 w-auto" />
             <span class="font-bold text-xl">Kita Großweil</span>
-            </a>
+        </a>
 
-            <!-- Menü -->
-            <nav class="hidden md:flex space-x-6 items-center">
-                <a href="/" class="hover:underline">Startseite</a>
-                <a href="/ueber-uns/" class="hover:underline">Über uns</a>
-                <a href="/paedagogik/" class="hover:underline">Pädagogik</a>
-                <a href="/anmeldung-kosten/" class="hover:underline">Anmeldung</a>
-                <a href="/aktuelles/" class="hover:underline">Aktuelles</a>
-                <a href="/galerie/" class="hover:underline">Galerie</a>
-                <a href="/kontakt/" class="hover:underline">Kontakt</a>
-                <!-- CTA -->
-                <a href="/stellenanzeigen/" class="bg-sunyellow text-darkgray px-4 py-2 rounded-full hover:bg-hotpink hover:text-white transition">
-                    Karriere
-                </a>
-            </nav>
-        </div>
-    </header>
+        <!-- Desktop-Menü (auf mobilen Geräten versteckt) -->
+        <nav class="hidden md:flex space-x-6 items-center">
+            <a href="/" class="hover:underline">Startseite</a>
+            <a href="/ueber-uns/" class="hover:underline">Über uns</a>
+            <a href="/paedagogik/" class="hover:underline">Pädagogik</a>
+            <a href="/anmeldung-kosten/" class="hover:underline">Anmeldung</a>
+            <a href="/aktuelles/" class="hover:underline">Aktuelles</a>
+            <a href="/galerie/" class="hover:underline">Galerie</a>
+            <a href="/kontakt/" class="hover:underline">Kontakt</a>
+            <!-- CTA -->
+            <a href="/stellenanzeigen/" class="bg-sunyellow text-darkgray px-4 py-2 rounded-full hover:bg-hotpink hover:text-white transition">
+                Karriere
+            </a>
+        </nav>
+        
+        <!-- Burger-Menü-Schalter (auf mobilen Geräten sichtbar) -->
+        <button class="burger-menu-toggle md:hidden" aria-controls="mobile-menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Mobiles Menü (standardmäßig versteckt) -->
+<nav id="mobile-menu" class="mobile-menu md:hidden flex flex-col items-center justify-center">
+    <ul class="space-y-6 text-center text-2xl text-darkgray">
+        <li><a href="/" class="hover:text-hotpink transition-colors">Startseite</a></li>
+        <li><a href="/ueber-uns/" class="hover:text-hotpink transition-colors">Über uns</a></li>
+        <li><a href="/paedagogik/" class="hover:text-hotpink transition-colors">Pädagogik</a></li>
+        <li><a href="/anmeldung-kosten/" class="hover:text-hotpink transition-colors">Anmeldung</a></li>
+        <li><a href="/aktuelles/" class="hover:text-hotpink transition-colors">Aktuelles</a></li>
+        <li><a href="/galerie/" class="hover:text-hotpink transition-colors">Galerie</a></li>
+        <li><a href="/kontakt/" class="hover:text-hotpink transition-colors">Kontakt</a></li>
+        <li><a href="/stellenanzeigen/" class="bg-sunyellow px-4 py-2 rounded-full hover:bg-hotpink hover:text-white transition mt-4 inline-block">Karriere</a></li>
+    </ul>
+</nav>
+
+<!--
+ * JavaScript-Logik zur Steuerung des Menüs
+ * Wird ausgeführt, sobald der DOM geladen ist
+ * In Astro-Komponenten sollte dies in einer separaten JS-Datei liegen,
+ * um die Komponente sauber zu halten.
+ -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleButton = document.querySelector('.burger-menu-toggle');
+        const mobileMenu = document.querySelector('#mobile-menu');
+
+        if (toggleButton && mobileMenu) {
+            // Event-Listener für Klicks auf den Burger-Button
+            toggleButton.addEventListener('click', () => {
+                // Überprüfen des aktuellen Zustands des Menüs
+                const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+                
+                // Zustände umschalten, indem ein String übergeben wird
+                toggleButton.setAttribute('aria-expanded', (!isExpanded).toString());
+                toggleButton.classList.toggle('is-open');
+                mobileMenu.classList.toggle('is-open');
+            });
+        }
+    });
+</script>
