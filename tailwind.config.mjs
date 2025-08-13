@@ -4,7 +4,15 @@ export default {
     './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        sunyellow: "#FBBE00",
+        skyblue: "#2DB6C0",
+        hotpink: "#E92E63",
+        darkgray: "#333333",
+        beige: "#FFF6E5"
+      }
+    },
   },
   plugins: [],
 }
