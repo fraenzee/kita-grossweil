@@ -19,6 +19,52 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+.burger-menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 32px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 20;
+}
+
+.burger-menu-toggle:focus {
+            outline: none;
+}
+
+/*
+* Die drei Linien des Burger-Icons
+*/
+.burger-menu-toggle span {
+      width: 100%;
+      height: 3px;
+      background: #333; /* Entspricht darkgray */
+      border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+      transform-origin: center;
+}
+
+/*
+* Zustand, wenn das Menü geöffnet ist
+* Die Linien werden zu einem 'X'
+*/
+.burger-menu-toggle.is-open span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.burger-menu-toggle.is-open span:nth-child(2) {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.burger-menu-toggle.is-open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
 /*
 * Mobile Menü Ansicht
 * Anfangszustand: außerhalb des Bildschirms
