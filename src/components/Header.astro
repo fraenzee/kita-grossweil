@@ -1,11 +1,17 @@
     ---
     // Dies ist der Skript-Bereich für Astro-Komponenten (optional)
+    let menuOpen = false;
+    function toggleMenu() {
+        menuOpen = !menuOpen;
+        document.getElementById('mobile-menu').classList.toggle('hidden', !menuOpen);
+        document.getElementById('menu-btn').setAttribute('aria-expanded', menuOpen);
+        }
     ---
     <header class="bg-skyblue text-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto flex justify-between items-center p-4">
         <!-- Logo -->
         <a href="/" class="flex items-center space-x-3">
-            <img src="/kita-grossweil-favicon.png" alt="Kita Großweil" class="h-10 w-auto" />
+            <img src="/kita-grossweil-image.png" alt="Kita Großweil" class="h-10 w-auto" />
             <span class="font-bold text-xl">Kita Großweil</span>
         </a>
 
@@ -27,16 +33,26 @@
         </nav>
         
         <!-- Burger-Menü-Schalter (auf mobilen Geräten sichtbar) -->
-        <button class="burger-menu-toggle md:hidden" aria-controls="mobile-menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
+        <button id="menu-btn" class="md:hidden focus:outline-none" aria-expanded="false" onclick="toggleMenu()">
+            <!-- Burger Icon -->
+            <svg id="burger-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!-- X Icon -->
+            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
         </button>
+        <!-- <button class="burger-menu-toggle md:hidden" aria-controls="mobile-menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button> -->
     </div>
 </header>
 
 <!-- Mobiles Menü (standardmäßig versteckt) -->
-<nav id="mobile-menu" class="mobile-menu md:hidden flex flex-col items-center justify-center">
+<nav id="mobile-menu" class="md:hidden hidden flex flex-col space-y-2 p-4 bg-skyblue">
     <ul class="space-y-6 text-center text-2xl text-darkgray">
         <li><a href="/" class="hover:underline hover:text-hotpink transition-colorsink transition-colors">Startseite</a></li>
         <li><a href="/ueber-uns/" class="hover:underline hover:text-hotpink transition-colorsink transition-colors">Über uns</a></li>
