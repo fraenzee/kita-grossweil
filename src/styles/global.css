@@ -45,7 +45,7 @@ body {
       background: #333; /* Entspricht darkgray */
       border-radius: 10px;
       transition: all 0.3s ease-in-out;
-      transform-origin: 1px;
+      transform-origin: center;
 }
 
 /*
