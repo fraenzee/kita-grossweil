@@ -19,24 +19,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-.burger-menu-toggle {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 32px;
-            height: 25px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 20;
-}
-
-.burger-menu-toggle:focus {
-            outline: none;
-}
-
-
 /*
 * Mobile Menü Ansicht
 * Anfangszustand: außerhalb des Bildschirms

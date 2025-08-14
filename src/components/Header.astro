@@ -1,73 +1,48 @@
----
-// Dieser Abschnitt ist für Astro-Komponenten-Logik reserviert und wird vom Server ausgeführt.
-// Clientseitiger JavaScript-Code für DOM-Manipulation sollte in <script>-Tags platziert werden.
----
-<!-- Header mit dynamischer Höhe und "sticky" Position -->
 <header id="main-header" class="bg-skyblue text-white shadow-md sticky top-0 z-50 transition-all duration-300">
-  <div class="container mx-auto flex justify-between items-center p-4 py-6 transition-all duration-300">
+  <div class="container mx-auto flex flex-wrap justify-between items-center gap-y-4 p-4 py-6 transition-all duration-300">
     <!-- Logo -->
-    <a href="/" class="flex items-center space-x-3">
+    <a href="/" class="flex items-center space-x-3 flex-shrink-0">
       <img src="/kita-grossweil-image.png" alt="Kita Großweil" class="h-10 w-auto" />
-      <span class="font-bold text-xl">Kita Großweil</span>
+      <span class="font-bold text-lg sm:text-xl">Kita Großweil</span>
     </a>
 
-    <!-- Desktop-Menü (auf mobilen Geräten versteckt) -->
-    <nav class="hidden md:flex items-center">
-      <ul class="flex md:gap-4 lg:gap-6">
-        <li>
-          <a href="/" class="px-4 py-2 bg-skyblue text-white hover:bg-white hover:text-darkgray transition-colors">Startseite</a>
-        </li>
-        <li>
-          <a href="/ueber-uns/" class="px-4 py-2 bg-hotpink text-white hover:bg-white hover:text-darkgray transition-colors">Über uns</a>
-        </li>
-        <li>
-          <a href="/paedagogik/" class="px-4 py-2 bg-sunyellow text-white hover:bg-white hover:text-darkgray transition-colors">Pädagogik</a>
-        </li>
-        <li>
-          <a href="/anmeldung-kosten/" class="px-4 py-2 bg-skyblue text-white hover:bg-white hover:text-darkgray transition-colors">Anmeldung</a>
-        </li>
-        <li>
-          <a href="/aktuelles/" class="px-4 py-2 bg-hotpink text-white hover:bg-white hover:text-darkgray transition-colors">Aktuelles</a>
-        </li>
-        <li>
-          <a href="/galerie/" class="px-4 py-2 bg-sunyellow text-white hover:bg-white hover:text-darkgray transition-colors">Galerie</a>
-        </li>
-        <li>
-          <a href="/kontakt/" class="px-4 py-2 bg-skyblue text-white hover:bg-white hover:text-darkgray transition-colors">Kontakt</a>
-        </li>
-        <!-- CTA -->
-        <li>
-          <a href="/stellenanzeigen/" class="px-4 py-2 rounded-full bg-sunyellow text-darkgray hover:bg-hotpink hover:text-white transition-colors">
-            Karriere
-          </a>
-        </li>
+    <!-- Desktop-Menü -->
+    <nav class="hidden md:flex items-center flex-wrap gap-2 lg:gap-4">
+      <ul class="flex flex-wrap gap-2 lg:gap-4">
+        <li><a href="/" class="px-3 py-2 bg-skyblue hover:bg-white hover:text-darkgray transition-colors">Startseite</a></li>
+        <li><a href="/ueber-uns/" class="px-3 py-2 bg-hotpink hover:bg-white hover:text-darkgray transition-colors">Über uns</a></li>
+        <li><a href="/paedagogik/" class="px-3 py-2 bg-sunyellow hover:bg-white hover:text-darkgray transition-colors">Pädagogik</a></li>
+        <li><a href="/anmeldung-kosten/" class="px-3 py-2 bg-skyblue hover:bg-white hover:text-darkgray transition-colors">Anmeldung</a></li>
+        <li><a href="/aktuelles/" class="px-3 py-2 bg-hotpink hover:bg-white hover:text-darkgray transition-colors">Aktuelles</a></li>
+        <li><a href="/galerie/" class="px-3 py-2 bg-sunyellow hover:bg-white hover:text-darkgray transition-colors">Galerie</a></li>
+        <li><a href="/kontakt/" class="px-3 py-2 bg-skyblue hover:bg-white hover:text-darkgray transition-colors">Kontakt</a></li>
+        <li><a href="/stellenanzeigen/" class="px-4 py-2 rounded-full bg-sunyellow text-darkgray hover:bg-hotpink hover:text-white transition-colors">Karriere</a></li>
       </ul>
     </nav>
-    
-    <!-- Burger-Menü-Schalter (auf mobilen Geräten sichtbar) -->
-    <button class="md:hidden focus:outline-none relative h-8 w-8 text-darkgray" aria-controls="mobile-menu" aria-expanded="false" id="menu-btn">
-        <!-- Burger Icon -->
-        <svg id="burger-icon" xmlns="http://www.w3.org/2000/svg" class="h-full w-full absolute top-0 left-0 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <!-- X Icon -->
-        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-full w-full absolute top-0 left-0 hidden transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+
+    <!-- Burger Button -->
+    <button class="md:hidden ml-auto h-8 w-8 text-darkgray relative" aria-controls="mobile-menu" aria-expanded="false" id="menu-btn">
+      <!-- Burger Icon -->
+      <svg id="burger-icon" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <!-- X Icon -->
+      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 hidden transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
     </button>
   </div>
 </header>
 
-<!-- Mobiles Menü (standardmäßig versteckt) -->
-<nav id="mobile-menu" class="mobile-menu md:hidden flex flex-col items-center justify-center">
-  <ul class="space-y-6 text-center text-2xl text-darkgray">
-    <li><a href="/" class="hover:underline hover:text-hotpink transition-colors">Startseite</a></li>
-    <li><a href="/ueber-uns/" class="hover:underline hover:text-hotpink transition-colors">Über uns</a></li>
-    <li><a href="/paedagogik/" class="hover:underline hover:text-hotpink transition-colors">Pädagogik</a></li>
-    <li><a href="/anmeldung-kosten/" class="hover:underline hover:text-hotpink transition-colors">Anmeldung</a></li>
-    <li><a href="/aktuelles/" class="hover:underline hover:text-hotpink transition-colors">Aktuelles</a></li>
-    <li><a href="/galerie/" class="hover:underline hover:text-hotpink transition-colors">Galerie</a></li>
-    <li><a href="/kontakt/" class="hover:underline hover:text-hotpink transition-colors">Kontakt</a></li>
-    <li><a href="/stellenanzeigen/" class="bg-sunyellow px-4 py-2 rounded-full hover:bg-hotpink hover:text-white transition mt-4 inline-block">Karriere</a></li>
-  </ul>
+<!-- Mobiles Menü -->
+<nav id="mobile-menu" class="hidden md:hidden flex flex-col items-center gap-4 p-6 bg-white text-darkgray shadow-lg">
+  <a href="/" class="hover:text-hotpink">Startseite</a>
+  <a href="/ueber-uns/" class="hover:text-hotpink">Über uns</a>
+  <a href="/paedagogik/" class="hover:text-hotpink">Pädagogik</a>
+  <a href="/anmeldung-kosten/" class="hover:text-hotpink">Anmeldung</a>
+  <a href="/aktuelles/" class="hover:text-hotpink">Aktuelles</a>
+  <a href="/galerie/" class="hover:text-hotpink">Galerie</a>
+  <a href="/kontakt/" class="hover:text-hotpink">Kontakt</a>
+  <a href="/stellenanzeigen/" class="bg-sunyellow px-4 py-2 rounded-full hover:bg-hotpink hover:text-white transition">Karriere</a>
 </nav>
+
