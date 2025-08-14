@@ -14,3 +14,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// JavaScript-Logik für die Menühöhe beim Scrollen
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('main-header');
+    const headerContent = header.querySelector('.container');
+    const navLinks = header.querySelectorAll('nav a');
+    
+    const scrolledClass = 'py-4'; // Kleinere Polsterung
+    const defaultClass = 'py-6'; // Standard-Polsterung
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        // Beim Scrollen nach unten
+        headerContent.classList.remove(defaultClass);
+        headerContent.classList.add(scrolledClass);
+        navLinks.forEach(link => {
+          link.classList.remove(defaultClass);
+          link.classList.add(scrolledClass);
+        });
+      } else {
+        // Oben auf der Seite
+        headerContent.classList.remove(scrolledClass);
+        headerContent.classList.add(defaultClass);
+        navLinks.forEach(link => {
+          link.classList.remove(scrolledClass);
+          link.classList.add(defaultClass);
+        });
+      }
+    });
+  });
