@@ -1,7 +1,10 @@
   // JavaScript-Logik für das Burgermenü und die Header-Höhe
   document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.querySelector('.burger-menu-toggle');
+    const toggleButton = document.getElementById('menu-btn');
     const mobileMenu = document.querySelector('#mobile-menu');
+    const burgerIcon = document.getElementById('burger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
     const header = document.getElementById('main-header');
     const headerContent = header.querySelector('.container');
 
@@ -11,8 +14,15 @@
             const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
             
             toggleButton.setAttribute('aria-expanded', (!isExpanded).toString());
-            toggleButton.classList.toggle('is-open');
             mobileMenu.classList.toggle('is-open');
+
+            if (isExpanded) {
+                burgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            } else {
+                burgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            }
         });
     }
 
