@@ -18,23 +18,23 @@ const { Content } = await homepage.render();
 ---
 <BaseLayout title={homepage.data.title}>
     <section class="bg-white rounded-lg shadow-lg p-8 mb-8 text-center">
-        <h2 class="text-4xl font-semibold text-gray-800 mb-4">{homepage.data.title}</h2>
+        <h1 class="text-4xl font-semibold text-gray-800 mb-4">{homepage.data.title}</h1>
         <div class="text-gray-700 text-lg leading-relaxed mb-6">
             <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="bg-blue-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                <h3 class="text-2xl font-semibold text-blue-700 mb-2">Unser Konzept</h3>
+                <h2 class="text-2xl font-semibold text-blue-700 mb-2">Unser Konzept</h2>
                 <p class="text-gray-600 mb-4">Erfahren Sie mehr über unsere pädagogischen Schwerpunkte und Werte.</p>
                 <a href="/paedagogik/" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Mehr erfahren</a>
             </div>
             <div class="bg-green-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                <h3 class="text-2xl font-semibold text-green-700 mb-2">Anmeldung</h3>
+                <h2 class="text-2xl font-semibold text-green-700 mb-2">Anmeldung</h2>
                 <p class="text-gray-600 mb-4">Alle Informationen zur Anmeldung und den Elternbeiträgen.</p>
                 <a href="/anmeldung-kosten/" class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Details ansehen</a>
             </div>
             <div class="bg-purple-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                <h3 class="text-2xl font-semibold text-purple-700 mb-2">Aktuelles</h3>
+                <h2 class="text-2xl font-semibold text-purple-700 mb-2">Aktuelles</h2>
                 <p class="text-gray-600 mb-4">Bleiben Sie auf dem Laufenden über Termine und Veranstaltungen.</p>
                 <a href="/aktuelles/" class="inline-block bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">Zu den News</a>
             </div>
@@ -49,14 +49,14 @@ const { Content } = await homepage.render();
     <!-- Kurze Einblicke oder Highlights -->
     <section class="grid md:grid-cols-2 gap-6 mb-8">
         <div class="bg-white rounded-lg shadow-lg p-6">
-            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Unser Team</h3>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-2">Unser Team</h2>
             <p class="text-gray-600">
                 Lernen Sie unser engagiertes Team kennen, das sich liebevoll um Ihre Kinder kümmert.
             </p>
             <a href="/ueber-uns/" class="text-blue-600 hover:underline mt-2 inline-block">Mehr über das Team</a>
         </div>
         <div class="bg-white rounded-lg shadow-lg p-6">
-            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Bildergalerie</h3>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-2">Bildergalerie</h2>
             <p class="text-gray-600">
                 Eindrücke aus unserem Kindergartenalltag und von besonderen Ereignissen.
             </p>
