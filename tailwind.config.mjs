@@ -10,7 +10,13 @@ export default {
         skyblue: "#2DB6C0",
         hotpink: "#E92E63",
         darkgray: "#333333",
-        beige: "#FFF6E5"
+        beige: "#FFF6E5",
+        
+        lightblue: "#eef6f9",
+        green: "#6faf75",
+        darkyellow: "#ebc181",
+        darkerblue: "#a6c5c9",
+        darkblue: "#566181"
       }
     },
   },
