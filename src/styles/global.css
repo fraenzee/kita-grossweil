@@ -23,6 +23,13 @@ h3 {
 
 /* Setzt die Schriftart auf "Caveat Brush" > Inter > sans-serif für das gesamte Dokument */
 body {
+  font-family: 'Inter', sans-serif;
+}
+
+header {
+  font-family: 'Caveat Brush', 'Inter', sans-serif;
+}
+footer {
   font-family: 'Caveat Brush', 'Inter', sans-serif;
 }
 
