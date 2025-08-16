@@ -11,12 +11,15 @@ export default {
         hotpink: "#E92E63",
         darkgray: "#333333",
         beige: "#FFF6E5",
-        
+
         lightblue: "#eef6f9",
         green: "#6faf75",
-        darkyellow: "#ebc181",
+        darkyellow: "#f8c291", //"#ebc181"
         darkerblue: "#a6c5c9",
-        darkblue: "#566181"
+        darkblue: "#566181",
+        night: "#1b2631",
+        lightpink: "#f9afaf",
+        darkviolet: "#4a4e69"
       }
     },
   },
