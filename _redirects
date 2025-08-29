@@ -8,6 +8,6 @@
 /stellenanzeigen /stellenanzeigen/ 301!
 /datenschutz /datenschutz/ 301!
 /impressum /impressum/ 301!
-/admin /admin/ 200
+# /admin /admin/ 200
 # Leite den "admin" Pfad zum CMS um
-/admin /admin/ 200
+# /admin /admin/ 200
