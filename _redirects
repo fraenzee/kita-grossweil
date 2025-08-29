@@ -10,4 +10,4 @@
 /impressum /impressum/ 301!
 
 # Erlaubt den Zugriff auf das CMS
-/admin/* /admin/:splat 200
+# /admin/* /admin/:splat 200
