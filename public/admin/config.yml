@@ -1,6 +1,12 @@
 backend:
   name: git-gateway
-  branch: main # Die Branch, die du für dein Deployment verwendest (meist 'main' oder 'master')
+  # branch: main # Die Branch, die du für dein Deployment verwendest (meist 'main' oder 'master')
+  # Verwende Auth0 für die Authentifizierung
+  auth_provider: netlify
+  # Du musst den API-Schlüssel für die Identity-Instanz von Netlify verwenden.
+  # Dies wird von der Auth0-Erweiterung konfiguriert.
+  auth_token_host: https://kita-grossweil.netlify.app
+  identity_url: https://kita-grossweil.netlify.app/.netlify/identity
 
 media_folder: "public/uploads" # Ordner, in dem hochgeladene Bilder gespeichert werden
 public_folder: "/uploads" # Öffentlicher Pfad zu den hochgeladenen Bildern
