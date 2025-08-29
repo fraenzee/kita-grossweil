@@ -1,5 +1,7 @@
 backend:
-  name: git-gateway
+  # name: git-gateway
+  name: github
+  repo: fraenzee/kita-grossweil
   branch: main # Die Branch, die du für dein Deployment verwendest (meist 'main' oder 'master')
 
 media_folder: "public/uploads" # Ordner, in dem hochgeladene Bilder gespeichert werden
