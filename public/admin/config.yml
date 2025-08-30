@@ -1,8 +1,9 @@
 backend:
-  # name: git-gateway
-  name: github
-  repo: fraenzee/kita-grossweil
-  branch: main # Die Branch, die du für dein Deployment verwendest (meist 'main' oder 'master')
+  name: auth0
+  domain: dev-dymr5084wey7l8yj.eu.auth0.com # <-- Ersetze dies mit deiner Domain aus Schritt 4
+  client_id: nZ6QE66MZBK301dIdRMTcpE872HWZTah # <-- Ersetze dies mit deiner Client ID aus Schritt 4
+  usePkce: true # Wichtig für moderne, sichere Authentifizierung
+  auth_endpoint: authorize # Dieser Wert bleibt so
 
 media_folder: "public/bilder" # Ordner, in dem hochgeladene Bilder gespeichert werden
 public_folder: "/public" # Öffentlicher Pfad zu den hochgeladenen Bildern
