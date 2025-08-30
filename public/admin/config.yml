@@ -1,6 +1,7 @@
 backend:
   name: github
   branch: main # oder master, je nach Repo
+  repo: fraenzee/kita-grossweil
   domain: dev-dymr5084wey7l8yj.eu.auth0.com # <-- Ersetze dies mit deiner Domain aus Schritt 4
   client_id: nZ6QE66MZBK301dIdRMTcpE872HWZTah # <-- Ersetze dies mit deiner Client ID aus Schritt 4
   usePkce: true # Wichtig für moderne, sichere Authentifizierung
