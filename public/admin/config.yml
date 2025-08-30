@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: github
   branch: main # oder master, je nach Repo
   domain: dev-dymr5084wey7l8yj.eu.auth0.com # <-- Ersetze dies mit deiner Domain aus Schritt 4
   client_id: nZ6QE66MZBK301dIdRMTcpE872HWZTah # <-- Ersetze dies mit deiner Client ID aus Schritt 4
