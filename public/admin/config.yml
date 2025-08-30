@@ -17,20 +17,20 @@ collections:
         fields:
           - {label: "Titel", name: "title", widget: "string"}
           - {label: "Inhalt", name: "body", widget: "markdown"}
-      - label: "Über uns (Team)"
-        name: "about"
+      - label: "Über uns"
+        name: "ueber-uns"
         file: "src/content/pages/ueber-uns.md"
         fields:
           - {label: "Titel", name: "title", widget: "string"}
           - {label: "Inhalt", name: "body", widget: "markdown"}
-      - label: "Pädagogisches Konzept"
-        name: "pedagogy"
+      - label: "Pädagogik"
+        name: "paedagogik"
         file: "src/content/pages/paedagogik.md"
         fields:
           - {label: "Titel", name: "title", widget: "string"}
           - {label: "Inhalt", name: "body", widget: "markdown"}
-      - label: "Anmeldung und Kosten"
-        name: "registration_costs"
+      - label: "Anmeldung & Kosten"
+        name: "anmeldung-kosten"
         file: "src/content/pages/anmeldung-kosten.md"
         fields:
           - {label: "Titel", name: "title", widget: "string"}
@@ -41,26 +41,32 @@ collections:
         fields:
           - {label: "Titel", name: "title", widget: "string"}
           - {label: "Inhalt", name: "body", widget: "markdown"}
+      - label: "Galerie"
+        name: "galerie"
+        file: "src/content/pages/galerie.md"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Inhalt", name: "body", widget: "markdown" }
       - label: "Kontakt"
-        name: "contact"
+        name: "kontakt"
         file: "src/content/pages/kontakt.md"
         fields:
           - {label: "Titel", name: "title", widget: "string"}
           - {label: "Inhalt", name: "body", widget: "markdown"}
-      - label: "Stellenanzeigen"
-        name: "jobs"
+      - label: "Stellenangebote"
+        name: "stellenanzeigen"
         file: "src/content/pages/stellenanzeigen.md"
         fields:
           - {label: "Titel", name: "title", widget: "string"}
           - {label: "Inhalt", name: "body", widget: "markdown"}
       - label: "Datenschutz"
-        name: "privacy"
+        name: "datenschutz"
         file: "src/content/pages/datenschutz.md"
         fields:
           - {label: "Titel", name: "title", widget: "string"}
           - {label: "Inhalt", name: "body", widget: "markdown"}
       - label: "Impressum"
-        name: "imprint"
+        name: "impressum"
         file: "src/content/pages/impressum.md"
         fields:
           - {label: "Titel", name: "title", widget: "string"}
