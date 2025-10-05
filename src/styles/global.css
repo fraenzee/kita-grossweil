@@ -6,19 +6,23 @@
   font-family: "Caveat Brush", cursive;
   font-weight: 400;
   font-style: normal;
+  @apply tracking-wide;
 }
 
+.h1, .h2, .h3, h1, h2, h3, nav a, header, footer {
+  font-family: 'Caveat Brush', 'Inter', sans-serif;
+}
 
 h1 {
-  @apply text-4xl font-semibold text-gray-800 mb-4;
+  @apply text-5xl text-gray-800 mb-4;
 }
 
 h2 {
-  @apply text-3xl font-semibold text-gray-800 mb-3;
+  @apply text-4xl text-gray-800 mb-3;
 }
 
 h3 {
-  @apply text-2xl font-semibold text-gray-800 mb-2;
+  @apply text-3xl text-gray-800 mb-2;
 }
 
 /* Setzt die Schriftart auf "Caveat Brush" > Inter > sans-serif für das gesamte Dokument */
@@ -28,9 +32,15 @@ body {
 
 header {
   font-family: 'Caveat Brush', 'Inter', sans-serif;
+  @apply tracking-wide;
 }
 footer {
   font-family: 'Caveat Brush', 'Inter', sans-serif;
+  @apply tracking-wide;
+}
+
+footer a {
+  @apply text-gray-100 hover:brightness-125 hover:text-yellow transition-colors;  /* hover:text-opacity-50 */
 }
 
 .burger-menu-toggle {
@@ -89,7 +99,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #FFF6E5; /* beige */
+    background-color: #eef6f9; /*         lightblue: "#eef6f9" //  #FFF6E5; beige */
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: 10;

@@ -19,7 +19,9 @@ export default {
         darkblue: "#566181",
         night: "#1b2631",
         lightpink: "#f9afaf",
-        darkviolet: "#4a4e69"
+        darkviolet: "#4a4e69",
+
+        yellow: "#ffe494ff"
       }
     },
   },
