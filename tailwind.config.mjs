@@ -21,7 +21,18 @@ export default {
         lightpink: "#f9afaf",
         darkviolet: "#4a4e69",
 
-        yellow: "#ffe494ff"
+        yellow: "#ffe494ff",
+
+        adobepink: "#F20574",
+        adobeyellow: "#F29F05",
+        adobelightyellow: "#fef6b3ff",
+        adobegreen: "#0BD904",
+        adobeblue: "#05C7F2",
+        adobedarkblue: "#004766",
+        adobelightblue: "#E8FFFF",
+        adobeblack: "#262626",
+        adobedarkerblack: "#121212",
+        adobewhite: "#F2F2F2"
       }
     },
   },

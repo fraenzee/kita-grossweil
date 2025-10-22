@@ -3,37 +3,37 @@
 // Clientseitiger JavaScript-Code für DOM-Manipulation sollte in <script>-Tags platziert werden.
 ---
 <!-- Header mit dynamischer Höhe und "sticky" Position -->
-<header id="main-header" class="bg-lightblue text-darkblue shadow-md sticky top-0 z-50 transition-all duration-300">
+<header id="main-header" class="bg-adobelightblue text-adobeblack shadow-md sticky top-0 z-50 transition-all duration-300  px-6 sm:px-4 md:px-6 lg:px-8">
   <div class="container mx-auto flex justify-between items-center transition-all duration-300">
     <!-- Logo -->
     <a href="/" class="flex items-center space-x-3">
-      <img src="/kita-grossweil-logo-kinderzeichnung-cropped.jpg" alt="Kita Großweil" class="h-20 w-auto" />
-      <span class="font-bold text-4xl">Kita Großweil</span>
+      <!--<span class="font-bold text-4xl">Kita Großweil</span>-->
+      <img src="/kita-grossweil-logo-mit-text.jpg" alt="Kita Großweil" class="h-20 w-auto" />
     </a>
 
     <!-- Desktop-Menü (auf mobilen Geräten versteckt) -->
     <nav class="hidden lg:flex items-center text-xl">
       <ul class="flex">
         <li>
-          <a href="/ueber-uns/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-darkblue transition-colors">Über uns</a>
+          <a href="/ueber-uns/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-adobeblack transition-colors">Über uns</a>
         </li>
         <li>
-          <a href="/paedagogik/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-darkblue transition-colors">Pädagogik</a>
+          <a href="/paedagogik/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-adobeblack transition-colors">Pädagogik</a>
         </li>
         <li>
-          <a href="/anmeldung-kosten/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-darkviolet transition-colors">Anmeldung</a>
+          <a href="/anmeldung-kosten/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-adobeblack transition-colors">Anmeldung</a>
         </li>
         <li>
-          <a href="/aktuelles/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-darkviolet transition-colors">Aktuelles</a>
+          <a href="/aktuelles/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-adobeblack transition-colors">Aktuelles</a>
         </li>
         <li>
-          <a href="/galerie/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-darkviolet transition-colors">Galerie</a>
+          <a href="/galerie/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-adobeblack transition-colors">Galerie</a>
         </li>
         <li>
-          <a href="/kontakt/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-darkviolet transition-colors">Kontakt</a>
+          <a href="/kontakt/" class="flex px-4 py-2 border-b-2 border-transparent hover:border-adobeblack transition-colors">Kontakt</a>
         </li>
         <li>
-          <a href="/stellenanzeigen/" class="flex items-center justify-center px-4 py-2 rounded-full bg-sunyellow text-darkviolet hover:bg-darkviolet hover:text-lightblue transition-colors">
+          <a href="/stellenanzeigen/" class="flex items-center justify-center px-4 py-2 rounded-full bg-adobeyellow text-adobeblack hover:bg-adobeblack hover:text-adobelightblue transition-colors">
             Karriere
           </a>
         </li>
@@ -41,7 +41,7 @@
     </nav>
     
     <!-- Burger-Menü-Schalter (auf mobilen Geräten sichtbar) -->
-    <button class="lg:hidden focus:outline-none relative h-8 w-8 text-darkgray" aria-controls="mobile-menu" aria-expanded="false" id="menu-btn">
+    <button class="lg:hidden focus:outline-none relative h-8 w-8 text-adobeblack" aria-controls="mobile-menu" aria-expanded="false" id="menu-btn">
         <!-- Burger Icon -->
         <svg id="burger-icon" xmlns="http://www.w3.org/2000/svg" class="h-full w-full absolute top-0 left-0 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -56,13 +56,13 @@
 
 <!-- Mobiles Menü (standardmäßig versteckt) -->
 <nav id="mobile-menu" class="mobile-menu lg:hidden flex flex-col items-center justify-center">
-  <ul class="space-y-6 text-center text-2xl text-darkgray">
-    <li><a href="/ueber-uns/" class="hover:underline hover:text-hotpink transition-colors">Über uns</a></li>
-    <li><a href="/paedagogik/" class="hover:underline hover:text-hotpink transition-colors">Pädagogik</a></li>
-    <li><a href="/anmeldung-kosten/" class="hover:underline hover:text-hotpink transition-colors">Anmeldung</a></li>
-    <li><a href="/aktuelles/" class="hover:underline hover:text-hotpink transition-colors">Aktuelles</a></li>
-    <li><a href="/galerie/" class="hover:underline hover:text-hotpink transition-colors">Galerie</a></li>
-    <li><a href="/kontakt/" class="hover:underline hover:text-hotpink transition-colors">Kontakt</a></li>
-    <li><a href="/stellenanzeigen/" class="bg-sunyellow px-4 py-2 rounded-full hover:bg-hotpink hover:text-white transition mt-4 inline-block">Karriere</a></li>
+  <ul class="space-y-6 text-center text-2xl text-adobeblack">
+    <li><a href="/ueber-uns/" class="hover:underline hover:text-adobepink transition-colors">Über uns</a></li>
+    <li><a href="/paedagogik/" class="hover:underline hover:text-adobepink transition-colors">Pädagogik</a></li>
+    <li><a href="/anmeldung-kosten/" class="hover:underline hover:text-adobepink transition-colors">Anmeldung</a></li>
+    <li><a href="/aktuelles/" class="hover:underline hover:text-adobepink transition-colors">Aktuelles</a></li>
+    <li><a href="/galerie/" class="hover:underline hover:text-adobepink transition-colors">Galerie</a></li>
+    <li><a href="/kontakt/" class="hover:underline hover:text-adobepink transition-colors">Kontakt</a></li>
+    <li><a href="/stellenanzeigen/" class="bg-adobeyellow px-4 py-2 rounded-full hover:bg-adobepink hover:text-adobewhite transition mt-4 inline-block">Karriere</a></li>
   </ul>
 </nav>
