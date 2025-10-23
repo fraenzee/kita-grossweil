@@ -24,7 +24,7 @@ export default {
         yellow: "#ffe494ff",
 
         adobepink: "#F20574",
-        adobeyellow: "#F29F05",
+        adobeyellow: "#FFC000",
         adobelightyellow: "#fef6b3ff",
         adobegreen: "#0BD904",
         adobeblue: "#05C7F2",
