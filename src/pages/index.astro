@@ -63,4 +63,40 @@ const { Content } = await homepage.render();
             <a href="/aktuelles/" class="text-blue-600 hover:underline mt-2 inline-block">Zur Galerie</a>
         </div>
     </section>
+
+<!-- Hero-Sektion mit abgerundetem Bild und Call-to-Action -->
+<section class="relative flex items-center justify-center h-[70vh] rounded-3xl overflow-hidden mx-4 md:mx-16">
+  <!-- Hintergrundbild -->
+  <img 
+    src="/bilder/kleinkinder-spielen-buchstabenwuerfel.avif" 
+    alt="Kinder mit Gummistiefeln im Matsch" 
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+
+  <!-- Halbtransparenter Kasten unter dem Text -->
+  <div class="relative bg-adobelightblue/80 backdrop-blur-sm p-8 rounded-2xl text-center max-w-2xl shadow-lg z-10">
+    <h1 class="text-4xl md:text-5xl font-bold text-adobedarkblue mb-4">
+      Willkommen in der Kita Großweil!
+    </h1>
+    <p class="text-lg md:text-xl text-adobeblack mb-8">
+      Ein Ort zum Spielen, Lernen und Wachsen – von der Krippe bis zur Einschulung.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a 
+        href="/anmeldung-kosten/" 
+        class="bg-adobepink text-adobewhite font-semibold py-3 px-6 rounded-full shadow hover:bg-adobeyellow hover:text-adobedarkblue transition-colors duration-300"
+      >
+        Jetzt anmelden →
+      </a>
+      <a 
+        href="/paedagogik/" 
+        class="bg-transparent border-2 border-adobepink text-adobepink font-semibold py-3 px-6 rounded-full hover:bg-adobepink hover:text-adobewhite transition-colors duration-300"
+      >
+        Konzept kennenlernen
+      </a>
+    </div>
+  </div>
+</section>
+
+
 </BaseLayout>

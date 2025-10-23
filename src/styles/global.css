@@ -31,11 +31,11 @@ body {
 }
 
 header {
-  font-family: 'Caveat Brush', 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif; /*'Caveat Brush', */
   @apply tracking-wide;
 }
 footer {
-  font-family: 'Caveat Brush', 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif; /*'Caveat Brush', */
   @apply tracking-wide;
 }
 
