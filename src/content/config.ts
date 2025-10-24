@@ -7,6 +7,16 @@ const pagesCollection = defineCollection({
     title: z.string(), // Jede Seite hat einen Titel (String)
     // Hier könnten weitere Felder für deine Seiten definiert werden, falls nötig
     // z.B. description: z.string().optional(),
+    subtitle: z.string().optional(),
+    gruppen: z
+      .array(
+        z.object({
+          name: z.string(),
+          bild: z.string(),
+          intro: z.string(),
+        })
+      )
+      .optional(),
   }),
 });
 

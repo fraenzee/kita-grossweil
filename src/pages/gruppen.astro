@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const pages = await getCollection('pages');
+const gruppenPage = pages.find(page => page.slug === 'gruppen');
+
+if (!gruppenPage) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await gruppenPage.render();
+const { title, subtitle, gruppen } = gruppenPage.data;
+---
+
+<BaseLayout title={title}>
+  <section class="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-12">
+    <h1 class="text-4xl font-semibold text-adobedarkblue mb-2 text-center">{title}</h1>
+    <p class="text-lg text-adobeblack text-center mb-12">{subtitle}</p>
+
+    <div class="prose max-w-3xl mx-auto mb-16 text-center">
+      <Content />
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+  {gruppen.map(gruppe => (
+    <div
+      class="relative bg-adobelightblue border-4 border-adobelightblue rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+    >
+      <div class="absolute inset-0 bg-gradient-to-t from-white/60 to-transparent pointer-events-none"></div>
+
+      <img
+        src={gruppe.bild}
+        alt={gruppe.name}
+        class="w-full h-56 object-contain bg-white rounded-t-3xl p-4"
+      />
+
+      <div class="relative p-6 text-center">
+        <h2 class="text-2xl font-bold text-adobedarkblue mb-3">
+          {gruppe.name}
+        </h2>
+        <p class="text-adobeblack leading-relaxed">
+          {gruppe.intro}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
+
+  </section>
+</BaseLayout>
