@@ -27,7 +27,7 @@
     }
 
     // Scroll-Logik für die Header-Höhe
-    const scrolledPaddingClass = 'py-4'; // Kleinere Polsterung
+    const scrolledPaddingClass = 'py-0'; // Kleinere Polsterung
     const defaultPaddingClass = 'py-6'; // Standard-Polsterung
 
     window.addEventListener('scroll', () => {

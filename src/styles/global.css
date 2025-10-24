@@ -9,7 +9,11 @@
   @apply tracking-wide;
 }
 
-.h1, .h2, .h3, h1, h2, h3, nav a, header, footer {
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Caveat Brush', 'Inter', sans-serif;
+}
+
+header nav a  {
   font-family: 'Caveat Brush', 'Inter', sans-serif;
 }
 
