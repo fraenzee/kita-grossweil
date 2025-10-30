@@ -1,0 +1,25 @@
+---
+const { title, data, note } = Astro.props;
+---
+<section class="my-6">
+  <h3 class="text-adobedarkblue font-bold text-xl mb-2">{title}</h3>
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-adobelightblue rounded-xl">
+      <thead class="bg-adobelightyellow text-adobedarkblue text-left">
+        <tr>
+          <th class="py-2 px-4 border-b border-adobelightblue">Buchungszeit</th>
+          <th class="py-2 px-4 border-b border-adobelightblue">Beitrag</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((row, idx) => (
+          <tr class={`${idx % 2 === 0 ? 'bg-adobelightblue/20' : 'bg-adobewhite'}`}>
+            <td class="py-2 px-4 border-b border-adobelightblue">{row.time}</td>
+            <td class="py-2 px-4 border-b border-adobelightblue">{row.fee}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  {note && <p class="text-adobeblack text-sm mt-2">{note}</p>}
+</section>

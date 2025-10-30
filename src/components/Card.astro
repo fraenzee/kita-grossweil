@@ -1,0 +1,15 @@
+---
+const { image, title, description, buttonText, buttonLink } = Astro.props;
+---
+<div class="bg-adobewhite rounded-2xl shadow-md overflow-hidden flex flex-col">
+  <img src={image} alt={title} class="w-full h-40 object-cover" />
+  <div class="p-4 flex flex-col flex-1">
+    <h3 class="text-adobedarkblue font-semibold text-lg mb-2">{title}</h3>
+    <p class="text-adobeblack text-sm mb-4 flex-1">{description}</p>
+    {buttonText && buttonLink && (
+      <a href={buttonLink} class="mt-auto bg-adobepink hover:bg-adobeyellow text-adobewhite font-semibold py-2 px-4 rounded-xl text-center transition">
+        {buttonText} >
+      </a>
+    )}
+  </div>
+</div>

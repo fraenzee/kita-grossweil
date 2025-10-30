@@ -3,6 +3,40 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 // Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
 import { getCollection } from 'astro:content';
+import Card from '../components/Card.astro';
+
+const cards = [
+  { image: '/bilder/baukloetze-stapeln.avif', 
+    title: 'Unser Konzept', 
+    description: 'Erfahren Sie mehr über unsere pädagogischen Schwerpunkte und Werte.',
+    buttonText: 'Mehr zu unserem Konzept',
+    buttonLink: '/paedagogik/',},
+  { image: '/bilder/kleines-maedchen-haelt-teddybaeren-auf-dem-arm.avif', 
+    title: 'Anmeldung', 
+    description: 'Alle Informationen zur Anmeldung und den Elternbeiträgen.' ,
+    buttonText: 'Mehr Infos zur Anmeldung',
+    buttonLink: '/anmeldung-kosten/',},
+  { image: '/bilder/basteln-mit-steinen.avif', 
+    title: 'Aktuelles', 
+    description: 'Bleiben Sie auf dem Laufenden über Termine und Veranstaltungen.',
+    buttonText: 'Zu unseren News',
+    buttonLink: '/aktuelles/', },
+  { image: '/bilder/kinder-in-spiderman-und-captain-america-kostuemen-zum-fasching.avif', 
+    title: 'Bildergalerie', 
+    description: 'Eindrücke aus unserem Kindergartenalltag und von besonderen Ereignissen.',
+    buttonText: 'Galerie ansehen',
+    buttonLink: '/galerie/', },
+];
+
+import Carousel from '../components/Carousel.astro';
+
+const slides = [
+  '/bilder/kitagruppe-macht-ausflug.avif',
+  '/bilder/kita-draussen-spielen.avif',
+  '/bilder/kleiner-junge-malt-mit-wachsstiften.avif',
+  '/bilder/kleinkind-haelt-hand-in-pfuetze.avif',
+  '/bilder/person-schaukelt.avif',
+];
 
 // Lade den Inhalt der Startseite aus der Markdown-Datei
 const pages = await getCollection('pages');
@@ -99,7 +133,7 @@ const { Content } = await homepage.render();
 </section>
 
 
-
+<div class="my-12">
 <a href="/paedagogik/" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
     <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/bilder/baukloetze-stapeln.avif" alt="">
     <div class="flex flex-col justify-between p-4 leading-normal">
@@ -107,6 +141,21 @@ const { Content } = await homepage.render();
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Erfahren Sie mehr über unsere pädagogischen Schwerpunkte und Werte.</p>
     </div>
 </a>
+</div>
 
+
+<div class="my-12">
+    <!-- Carousel-Komponente einbinden -->
+    <Carousel slides={slides} />
+
+</div>
+
+<div class="grid gap-4 
+            grid-cols-1 
+            sm:grid-cols-2 
+            md:grid-cols-3 
+            lg:grid-cols-4">
+  {cards.map(card => <Card {...card} />)}
+</div>
 
 </BaseLayout>
