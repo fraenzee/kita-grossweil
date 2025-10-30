@@ -4,6 +4,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
 import { getCollection } from 'astro:content';
 
+import KitaCostsTable from '../components/KitaCostsTable.astro';
+
+const kindergartenData = [
+  { time: 'Bis 3 Stunden', fee: '80 €' },
+  { time: '3 - 4 Stunden', fee: '85 €' },
+  { time: '4 - 5 Stunden', fee: '90 €' },
+  { time: '5 - 6 Stunden', fee: '95 €' },
+  { time: '6 - 7 Stunden', fee: '100 €' },
+  { time: '7 - 8 Stunden', fee: '105 €' },
+  { time: '8 - 9 Stunden', fee: '110 €' },
+];
+
+const krippeData = [
+  { time: 'Bis 3 Stunden', fee: '100 €' },
+  { time: '3 - 4 Stunden', fee: '105 €' },
+  { time: '4 - 5 Stunden', fee: '110 €' },
+  { time: '5 - 6 Stunden', fee: '115 €' },
+  { time: '6 - 7 Stunden', fee: '120 €' },
+  { time: '7 - 8 Stunden', fee: '125 €' },
+  { time: '8 - 9 Stunden', fee: '130 €' },
+];
+
+const additionalCosts = [
+  { time: 'Spiele- und Getränkegeld', fee: '5 €' },
+  { time: 'Geschwisterermäßigung', fee: 'Ja' },
+];
+
 // Lade den Inhalt der "Anmeldung und Kosten"-Seite aus der Markdown-Datei
 const pages = await getCollection('pages');
 const anmeldungKostenPage = pages.find(page => page.slug === 'anmeldung-kosten'); // Finde die "anmeldung-kosten.md" Seite
@@ -23,9 +50,30 @@ const { Content } = await anmeldungKostenPage.render();
             <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
         </div>
         <div class="mt-6 text-center">
-            <a href="https://portal.little-bird.de/" target="_blank" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+            <a href="https://portal.little-bird.de/" target="_blank" class="bg-blue-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                 Zum Little Bird Portal
             </a>
         </div>
     </section>
+
+    <section class="my-8">
+  <h2 class="text-adobedarkblue font-bold text-2xl mb-4">Kosten / Elternbeiträge (monatlich)</h2>
+
+  <KitaCostsTable
+    title="Kindergarten (ab 3 Jahre)"
+    data={kindergartenData}
+    note="Für Kinder ab 3 Jahren wird ein Zuschuss von 100 € vom Freistaat Bayern gewährt."
+  />
+
+  <KitaCostsTable
+    title="Krippe (unter 3 Jahre)"
+    data={krippeData}
+    note="Seit dem 01.01.2020 wird ein Zuschuss von 100 € für Familien mit Krippenkindern gewährt."
+  />
+
+  <KitaCostsTable
+    title="Zusätzliche Kosten"
+    data={additionalCosts}
+  />
+</section>
 </BaseLayout>

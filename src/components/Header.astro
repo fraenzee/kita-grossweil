@@ -78,6 +78,7 @@ import { navItems } from '../scripts/navigation.js';
     ))}
   </ul>
 </nav>
+<div id="drawer-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"></div>
 
 <script type="module">
 document.addEventListener('DOMContentLoaded', () => {
@@ -85,17 +86,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.getElementById('mobile-menu');
   const burgerIcon = document.getElementById('burger-icon');
   const closeIcon = document.getElementById('close-icon');
+  const backdrop = document.getElementById('drawer-backdrop');
 
   // Mobile Drawer öffnen/schließen
   toggleButton.addEventListener('click', () => {
     const expanded = toggleButton.getAttribute('aria-expanded') === 'true';
-    toggleButton.setAttribute('aria-expanded', (!expanded).toString());
+    const isOpening = !expanded;
+    toggleButton.setAttribute('aria-expanded', isOpening.toString());
 
-    mobileMenu.classList.toggle('-translate-x-full');
-    mobileMenu.classList.toggle('translate-x-0');
+    mobileMenu.classList.toggle('-translate-x-full', !isOpening);
+    mobileMenu.classList.toggle('translate-x-0', isOpening);
+    backdrop.classList.toggle('hidden', !isOpening);
 
-    burgerIcon.style.opacity = expanded ? '1' : '0';
-    closeIcon.style.opacity = expanded ? '0' : '1';
+    burgerIcon.style.opacity = isOpening ? '0' : '1';
+    closeIcon.style.opacity = isOpening ? '1' : '0';
+  });
+
+  // Klick auf Backdrop schließt Drawer wieder
+  backdrop.addEventListener('click', () => {
+    toggleButton.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.add('-translate-x-full');
+    mobileMenu.classList.remove('translate-x-0');
+    backdrop.classList.add('hidden');
+    burgerIcon.style.opacity = '1';
+    closeIcon.style.opacity = '0';
   });
 
   // Mobile Untermenüs
