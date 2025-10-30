@@ -24,11 +24,9 @@ const { title, subtitle, gruppen } = gruppenPage.data;
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
   {gruppen.map(gruppe => (
-    <div
-      class="relative bg-adobelightblue border-4 border-adobelightblue rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-    >
-      <div class="absolute inset-0 bg-gradient-to-t from-white/60 to-transparent pointer-events-none"></div>
-
+    <div class="relative rounded-3xl p-[3px] bg-gradient-to-br from-adobeblue/20 to-adobepink/20 shadow-lg transition-transform duration-300">
+      <div class="bg-adobelightblue/50 rounded-3xl overflow-hidden"></div>
+    
       <img
         src={gruppe.bild}
         alt={gruppe.name}
