@@ -97,21 +97,40 @@ footer a {
 * Mobile Menü Ansicht
 * Anfangszustand: außerhalb des Bildschirms
 */
-.mobile-menu {
+/* .mobile-menu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     background-color: #eef6f9; /*         lightblue: "#eef6f9" //  #FFF6E5; beige */
-    transform: translateX(-100%);
+    /* transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
-    z-index: 10;
+    z-index: 60;
 }
 
 /*
 * Zustand, wenn das Menü geöffnet ist
 */
-.mobile-menu.is-open {
+/* .mobile-menu.is-open {
     transform: translateX(0);
+} */ 
+
+.group-hover > ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+ul.absolute {
+  z-index: 95; /* damit es über Content, unter Header */
+}
+
+#mobile-overlay {
+  z-index: 70; /* über dem Content, unter dem Drawer */
+}
+#mobile-menu {
+  z-index: 80; /* über allem */
+}
+header {
+  z-index: 90; /* damit Header immer oben bleibt */
 }
