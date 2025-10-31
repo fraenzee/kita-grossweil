@@ -63,16 +63,28 @@ import { navItems } from '../scripts/navigation.js';
               {item.title}
               <span class="ml-2">▾</span>
             </button>
+            
             <ul id={`submenu-${i}`} class="ml-4 mt-2 hidden flex-col space-y-2">
               {item.children.map(child => (
                 <li>
-                  <a href={child.href} class="block px-2 py-1 hover:text-adobepink transition-colors">{child.title}</a>
+                  <a href={child.href} class="block px-2 py-1 hover:text-adobepink transition-colors">
+                    {child.title}
+                  </a>
                 </li>
               ))}
             </ul>
           </>
         ) : (
-          <a href={item.href} class="block px-2 py-2 hover:text-adobepink transition-colors">{item.title}</a>
+          <a
+            href={item.href}
+            class={`block px-2 py-2 hover:text-adobepink transition-colors ${
+              item.isButton
+                ? 'bg-adobeyellow rounded-full text-center hover:bg-adobepink hover:text-adobewhite'
+                : ''
+            }`}
+          >
+            {item.title}
+          </a>
         )}
       </li>
     ))}
