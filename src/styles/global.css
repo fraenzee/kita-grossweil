@@ -38,10 +38,18 @@ header {
   font-family: 'Inter', sans-serif; /*'Caveat Brush', */
   @apply tracking-wide;
 }
-footer {
+
+
+nav  {
+  font-family: 'Caveat Brush', 'Inter', sans-serif; /* */
+  @apply tracking-wide;
+}
+
+footer, footer nav {
   font-family: 'Inter', sans-serif; /*'Caveat Brush', */
   @apply tracking-wide;
 }
+
 
 footer a {
   @apply text-gray-100 hover:brightness-125 hover:underline hover:text-adobelightyellow transition-colors;  /* hover:text-opacity-50 */

@@ -23,27 +23,23 @@ const { title, subtitle, gruppen } = gruppenPage.data;
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-  {gruppen.map(gruppe => (
-    <div class="relative rounded-3xl p-[3px] bg-gradient-to-br from-adobeblue/20 to-adobepink/20 shadow-lg transition-transform duration-300">
-      <div class="bg-adobelightblue/50 rounded-3xl overflow-hidden"></div>
-    
-      <img
-        src={gruppe.bild}
-        alt={gruppe.name}
-        class="w-full h-56 object-contain bg-white rounded-t-3xl p-4"
-      />
+      {gruppen.map(gruppe => (
+        <div class="relative rounded-3xl p-[3px] bg-gradient-to-br from-adobeblue/20 to-adobepink/20 shadow-lg transition-transform duration-300">
+          <div class="bg-adobelightblue/50 rounded-3xl overflow-hidden"></div>
+        
+          <div class="p-4"> <img src={gruppe.bild} alt={gruppe.name} class="rounded-full border-4 border-adobepink"/></div>
 
-      <div class="relative p-6 text-center">
-        <h2 class="text-2xl font-bold text-adobedarkblue mb-3">
-          {gruppe.name}
-        </h2>
-        <p class="text-adobeblack leading-relaxed">
-          {gruppe.intro}
-        </p>
-      </div>
+          <div class="relative p-6 text-center">
+          {/* <div class="relative m-4 p-2 text-center bg-adobelightblue/50 rounded-3xl"> */}
+            <h2 class="text-2xl font-bold text-adobedarkblue mb-3">
+              {gruppe.name}
+            </h2>
+            <p class="text-adobeblack leading-relaxed">
+              {gruppe.intro}
+            </p>
+          </div>
+        </div>
+      ))}
     </div>
-  ))}
-</div>
-
   </section>
 </BaseLayout>

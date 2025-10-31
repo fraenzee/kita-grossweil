@@ -14,4 +14,5 @@ export const navItems = [
   { title: "Galerie", href: "/galerie/" },
   { title: "Kontakt", href: "/kontakt/" },
   { title: "Karriere", href: "/stellenanzeigen/", isButton: true },
+  // { title: "Instagram", href: "https://www.instagram.com/kindertagesstaettegrossweil/", isExternal: true},
 ];
