@@ -2,22 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-.caveat-brush-regular {
+/* .caveat-brush-regular {
   font-family: "Caveat Brush", cursive;
   font-weight: 400;
   font-style: normal;
   @apply tracking-wide;
-}
+} */
 
+/* ===== TYPOGRAPHIE ===== */
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Caveat Brush', 'Inter', sans-serif;
+  /* font-family: 'Caveat Brush', 'Inter', sans-serif; */
+  @apply font-display text-brand-text;
 }
 
-header nav a  {
+/* header nav a  {
   font-family: 'Caveat Brush', 'Inter', sans-serif;
-}
+} */
 
-h1 {
+/* h1 {
   @apply text-5xl text-gray-800 mb-4;
 }
 
@@ -27,35 +29,93 @@ h2 {
 
 h3 {
   @apply text-3xl text-gray-800 mb-2;
+} */
+
+h1 {
+  @apply text-4xl md:text-5xl font-bold mb-4;
 }
+h2 {
+  @apply text-3xl font-semibold mb-3;
+}
+h3 {
+  @apply text-2xl font-semibold mb-2;
+}
+p {
+  @apply text-lg leading-relaxed text-brand-text mb-4;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  @apply inline-block px-6 py-2 font-semibold rounded-full transition-colors duration-300;
+}
+.btn-primary {
+  @apply bg-brand-primary text-brand-text hover:bg-brand-accent hover:text-brand-light;
+}
+.btn-secondary {
+  @apply bg-brand-secondary text-brand-light hover:bg-brand-accent;
+}
+.btn-outline {
+  @apply border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-brand-light;
+}
+
+/* ===== CARDS ===== */
+.card {
+  @apply bg-brand-soft rounded-2xl shadow-md p-6 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300;
+}
+
+/* ===== LINKS ===== */
+a {
+  @apply text-brand-secondary hover:text-brand-accent transition-colors duration-200;
+}
+
+/* ===== NAVIGATION ===== */
+.navbar {
+  @apply bg-brand-surface text-brand-text shadow-md;
+}
+.nav-link {
+  @apply px-4 py-2 hover:text-brand-accent font-semibold transition-colors duration-200;
+}
+.nav-link-active {
+  @apply border-b-2 border-brand-primary text-brand-accent;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  @apply bg-brand-secondary text-brand-light py-8;
+}
+.footer a {
+  @apply hover:text-brand-primary;
+}
+
+
 
 /* Setzt die Schriftart auf "Caveat Brush" > Inter > sans-serif für das gesamte Dokument */
-body {
+/* body {
   font-family: 'Inter', sans-serif;
-}
-
+} */
+/* 
 header {
-  font-family: 'Inter', sans-serif; /*'Caveat Brush', */
+  font-family: 'Inter', sans-serif; 'Caveat Brush', */
+  /* @apply tracking-wide;
+} */
+
+
+/* nav  {
+  font-family: 'Caveat Brush', 'Inter', sans-serif;
   @apply tracking-wide;
-}
+} */
+
+/* footer, footer nav {
+  font-family: 'Inter', sans-serif; 'Caveat Brush', */
+  /* @apply tracking-wide;
+} */
 
 
-nav  {
-  font-family: 'Caveat Brush', 'Inter', sans-serif; /* */
-  @apply tracking-wide;
-}
+/* footer a {
+  @apply text-gray-100 hover:brightness-125 hover:underline hover:text-adobelightyellow transition-colors;  hover:text-opacity-50 */
+/* } */
 
-footer, footer nav {
-  font-family: 'Inter', sans-serif; /*'Caveat Brush', */
-  @apply tracking-wide;
-}
-
-
-footer a {
-  @apply text-gray-100 hover:brightness-125 hover:underline hover:text-adobelightyellow transition-colors;  /* hover:text-opacity-50 */
-}
-
-.burger-menu-toggle {
+/* .burger-menu-toggle {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -70,36 +130,36 @@ footer a {
 
 .burger-menu-toggle:focus {
             outline: none;
-}
+} */
 
 /*
 * Die drei Linien des Burger-Icons
 */
-.burger-menu-toggle span {
+/*.burger-menu-toggle span {
       width: 100%;
       height: 3px;
-      background: #262626; /* entspricht adobeblack #333; Entspricht darkgray */
-      border-radius: 10px;
+      background: #262626;  entspricht adobeblack #333; Entspricht darkgray */
+      /* border-radius: 10px;
       transition: all 0.3s ease-in-out;
       transform-origin: center;
-}
+} */
 
 /*
 * Zustand, wenn das Menü geöffnet ist
 * Die Linien werden zu einem 'X'
 */
-.burger-menu-toggle.is-open span:nth-child(1) {
+/* .burger-menu-toggle.is-open span:nth-child(1) {
     transform: rotate(45deg);
-}
+} */
 
-.burger-menu-toggle.is-open span:nth-child(2) {
+/* .burger-menu-toggle.is-open span:nth-child(2) {
     transform: translateX(100%);
     opacity: 0;
-}
+} */
 
-.burger-menu-toggle.is-open span:nth-child(3) {
+/* .burger-menu-toggle.is-open span:nth-child(3) {
     transform: rotate(-45deg);
-}
+} */
 
 /*
 * Mobile Menü Ansicht
@@ -124,21 +184,22 @@ footer a {
     transform: translateX(0);
 } */ 
 
-.group-hover > ul {
+/* .group-hover > ul {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-}
-ul.absolute {
-  z-index: 95; /* damit es über Content, unter Header */
-}
+} */
+/*ul.absolute {
+  z-index: 95;  damit es über Content, unter Header */
+/* } */
 
-#mobile-overlay {
-  z-index: 70; /* über dem Content, unter dem Drawer */
-}
-#mobile-menu {
-  z-index: 80; /* über allem */
-}
-header {
-  z-index: 90; /* damit Header immer oben bleibt */
-}
+/*#mobile-overlay {
+  z-index: 70;  über dem Content, unter dem Drawer 
+}*/
+
+/*#mobile-menu {
+  z-index: 80;  über allem */
+/* } */
+/*header {
+  z-index: 90;  damit Header immer oben bleibt */
+/* } */

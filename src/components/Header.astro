@@ -2,21 +2,21 @@
 import { navItems } from '../scripts/navigation.js';
 ---
 
-<header id="main-header" class="bg-adobelightblue text-adobeblack shadow-md sticky top-0 z-50">
-  <div class="container mx-auto flex justify-between items-center py-6 px-6 md:px-8">
+<header id="main-header" class="navbar sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
     <!-- Logo -->
     <a href="/" class="flex items-center space-x-3">
-      <img src="/kita-grossweil-logo-mit-text.jpg" alt="Kita Großweil" class="h-20 w-auto" />
+      <img src="/kita-grossweil-logo-mit-text.jpg" alt="Kita Großweil" class="h-14 w-auto" />
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden xl:flex items-center text-xl relative">
-      <ul class="flex space-x-6">
+    <nav class="hidden md:flex space-x-6">
+      <ul class="md:flex space-x-6">
         {navItems.map(item => (
           <li class="relative group">
             <a
               href={item.href || "#"}
-              class={`flex items-center px-4 py-2 border-b-2 border-transparent hover:border-adobedarkblue transition-colors ${item.isButton ? 'bg-adobeyellow rounded-full px-4 py-2 hover:bg-adobepink hover:text-adobewhite' : ''}`}
+              class={`nav-link ${item.isButton ? 'btn btn-primary' : ''}`}
             >
               {item.title}
             </a>

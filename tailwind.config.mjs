@@ -32,8 +32,29 @@ export default {
         adobelightblue: "#E8FFFF",
         adobeblack: "#262626",
         adobedarkerblack: "#121212",
-        adobewhite: "#F2F2F2"
-      }
+        adobewhite: "#F2F2F2",
+
+        brand: {
+          yellow: '#f6bd60',   // warm & freundlich – primary
+          linen: '#f7ede2',    // weicher Hintergrund
+          rose: '#f5cac3',     // pastellig – Flächen, Karten
+          green: '#84a59d',    // ruhig & professionell – Text, Footer
+          coral: '#f28482',    // lebendig – Akzente, Hover
+          dark: '#2e2e2e',     // Textfarbe für gute Lesbarkeit
+          light: '#ffffff',    // Weiß, als Kontrast
+
+          primary: '#f6bd60',   // Buttons, CTAs
+          secondary: '#84a59d', // Text, Footer
+          accent: '#f28482',    // Hover, Highlights
+          surface: '#f7ede2',   // Hintergrund
+          soft: '#f5cac3',      // Karten
+          text: '#2e2e2e',
+        },
+      },
+      fontFamily: {
+        display: ['"Baloo 2"', 'sans-serif'], // kinderfreundlich, lesbar
+        body: ['"Nunito Sans"', 'sans-serif'], // professionell und klar
+      },
     },
   },
   plugins: [],
