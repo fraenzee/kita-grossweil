@@ -4,27 +4,26 @@ import { navItems } from '../scripts/navigation.js';
 
 <header id="main-header" class="navbar sticky top-0 z-50">
   <div class="container mx-auto flex justify-between items-center py-4 px-6">
-    <!-- Logo -->
     <a href="/" class="flex items-center space-x-3">
       <img src="/kita-grossweil-logo-mit-text.jpg" alt="Kita Großweil" class="h-14 w-auto" />
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex space-x-6">
-      <ul class="md:flex space-x-6">
+    <nav class="hidden xl:flex space-x-6">
+      <ul class="xl:flex space-x-6">
         {navItems.map(item => (
-          <li class="relative group">
+          <li class="relative group content-center">
             <a
               href={item.href || "#"}
-              class={`nav-link ${item.isButton ? 'btn btn-primary' : ''}`}
+              class={`nav-link text-brand-text ${item.isButton ? 'btn btn-primary hover:text-brand-text' : ''}`}
             >
               {item.title}
             </a>
             {item.children && (
-              <ul class="absolute left-0 mt-2 w-60 bg-adobelightblue rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-60">
+              <ul class="absolute left-0 mt-2 w-60 bg-brand-surface rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                 {item.children.map(child => (
                   <li>
-                    <a href={child.href} class="block px-4 py-2 text-adobeblack hover:bg-adobepink hover:text-adobewhite rounded-lg transition-colors">
+                    <a href={child.href} class="block px-4 py-2 text-brand-text hover:bg-brand-accent hover:text-brand-text rounded-lg transition-colors">
                       {child.title}
                     </a>
                   </li>
@@ -37,7 +36,7 @@ import { navItems } from '../scripts/navigation.js';
     </nav>
 
     <!-- Hamburger Button Mobile -->
-    <button id="menu-btn" class="xl:hidden relative h-8 w-8 text-adobeblack" aria-controls="mobile-menu" aria-expanded="false">
+    <button id="menu-btn" class="xl:hidden relative h-8 w-8 text-brand-text" aria-controls="mobile-menu" aria-expanded="false">
       <svg id="burger-icon" xmlns="http://www.w3.org/2000/svg" class="h-full w-full absolute top-0 left-0 transition-opacity duration-300 opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -49,25 +48,24 @@ import { navItems } from '../scripts/navigation.js';
 </header>
 
 <!-- Mobile Drawer -->
-<nav id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-adobelightblue shadow-lg transform -translate-x-full transition-transform duration-300 xl:hidden z-60 p-6 overflow-y-auto">
-  <ul class="space-y-4 text-xl text-adobeblack">
+<nav id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-brand-surface shadow-lg transform -translate-x-full transition-transform duration-300 xl:hidden z-50 p-6 overflow-y-auto">
+  <ul class="space-y-4 text-xl text-brand-text">
     {navItems.map((item, i) => (
       <li>
         {item.children ? (
           <>
             <button
-              class="flex justify-between w-full items-center px-2 py-2 hover:text-adobepink transition-colors"
+              class="flex justify-between w-full items-center px-2 py-2 text-brand-text hover:text-brand-accent transition-colors"
               data-toggle={`submenu-${i}`}
               aria-expanded="false"
             >
               {item.title}
               <span class="ml-2">▾</span>
             </button>
-            
             <ul id={`submenu-${i}`} class="ml-4 mt-2 hidden flex-col space-y-2">
               {item.children.map(child => (
                 <li>
-                  <a href={child.href} class="block px-2 py-1 hover:text-adobepink transition-colors">
+                  <a href={child.href} class="block px-2 py-1 text-brand-text hover:text-brand-accent transition-colors">
                     {child.title}
                   </a>
                 </li>
@@ -77,9 +75,9 @@ import { navItems } from '../scripts/navigation.js';
         ) : (
           <a
             href={item.href}
-            class={`block px-2 py-2 hover:text-adobepink transition-colors ${
+            class={`block px-2 py-2 text-brand-text hover:text-brand-accent transition-colors ${
               item.isButton
-                ? 'bg-adobeyellow rounded-full text-center hover:bg-adobepink hover:text-adobewhite'
+                ? 'bg-brand-primary rounded-full text-center text-brand-light hover:bg-brand-accent hover:text-brand-text'
                 : ''
             }`}
           >
@@ -90,7 +88,8 @@ import { navItems } from '../scripts/navigation.js';
     ))}
   </ul>
 </nav>
-<div id="drawer-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"></div>
+<div id="drawer-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
 
 <script type="module">
 document.addEventListener('DOMContentLoaded', () => {

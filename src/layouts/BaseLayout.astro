@@ -11,34 +11,41 @@ const { title } = Astro.props;
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <link rel="icon" href="/kita-grossweil-favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/kita-grossweil-favicon.png" type="image/x-icon">
-    <!-- Optional: Apple Touch Icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/kita-grossweil-favicon-apple.png">
-    <meta property="og:title" content="Kindergarten St. Georg Großweil">
-    <meta property="og:description" content="Unsere Kita bietet Platz für 107 Kindern, mit einer Krippen- und vier Kindergartengruppen. Komm zu uns ins blaue Land!">
-    <meta property="og:image" content="/kita-grossweil-image.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kita-grossweil.netlify.app/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
-    <title>{title ? `${title} - Kindergarten St. Georg Großweil` : 'Kindergarten & Krippe St. Georg Großweil'}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/kita-grossweil-favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/kita-grossweil-favicon.png" type="image/x-icon">
+  <!-- Optional: Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/kita-grossweil-favicon-apple.png">
+  <meta property="og:title" content="Kindergarten St. Georg Großweil">
+  <meta property="og:description" content="Unsere Kita bietet Platz für 107 Kindern, mit einer Krippen- und vier Kindergartengruppen. Komm zu uns ins blaue Land!">
+  <meta property="og:image" content="/kita-grossweil-image.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kita-grossweil.netlify.app/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Patrick&family=Baloo+2:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Wenn du Baloo 2 und Nunito Sans nutzt, ergänze sie hier -->
+  <!-- Beispiel:
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+  <title>{title ? `${title} - Kindergarten St. Georg Großweil` : 'Kindergarten & Krippe St. Georg Großweil'}</title>
 </head>
-<body class="bg-lightblue flex flex-col min-h-screen text-darkblue">
+<body class="bg-brand-surface text-brand-text flex flex-col min-h-screen">
 
-    <Header /> <!-- Fügt die Header-Komponente ein -->
+  <Header /> <!-- Fügt die Header-Komponente ein -->
 
-    <main class="flex-grow container mx-auto p-6">
-        <slot /> <!-- Hier wird der Inhalt der jeweiligen Seite eingefügt -->
-    </main>
+  <main class="flex-grow container mx-auto p-6">
+    <slot /> <!-- Hier wird der Inhalt der jeweiligen Seite eingefügt -->
+  </main>
 
-    <Footer /> <!-- Fügt die Footer-Komponente ein -->
+  <Footer /> <!-- Fügt die Footer-Komponente ein -->
 
-    <script src="../scripts/burgerMenu.js"></script>
-    
+  <!-- Optional: falls du ein separates Burger-Menü-Skript verwendest.
+       Wenn dein Header.astro bereits den Drawer steuert, entferne diese Zeile. -->
+  <!-- <script src="../scripts/burgerMenu.js"></script> -->
+  
 </body>
 </html>

@@ -12,7 +12,26 @@
 /* ===== TYPOGRAPHIE ===== */
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   /* font-family: 'Caveat Brush', 'Inter', sans-serif; */
-  @apply font-display text-brand-text;
+  @apply text-brand-text;
+}
+
+@layer base {
+  /* Body-Text standard: Nunito Sans */
+  body { @apply font-body; }
+
+  /* Überschriften: Caveat Brush oben, dann Baloo 2 für kleinere */
+  h1, h2, h3, h4, h5, h6, #mobile-menu { @apply font-patrick; }
+  /* h4, h5, h6 { @apply font-display; } */
+
+  /* Optional: gezielt für Navbar/Footer */
+@layer components {
+    .navbar a { @apply font-patrick; }      /* Top-Navigation */
+    .footer a { @apply font-patrick; }      /* Footer-Navigation */
+
+    /* Buttons lieber klar und lesbar */
+    .btn       { @apply font-display; }    /* oder font-body */
+    .btn-primary { @apply bg-brand-primary text-brand-light hover:bg-brand-accent; }
+  }
 }
 
 /* header nav a  {
@@ -49,13 +68,13 @@ p {
   @apply inline-block px-6 py-2 font-semibold rounded-full transition-colors duration-300;
 }
 .btn-primary {
-  @apply bg-brand-primary text-brand-text hover:bg-brand-accent hover:text-brand-light;
+  @apply bg-brand-primary text-brand-text hover:bg-brand-accent;
 }
 .btn-secondary {
-  @apply bg-brand-secondary text-brand-light hover:bg-brand-accent;
+  @apply bg-brand-secondary text-brand-text hover:bg-brand-accent;
 }
 .btn-outline {
-  @apply border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-brand-light;
+  @apply border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-brand-text;
 }
 
 /* ===== CARDS ===== */
@@ -65,23 +84,23 @@ p {
 
 /* ===== LINKS ===== */
 a {
-  @apply text-brand-secondary hover:text-brand-accent transition-colors duration-200;
+  @apply transition-colors duration-200;
 }
 
 /* ===== NAVIGATION ===== */
 .navbar {
-  @apply bg-brand-surface text-brand-text shadow-md;
+  @apply content-center bg-brand-surface text-brand-text text-xl shadow-md;
 }
 .nav-link {
-  @apply px-4 py-2 hover:text-brand-accent font-semibold transition-colors duration-200;
+  @apply px-4 py-2 text-brand-text hover:text-brand-accent font-semibold transition-colors duration-200;
 }
 .nav-link-active {
-  @apply border-b-2 border-brand-primary text-brand-accent;
+  @apply border-b-2 border-brand-primary text-brand-text;
 }
 
 /* ===== FOOTER ===== */
 .footer {
-  @apply bg-brand-secondary text-brand-light py-8;
+  @apply bg-brand-secondary text-brand-text py-8;
 }
 .footer a {
   @apply hover:text-brand-primary;

@@ -53,7 +53,9 @@ export default {
       },
       fontFamily: {
         display: ['"Baloo 2"', 'sans-serif'], // kinderfreundlich, lesbar
-        body: ['"Nunito Sans"', 'sans-serif'], // professionell und klar
+        body: ['"Nunito Sans"', 'sans-serif'], // professionell und klar,
+        caveat: ['"Caveat Brush"', 'cursive'],
+        patrick: ['"Patrick Hand"', 'cursive'],
       },
     },
   },
