@@ -15,12 +15,11 @@ Dorfstr. 12
 
 ### Öffnungszeiten
 
-* **Montag bis Donnerstag:** 7:00 - 16:00 Uhr
-* **Freitag:** 7:00 - 14:00 Uhr
+* **Montag bis Freitag:** 7:15 - 15:30 Uhr
 
 ### Telefonische Erreichbarkeit
 
-* **Montag bis Freitag:** 8:00 - 12:00 Uhr
+* **Montag bis Freitag:** 7:00 - 8:30 Uhr sowie 13:00 - 14:00 Uhr
 
 ### Senden Sie uns eine Nachricht
 

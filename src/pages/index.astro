@@ -153,7 +153,7 @@ const { Content } = await homepage.render();
 <div class="grid gap-4 
             grid-cols-1 
             sm:grid-cols-2 
-            md:grid-cols-3 
+            md:grid-cols-2 
             lg:grid-cols-4">
   {cards.map(card => <Card {...card} />)}
 </div>
@@ -224,20 +224,40 @@ const { Content } = await homepage.render();
 
 <div
   class="block rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
-  <div
+  <!-- <div
     class="border-b-2 border-neutral-100 px-6 py-3 dark:border-white/10">
     Quote
-  </div>
-  <div class="p-6">
+  </div> -->
+  <div class="p-6 m-6">
     <blockquote>
       <p class="text-xl">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-        posuere erat a ante.
+        Was du mir sagst, das vergesse ich. Was du mir zeigst, daran erinnere ich mich. Was du mich tun lässt, das verstehe ich.
       </p>
     </blockquote>
     <figcaption class="text-md text-neutral-500">
-      - Someone famous in <cite title="Source Title">Source Title</cite>
+      - Konfuzius
+       <!-- in <cite title="Source Title">Source Title</cite> -->
     </figcaption>
+  </div>
+</div>
+
+
+<div
+  class="block rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
+  <!-- <div
+    class="border-b-2 border-neutral-100 px-6 py-3 dark:border-white/10">
+    Quote
+  </div> -->
+  <div class="p-6 m-6">
+    <blockquote>
+      <p class="text-xl">
+        Und am Ende eines Tages sollen deine Füße dreckig, dein Haar zerzaust und deine Augen leuchtend sein.
+      </p>
+    </blockquote>
+    <!-- <figcaption class="text-md text-neutral-500">
+      - Konfuzius
+       in <cite title="Source Title">Source Title</cite>
+    </figcaption> -->
   </div>
 </div>
 
