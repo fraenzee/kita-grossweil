@@ -23,9 +23,15 @@ const { title } = Astro.props;
   <meta property="og:image" content="/kita-grossweil-image.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kita-grossweil.netlify.app/">
+  <!-- Preload für kritische Fonts -->
+  <link rel="preload" 
+      href="https://fonts.gstatic.com/s/patrickhand/v24/LDI1apSQOAYtSuYWp8ZhfYeMWcjKm7sp8g.woff2" 
+      as="font" 
+      type="font/woff2" 
+      crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick&family=Baloo+2:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Baloo+2:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <!--
   <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Patrick&family=Baloo+2:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   Wenn du Baloo 2 und Nunito Sans nutzt, ergänze sie hier -->

@@ -52,12 +52,36 @@ export default {
           text: '#1b2631', // #2e2e2e oder 
         },
       },
+      // tailwind.config.js
       fontFamily: {
-        display: ['"Baloo 2"', 'sans-serif'], // kinderfreundlich, lesbar
-        body: ['"Nunito Sans"', 'sans-serif'], // professionell und klar,
-        caveat: ['"Caveat Brush"', 'cursive'],
-        patrick: ['"Patrick Hand"', 'cursive'],
+        display: ['"Baloo 2"', 'Quicksand', 'Verdana', 'Rounded', // macOS
+          'ui-rounded', // iOS
+          'system-ui', 'sans-serif'],
+        body: ['"Nunito Sans"',
+          'Inter', // moderne Sans-Serif Backup
+          '-apple-system',       // iOS/macOS
+          'BlinkMacSystemFont',  // macOS
+          'Segoe UI',            // Windows
+          'Roboto',              // Android
+          'system-ui',
+          'sans-serif'
+          ],
+        patrick: [
+          '"Patrick Hand"',
+          'Comic Sans MS',       // handschriftlich, überall verfügbar
+          'Bradley Hand',        // macOS handschriftlich
+          'Brush Script MT',     // Windows handschriftlich
+          'cursive',
+          'sans-serif'           // letzter Fallback
+          ],
       },
+
+      // fontFamily: {
+      //   display: ['"Baloo 2"', 'sans-serif'], // kinderfreundlich, lesbar
+      //   body: ['"Nunito Sans"', 'sans-serif'], // professionell und klar,
+      //   // caveat: ['"Caveat Brush"', 'cursive'],
+      //   patrick: ['"Patrick Hand"', 'cursive'],
+      // },
     },
   },
   plugins: [],

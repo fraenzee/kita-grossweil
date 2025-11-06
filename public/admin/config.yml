@@ -2,13 +2,16 @@ backend:
   name: github
   branch: main # oder master, je nach Repo
   repo: fraenzee/kita-grossweil
-  domain: dev-dymr5084wey7l8yj.eu.auth0.com # <-- Ersetze dies mit deiner Domain aus Schritt 4
-  client_id: nZ6QE66MZBK301dIdRMTcpE872HWZTah # <-- Ersetze dies mit deiner Client ID aus Schritt 4
-  usePkce: true # Wichtig für moderne, sichere Authentifizierung
-  auth_endpoint: authorize # Dieser Wert bleibt so
+  base_url: "/.netlify/functions" # Optional, falls dein Repo in einem Unterverzeichnis liegt
+  auth_endpoint: auth # Endpunkt für die Authentifizierung
+
+  # domain: dev-dymr5084wey7l8yj.eu.auth0.com # <-- Ersetze dies mit deiner Domain aus Schritt 4
+  # client_id: nZ6QE66MZBK301dIdRMTcpE872HWZTah # <-- Ersetze dies mit deiner Client ID aus Schritt 4
+  # usePkce: true # Wichtig für moderne, sichere Authentifizierung
+  # auth_endpoint: authorize # Dieser Wert bleibt so
 
 media_folder: "public/bilder" # Ordner, in dem hochgeladene Bilder gespeichert werden
-public_folder: "/public" # Öffentlicher Pfad zu den hochgeladenen Bildern
+public_folder: "/bilder" # Öffentlicher Pfad zu den hochgeladenen Bildern
 
 collections:
   - name: "pages" # Name der Sammlung (intern)

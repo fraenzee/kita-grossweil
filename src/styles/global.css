@@ -9,12 +9,6 @@
   @apply tracking-wide;
 } */
 
-/* ===== TYPOGRAPHIE ===== */
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-  /* font-family: 'Caveat Brush', 'Inter', sans-serif; */
-  @apply text-brand-secondary;
-}
-
 @layer base {
   /* Body-Text standard: Nunito Sans */
   body { @apply font-body; }
@@ -23,8 +17,28 @@
   h1, h2, h3, h4, h5, h6, #mobile-menu { @apply font-patrick; }
   /* h4, h5, h6 { @apply font-display; } */
 
+  /* ===== TYPOGRAPHIE ===== */
+  .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    /* font-family: 'Caveat Brush', 'Inter', sans-serif; */
+    @apply text-brand-secondary font-patrick;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl font-bold mb-4 font-patrick;
+  }
+  h2 {
+    @apply text-3xl font-semibold mb-3 font-patrick;
+  }
+  h3 {
+    @apply text-2xl font-semibold mb-2 font-patrick;
+  }
+
+  p {
+    @apply text-lg leading-relaxed text-brand-text mb-4;
+  }
+
   /* Optional: gezielt für Navbar/Footer */
-@layer components {
+  @layer components {
     .navbar a { @apply font-patrick; }      /* Top-Navigation */
     .footer a { @apply font-patrick; }      /* Footer-Navigation */
     .footer { @apply font-patrick text-brand-surface; }      /* Footer-Navigation */
@@ -53,18 +67,6 @@ h3 {
   @apply text-3xl text-gray-800 mb-2;
 } */
 
-h1 {
-  @apply text-4xl md:text-5xl font-bold mb-4;
-}
-h2 {
-  @apply text-3xl font-semibold mb-3;
-}
-h3 {
-  @apply text-2xl font-semibold mb-2;
-}
-p {
-  @apply text-lg leading-relaxed text-brand-text mb-4;
-}
 
 /* ===== BUTTONS ===== */
 .btn {
@@ -111,4 +113,17 @@ a {
 }
 .footer a {
   @apply hover:text-brand-primary text-brand-surface;
+}
+
+/* ===== 10. Font-Loading-Optimierung (Optional) ===== */
+/* Verhindert Layout-Shift während Font lädt */
+@supports (font-display: optional) {
+  @font-face {
+    font-family: 'Patrick Hand Fallback';
+    src: local('Comic Sans MS');
+    ascent-override: 105%;
+    descent-override: 35%;
+    line-gap-override: 0%;
+    size-adjust: 95%;
+  }
 }
