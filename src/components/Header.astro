@@ -63,6 +63,16 @@ import { navItems } from '../scripts/navigation.js';
               <span class="ml-2">▾</span>
             </button>
             <ul id={`submenu-${i}`} class="ml-4 mt-2 hidden flex-col space-y-2">
+                <li><a
+            href={item.href}
+            class={`block px-2 py-2 border border-transparent text-brand-secondary transition-colors ${
+              item.isButton
+                ? 'px-6 py-2 font-semibold duration-300 bg-brand-primary hover:text-brand-surface hover:bg-brand-accent hover:border-brand-accent rounded-full text-center'
+                : 'rounded-md hover:border-brand-secondary hover:bg-brand-hoverSurface'
+            } `}
+          >
+            {item.title} – Übersicht
+          </a></li>
               {item.children.map(child => (
                 <li>
                   <a href={child.href} class="block px-2 py-1 border border-transparent text-brand-secondary hover:border-brand-secondary hover:bg-brand-hoverSurface rounded-md transition-colors">
