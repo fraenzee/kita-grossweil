@@ -51,9 +51,14 @@ if (!homepage) {
 const { Content } = await homepage.render();
 ---
 <BaseLayout title={homepage.data.title}>
-    <section class="bg-white rounded-lg shadow-lg p-8 mb-8 text-center">
-        <h1>{homepage.data.title}</h1>
-        <div class="text-gray-700 text-lg leading-relaxed mb-6">
+    <section>
+        <h1 class="leading-snug">{homepage.data.title}</h1>
+        <p>{homepage.data.subtitle}</p>
+        <div class="mb-12">
+            <!-- Carousel-Komponente einbinden -->
+            <Carousel slides={slides} />
+        </div>
+        <div>
             <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -143,12 +148,6 @@ const { Content } = await homepage.render();
 </a>
 </div>
 
-
-<div class="my-12">
-    <!-- Carousel-Komponente einbinden -->
-    <Carousel slides={slides} />
-
-</div>
 
 <div class="grid gap-4 
             grid-cols-1 
@@ -262,5 +261,47 @@ const { Content } = await homepage.render();
 </div>
 
 </div>
+
+<!-- Homepage Teaser Card -->
+<section class="mx-4 md:mx-16 my-8">
+  <div class="flex flex-col md:flex-row items-stretch bg-brand-soft/20 backdrop-blur-sm rounded-3xl overflow-hidden shadow-lg">
+    
+    <!-- Textbereich (1/3 links) -->
+    <div class="w-full md:w-1/3 p-8 md:p-12 flex flex-col justify-center text-center md:text-left bg-brand-surface">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">
+        Willkommen in der Kita Großweil!
+      </h2>
+      <p class="text-lg md:text-xl text-brand-text mb-8">
+        Ein Ort zum Spielen, Lernen und Wachsen – von der Krippe bis zur Einschulung.
+      </p>
+
+      <div class="flex flex-col sm:flex-row md:justify-start justify-center gap-4">
+        <a 
+          href="/anmeldung-kosten/" 
+          class="bg-brand-primary text-white font-semibold py-3 px-6 rounded-full shadow hover:bg-brand-soft hover:text-brand-secondary transition-colors duration-300"
+        >
+          Jetzt anmelden →
+        </a>
+        <a 
+          href="/paedagogik/" 
+          class="border-2 border-brand-primary text-brand-primary font-semibold py-3 px-6 rounded-full hover:bg-brand-primary hover:text-white transition-colors duration-300"
+        >
+          Konzept kennenlernen
+        </a>
+      </div>
+    </div>
+
+    <!-- Bildbereich (2/3 rechts) -->
+    <div class="w-full md:w-2/3 h-64 md:h-[500px] relative">
+      <img 
+        src="/bilder/kleinkinder-spielen-buchstabenwuerfel.avif" 
+        alt="Kinder mit Gummistiefeln im Matsch" 
+        class="absolute inset-0 w-full h-full object-cover md:rounded-l-none md:rounded-r-3xl rounded-t-3xl"
+      />
+    </div>
+
+  </div>
+</section>
+
 
 </BaseLayout>

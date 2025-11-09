@@ -10,7 +10,7 @@ Dorfstr. 12
 82439 Großweil
 
 **Telefon:** 08847 / 697966
-**E-Mail:** kiga.grossweil@gmx.de
+**E-Mail:** kindergarten@grossweil.de
 **Leitung:** Frau Maria Sanner
 
 ### Öffnungszeiten

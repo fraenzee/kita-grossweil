@@ -37,6 +37,10 @@
     @apply text-lg leading-relaxed text-brand-text mb-4;
   }
 
+  section {
+  @apply bg-white rounded-lg shadow-lg p-8 mb-8 text-center;
+}
+
   /* Optional: gezielt für Navbar/Footer */
   @layer components {
     .navbar a { @apply font-patrick; }      /* Top-Navigation */

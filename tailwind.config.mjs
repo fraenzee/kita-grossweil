@@ -42,13 +42,13 @@ export default {
           coral: '#f28482',    // lebendig – Akzente, Hover
           dark: '#2e2e2e',     // Textfarbe für gute Lesbarkeit
           light: '#ffffff',    // Weiß, als Kontrast
-          tannengruen: '#26392f', // dunkel, natürlich
+          tannengruen: '#31493c', // '#26392f', // dunkel, natürlich
 
 
           primary: '#F9C74F',   // Buttons, CTAs #f6bd60 oder #66AB8C oder #2a9d8f oder #f07167 oder #F9C74F
-          secondary: '#26392f',  //<<< '#4a4e69', >>> // Text, Footer #84a59d oder #6EC4DB oder #457B9D oder #0081A7 oder #FED9B7 oder #92ABD1
+          secondary: '#31493c',  //<<< '#4a4e69', >>> // Text, Footer #84a59d oder #6EC4DB oder #457B9D oder #0081A7 oder #FED9B7 oder #92ABD1
           accent: '#b71818',    // Hover, Highlights #f28482 oder #FA7C92 oder #f1c40F oder #ff6f61 oder #f9afaf
-          surface: '#f6f6f6',   // Hintergrund #f6f3f0 oder #f7ede2 oder #f1faee (!) oder #fdf4f4ff
+          surface: '#f6f3f0',  // '#f6f6f6',   // Hintergrund #f6f3f0 oder #f7ede2 oder #f1faee (!) oder #fdf4f4ff
           hoverSurface: '#e0e0e0', // Hover Oberfläche #e0e0e0 oder #ece2db oder #a8dadc oder rgb(238, 238, 239)
           soft: '#66AB8C', // <<<'#a8dadc',>>>      // Karten #f5cac3 oder #f7ede2 oder #a8dadc oder #00AFB9 oder #f7cac9
           text: '#1b2631', // #2e2e2e oder 

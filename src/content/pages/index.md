@@ -1,8 +1,7 @@
 ---
-title: "Herzlich willkommen im Kindergarten & der Krippe St. Georg in Großweil!"
+title: "Herzlich willkommen in der Kita St. Georg - Kindergarten & Krippe in Großweil!"
+subtitle: "Wir freuen uns, Sie und Ihr Kind auf unserer Website begrüßen zu dürfen. Entdecken Sie unser vielfältiges Angebot, unser engagiertes Team und unser pädagogisches Konzept, das die individuelle Entwicklung jedes Kindes in den Mittelpunkt stellt."
 ---
-
-Wir freuen uns, Sie und Ihr Kind auf unserer Website begrüßen zu dürfen. Entdecken Sie unser vielfältiges Angebot, unser engagiertes Team und unser pädagogisches Konzept, das die individuelle Entwicklung jedes Kindes in den Mittelpunkt stellt.
 
 ## Unser Konzept
 
