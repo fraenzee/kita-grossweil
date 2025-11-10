@@ -1,4 +1,23 @@
 ---
+//to dos:
+// SEO check/changes: meta tags, canonical, sitemaps, robots.txt, ...
+// implement error handling and 404 page
+// add structured data
+// add Eltern testimonials/reviews
+// add contact form
+// integrate newsletter signup for regular updates
+// add analytics -- GSC, GA4
+// add social media cards
+// add favicons
+// add loading indicators for images
+// add alt text for all images
+// optimize images (responsive, modern formats, compression)
+// implement lazy loading for images and videos
+// accessibility check
+// performance check
+// implement caching strategies
+// ...
+
 // Importiere das Basis-Layout
 import BaseLayout from '../layouts/BaseLayout.astro';
 // Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
@@ -58,48 +77,45 @@ const { Content } = await homepage.render();
             <!-- Carousel-Komponente einbinden -->
             <Carousel slides={slides} />
         </div>
+
+        <div
+          class="block rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
+          <!-- <div
+            class="border-b-2 border-neutral-100 px-6 py-3 dark:border-white/10">
+            Quote
+          </div> -->
+          <div class="p-6 m-6 border-l-4 border-brand-primary bg-brand-surface/50 rounded-r-xl">
+            <blockquote>
+              <p class="text-2xl font-patrick italic">
+                Was du mir sagst, das vergesse ich. Was du mir zeigst, daran erinnere ich mich. Was du mich tun lässt, das verstehe ich.
+              </p>
+            </blockquote>
+            <figcaption class="text-md text-neutral-500">
+              - Konfuzius
+              <!-- in <cite title="Source Title">Source Title</cite> -->
+            </figcaption>
+          </div>
+        </div>
+
+        <h2 class="mb-8">Hier können Sie uns kennenlernen:</h2>
+
+        <div class="grid gap-4 
+            grid-cols-1 
+            sm:grid-cols-2 
+            md:grid-cols-2 
+            xl:grid-cols-4 mb-12">
+          {cards.map(card => <Card {...card} />)}
+        </div>
         <div>
             <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-blue-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                <h2 class="text-2xl font-semibold text-blue-700 mb-2">Unser Konzept</h2>
-                <p class="text-gray-600 mb-4">Erfahren Sie mehr über unsere pädagogischen Schwerpunkte und Werte.</p>
-                <a href="/paedagogik/" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Mehr erfahren</a>
-            </div>
-            <div class="bg-blue-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                <h2 class="text-2xl font-semibold text-blue-700 mb-2">Anmeldung</h2>
-                <p class="text-gray-600 mb-4">Alle Informationen zur Anmeldung und den Elternbeiträgen.</p>
-                <a href="/anmeldung-kosten/" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Details ansehen</a>
-            </div>
-            <div class="bg-purple-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                <h2 class="text-2xl font-semibold text-purple-700 mb-2">Aktuelles</h2>
-                <p class="text-gray-600 mb-4">Bleiben Sie auf dem Laufenden über Termine und Veranstaltungen.</p>
-                <a href="/aktuelles/" class="inline-block bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">Zu den News</a>
-            </div>
-        </div>
         <div class="mt-8">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+            <button class="btn btn-primary border-2 border-brand-primary hover:border-brand-secondary rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 mr-4">
+                <a href="/ueber-uns/">Über uns</a>
+            </button>
+            <button class="btn btn-secondary rounded-full border-2 border-brand-primary shadow-lg transition duration-300 ease-in-out transform hover:scale-105 mr-4">
                 Rundgang vereinbaren
             </button>
-        </div>
-    </section>
-
-    <!-- Kurze Einblicke oder Highlights -->
-    <section class="grid md:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white rounded-lg shadow-lg p-6">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-2">Unser Team</h2>
-            <p class="text-gray-600">
-                Lernen Sie unser engagiertes Team kennen, das sich liebevoll um Ihre Kinder kümmert.
-            </p>
-            <a href="/ueber-uns/" class="text-blue-600 hover:underline mt-2 inline-block">Mehr über das Team</a>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg p-6">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-2">Bildergalerie</h2>
-            <p class="text-gray-600">
-                Eindrücke aus unserem Kindergartenalltag und von besonderen Ereignissen.
-            </p>
-            <a href="/aktuelles/" class="text-blue-600 hover:underline mt-2 inline-block">Zur Galerie</a>
         </div>
     </section>
 
@@ -137,25 +153,6 @@ const { Content } = await homepage.render();
   </div>
 </section>
 
-
-<div class="my-12">
-<a href="/paedagogik/" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/bilder/baukloetze-stapeln.avif" alt="">
-    <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Unser Konzept</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Erfahren Sie mehr über unsere pädagogischen Schwerpunkte und Werte.</p>
-    </div>
-</a>
-</div>
-
-
-<div class="grid gap-4 
-            grid-cols-1 
-            sm:grid-cols-2 
-            md:grid-cols-2 
-            lg:grid-cols-4">
-  {cards.map(card => <Card {...card} />)}
-</div>
 
 
 <div class="my-12">
@@ -221,24 +218,7 @@ const { Content } = await homepage.render();
 
 <div class="my-12">
 
-<div
-  class="block rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
-  <!-- <div
-    class="border-b-2 border-neutral-100 px-6 py-3 dark:border-white/10">
-    Quote
-  </div> -->
-  <div class="p-6 m-6">
-    <blockquote>
-      <p class="text-xl">
-        Was du mir sagst, das vergesse ich. Was du mir zeigst, daran erinnere ich mich. Was du mich tun lässt, das verstehe ich.
-      </p>
-    </blockquote>
-    <figcaption class="text-md text-neutral-500">
-      - Konfuzius
-       <!-- in <cite title="Source Title">Source Title</cite> -->
-    </figcaption>
-  </div>
-</div>
+
 
 
 <div
@@ -278,13 +258,13 @@ const { Content } = await homepage.render();
       <div class="flex flex-col sm:flex-row md:justify-start justify-center gap-4">
         <a 
           href="/anmeldung-kosten/" 
-          class="bg-brand-primary text-white font-semibold py-3 px-6 rounded-full shadow hover:bg-brand-soft hover:text-brand-secondary transition-colors duration-300"
+          class="btn btn-primary font-semibold py-3 px-6 rounded-full shadow transition-colors duration-300"
         >
           Jetzt anmelden →
         </a>
         <a 
           href="/paedagogik/" 
-          class="border-2 border-brand-primary text-brand-primary font-semibold py-3 px-6 rounded-full hover:bg-brand-primary hover:text-white transition-colors duration-300"
+          class="btn btn-secondary border-2 border-brand-primary font-semibold py-3 px-6 rounded-full transition-colors duration-300"
         >
           Konzept kennenlernen
         </a>

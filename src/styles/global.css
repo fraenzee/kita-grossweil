@@ -50,7 +50,7 @@
 
     /* Buttons lieber klar und lesbar */
     .btn       { @apply font-display; }    /* oder font-body */
-    .btn-primary { @apply bg-brand-primary text-brand-light hover:bg-brand-accent; }
+    .btn-primary { @apply bg-brand-primary hover:bg-brand-secondary hover:text-brand-primary; }
     /* @apply bg-brand-primary text-brand-secondary hover:bg-brand-accent; */
   }
 }
@@ -77,18 +77,18 @@ h3 {
   @apply inline-block px-6 py-2 font-semibold rounded-full transition-colors duration-300;
 }
 .btn-primary {
-  @apply bg-brand-primary text-brand-secondary hover:bg-brand-accent;
+  @apply bg-brand-primary text-brand-secondary hover:bg-brand-secondary hover:text-brand-surface;
 }
 .btn-secondary {
-  @apply bg-brand-secondary text-brand-secondary hover:bg-brand-accent;
+  @apply bg-brand-surface text-brand-secondary hover:bg-brand-soft/50 hover:border-brand-soft/50;
 }
 .btn-outline {
-  @apply border-2 border-brand-primary text-brand-secondary hover:bg-brand-primary hover:text-brand-secondary;
+  @apply border-2 border-brand-primary text-brand-secondary hover:bg-brand-primary hover:text-brand-secondary ;
 }
 
 /* ===== CARDS ===== */
 .card {
-  @apply bg-brand-soft rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300;
+  @apply bg-brand-soft/50 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300;
 }
 
 /* ===== LINKS ===== */
@@ -105,7 +105,7 @@ a {
   @apply px-4 py-2 text-brand-secondary border-b-2 border-transparent hover:border-brand-primary font-semibold transition-colors duration-200;
 }
 .nav-link.btn {
-  @apply hover:border-brand-accent; /*hover:bg-brand-hoverSurface */
+  @apply hover:border-transparent; /*hover:bg-brand-hoverSurface */
 }
 /* .nav-link-active {
   @apply border-b-2 border-brand-primary text-brand-secondary;
