@@ -12,8 +12,8 @@ const slides = Astro.props.slides ?? [];
   </div>
 
   <!-- Buttons -->
-  <button class="prev absolute top-1/2 left-4 -translate-y-1/2 bg-brand-primary text-brand-secondary p-3 rounded-full shadow hover:bg-brand-secondary hover:text-brand-surface transition">‹</button>
-  <button class="next absolute top-1/2 right-4 -translate-y-1/2 bg-brand-primary text-brand-secondary p-3 rounded-full shadow hover:bg-brand-secondary hover:text-brand-surface transition">›</button>
+  <button class="prev absolute top-1/2 left-4 -translate-y-1/2 bg-brand-primary text-brand-secondary p-3 rounded-full shadow hover:bg-brand-hoverSoft transition">‹</button>
+  <button class="next absolute top-1/2 right-4 -translate-y-1/2 bg-brand-primary text-brand-secondary p-3 rounded-full shadow hover:bg-brand-hoverSoft transition">›</button>
 
   <!-- Dots -->
   <div class="dots absolute bottom-4 w-full flex justify-center gap-2"></div>
@@ -48,7 +48,7 @@ function prevSlide() { showSlide((current - 1 + slidesEl.length) % slidesEl.leng
 // Dots erstellen
 slidesEl.forEach((_, idx) => {
   const dot = document.createElement('button');
-  dot.className = 'w-3 h-3 rounded-full bg-brand-soft transition';
+  dot.className = 'w-3 h-3 rounded-full bg-brand-hoverSoft transition';
   dot.addEventListener('click', () => showSlide(idx));
   dotsEl.appendChild(dot);
 });
@@ -57,7 +57,7 @@ slidesEl.forEach((_, idx) => {
 function updateDots() {
   dotsEl.childNodes.forEach((dot, idx) => {
     dot.classList.toggle('bg-brand-primary', idx === current);
-    dot.classList.toggle('bg-brand-soft', idx !== current);
+    dot.classList.toggle('bg-brand-hoverSoft', idx !== current);
   });
 }
 

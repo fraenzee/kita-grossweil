@@ -80,7 +80,7 @@ h3 {
   @apply bg-brand-primary text-brand-secondary hover:bg-brand-secondary hover:text-brand-surface;
 }
 .btn-secondary {
-  @apply bg-brand-surface text-brand-secondary hover:bg-brand-soft/50 hover:border-brand-soft/50;
+  @apply bg-brand-surface text-brand-secondary hover:bg-brand-hoverSoft hover:border-brand-hoverSoft;
 }
 .btn-outline {
   @apply border-2 border-brand-primary text-brand-secondary hover:bg-brand-primary hover:text-brand-secondary ;
@@ -88,7 +88,11 @@ h3 {
 
 /* ===== CARDS ===== */
 .card {
-  @apply bg-brand-soft/50 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300;
+  @apply bg-brand-hoverSoft rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300;
+}
+
+.team-member-card {
+  @apply bg-brand-hoverSoft p-6 rounded-lg shadow-md text-center text-brand-text transition-transform duration-300 hover:shadow-lg hover:-translate-y-1;
 }
 
 /* ===== LINKS ===== */

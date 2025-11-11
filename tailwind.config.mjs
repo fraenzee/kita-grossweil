@@ -51,7 +51,9 @@ export default {
           surface: '#f6f3f0',  // '#f6f6f6',   // Hintergrund #f6f3f0 oder #f7ede2 oder #f1faee (!) oder #fdf4f4ff
           hoverSurface: '#e0e0e0', // Hover Oberfläche #e0e0e0 oder #ece2db oder #a8dadc oder rgb(238, 238, 239)
           soft: '#66AB8C', // <<<'#a8dadc',>>>      // Karten #f5cac3 oder #f7ede2 oder #a8dadc oder #00AFB9 oder #f7cac9
+          hoverSoft: '#B3D5C6', // Hover color for secondary buttons and card background, equals soft with transparency 50% 
           text: '#1b2631', // #2e2e2e oder 
+          textGray: '#4a4e69',
         },
       },
       // tailwind.config.js

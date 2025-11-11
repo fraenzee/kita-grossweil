@@ -109,27 +109,42 @@ const { Content } = await homepage.render();
         <div>
             <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
         </div>
-        <div class="mt-8">
-            <button class="btn btn-primary border-2 border-brand-primary hover:border-brand-secondary rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 mr-4">
+        <div class="gap-4 flex justify-center mt-6">
+            <button class="btn btn-primary border-2 border-brand-primary hover:border-brand-secondary rounded-full transition duration-200 ease-in-out transform hover:scale-105">
                 <a href="/ueber-uns/">Über uns</a>
             </button>
-            <button class="btn btn-secondary rounded-full border-2 border-brand-primary shadow-lg transition duration-300 ease-in-out transform hover:scale-105 mr-4">
+            <button class="btn btn-secondary rounded-full border-2 border-brand-primary transition duration-200 ease-in-out transform hover:scale-105">
                 Rundgang vereinbaren
             </button>
+        </div>
+
+        <div
+          class="block rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
+          <!-- <div
+            class="border-b-2 border-neutral-100 px-6 py-3 dark:border-white/10">
+            Quote
+          </div> -->
+          <div class="p-6 m-6 border-l-4 border-brand-secondary bg-brand-hoverSoft rounded-r-xl">
+            <blockquote>
+              <p class="text-2xl font-patrick italic mb-0">
+                Und am Ende eines Tages sollen deine Füße dreckig, dein Haar zerzaust und deine Augen leuchtend sein.
+              </p>
+            </blockquote>
+          </div>
         </div>
     </section>
 
 <!-- Hero-Sektion mit abgerundetem Bild und Call-to-Action -->
-<section class="relative flex items-center justify-center h-[70vh] rounded-3xl overflow-hidden mx-4 md:mx-16">
+<!-- <section class="relative flex items-center justify-center h-[70vh] rounded-3xl overflow-hidden mx-4 md:mx-16"> -->
   <!-- Hintergrundbild -->
-  <img 
+  <!-- <img 
     src="/bilder/kleinkinder-spielen-buchstabenwuerfel.avif" 
     alt="Kinder mit Gummistiefeln im Matsch" 
     class="absolute inset-0 w-full h-full object-cover"
-  />
+  /> -->
 
   <!-- Halbtransparenter Kasten unter dem Text -->
-  <div class="relative bg-adobelightblue/80 backdrop-blur-sm p-8 rounded-2xl text-center max-w-2xl shadow-lg z-10">
+  <!-- <div class="relative bg-adobelightblue/80 backdrop-blur-sm p-8 rounded-2xl text-center max-w-2xl shadow-lg z-10">
     <h1 class="text-4xl md:text-5xl font-bold text-adobedarkblue mb-4">
       Willkommen in der Kita Großweil!
     </h1>
@@ -151,137 +166,5 @@ const { Content } = await homepage.render();
       </a>
     </div>
   </div>
-</section>
-
-
-
-<div class="my-12">
-
-
-
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <div class="grid gap-4">
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">
-        </div>
-    </div>
-    <div class="grid gap-4">
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="">
-        </div>
-    </div>
-    <div class="grid gap-4">
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="">
-        </div>
-    </div>
-    <div class="grid gap-4">
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="">
-        </div>
-        <div>
-            
-            
-<figure class="max-w-lg">
-  <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
-  <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</figcaption>
-</figure>
-
-        </div>
-    </div>
-</div>
-
-
-</div>
-
-
-<div class="my-12">
-
-
-
-
-<div
-  class="block rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
-  <!-- <div
-    class="border-b-2 border-neutral-100 px-6 py-3 dark:border-white/10">
-    Quote
-  </div> -->
-  <div class="p-6 m-6">
-    <blockquote>
-      <p class="text-xl">
-        Und am Ende eines Tages sollen deine Füße dreckig, dein Haar zerzaust und deine Augen leuchtend sein.
-      </p>
-    </blockquote>
-    <!-- <figcaption class="text-md text-neutral-500">
-      - Konfuzius
-       in <cite title="Source Title">Source Title</cite>
-    </figcaption> -->
-  </div>
-</div>
-
-</div>
-
-<!-- Homepage Teaser Card -->
-<section class="mx-4 md:mx-16 my-8">
-  <div class="flex flex-col md:flex-row items-stretch bg-brand-soft/20 backdrop-blur-sm rounded-3xl overflow-hidden shadow-lg">
-    
-    <!-- Textbereich (1/3 links) -->
-    <div class="w-full md:w-1/3 p-8 md:p-12 flex flex-col justify-center text-center md:text-left bg-brand-surface">
-      <h2 class="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">
-        Willkommen in der Kita Großweil!
-      </h2>
-      <p class="text-lg md:text-xl text-brand-text mb-8">
-        Ein Ort zum Spielen, Lernen und Wachsen – von der Krippe bis zur Einschulung.
-      </p>
-
-      <div class="flex flex-col sm:flex-row md:justify-start justify-center gap-4">
-        <a 
-          href="/anmeldung-kosten/" 
-          class="btn btn-primary font-semibold py-3 px-6 rounded-full shadow transition-colors duration-300"
-        >
-          Jetzt anmelden →
-        </a>
-        <a 
-          href="/paedagogik/" 
-          class="btn btn-secondary border-2 border-brand-primary font-semibold py-3 px-6 rounded-full transition-colors duration-300"
-        >
-          Konzept kennenlernen
-        </a>
-      </div>
-    </div>
-
-    <!-- Bildbereich (2/3 rechts) -->
-    <div class="w-full md:w-2/3 h-64 md:h-[500px] relative">
-      <img 
-        src="/bilder/kleinkinder-spielen-buchstabenwuerfel.avif" 
-        alt="Kinder mit Gummistiefeln im Matsch" 
-        class="absolute inset-0 w-full h-full object-cover md:rounded-l-none md:rounded-r-3xl rounded-t-3xl"
-      />
-    </div>
-
-  </div>
-</section>
-
-
+</section> -->
 </BaseLayout>

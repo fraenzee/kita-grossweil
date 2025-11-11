@@ -5,4 +5,4 @@ subtitle: "Wir freuen uns, Sie und Ihr Kind auf unserer Website begrüßen zu d�
 
 ## Unser Team
 
-Lernen Sie unser engagiertes Team kennen, das sich liebevoll um Ihre Kinder kümmert.
+Die Kita St. Georg in Großweil ist ein Ort zum Spielen, Lernen und Wachsen – von der Krippe bis zur Einschulung. Lernen Sie unser engagiertes Team kennen, das sich liebevoll um Ihre Kinder kümmert.
