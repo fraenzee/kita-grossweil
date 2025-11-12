@@ -17,6 +17,7 @@ if (!aboutPage) {
 const { Content } = await aboutPage.render();
 ---
 <BaseLayout title={aboutPage.data.title}>
+
     <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
         <h1>{aboutPage.data.title}</h1>
         <div class="leading-relaxed mb-6">

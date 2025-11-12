@@ -1,0 +1,124 @@
+---
+import { siteStructure } from "../scripts/siteStructure.js";
+
+const siteUrl = "https://kita-grossweil.netlify.app/";
+
+// Astro.url.pathname ist stabiler als Astro.path:
+// const path = Astro.url.pathname;
+const url = new URL(Astro.request.url);
+const path = url.pathname;
+
+
+// Pfad in Segmente teilen
+const segments = path.split("/").filter(Boolean);
+
+/** 🔍 Rekursive Suche in der Struktur */
+function findBreadcrumbTrail(structure, slugSegments, parentPath = "") {
+  for (const item of structure) {
+    if (item.slug === slugSegments[0]) {
+      const currentPath = `${parentPath}/${item.slug}`;
+
+      if (slugSegments.length === 1) {
+        return [{ name: item.name, href: currentPath }];
+      } else if (item.children) {
+        const childTrail = findBreadcrumbTrail(item.children, slugSegments.slice(1), currentPath);
+        if (childTrail) {
+          return [
+            { name: item.name, href: currentPath },
+            ...childTrail,
+          ];
+        }
+      }
+    }
+  }
+  return null;
+}
+
+
+function formatSegmentName(segment) {
+  return segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
+}
+
+
+/** 1️⃣ Versuche, Trail aus siteStructure zu holen */
+let breadcrumbs =
+  findBreadcrumbTrail(siteStructure, segments) ||
+  /** 2️⃣ Fallback: automatisch aus Pfad generieren */
+  // Pfadstücke zu Links zusammensetzen
+  segments.map((segment, index) => {
+    const href = "/" + segments.slice(0, index + 1).join("/");
+    return {
+      name: formatSegmentName(segment),
+      href,
+    };
+  });
+
+
+
+/** JSON-LD für BreadcrumbList */
+const breadcrumbItems = [
+  {
+    "@type": "ListItem",
+    position: 1,
+    name: "Startseite",
+    item: siteUrl,
+  },
+  ...breadcrumbs.map((crumb, index) => ({
+    "@type": "ListItem",
+    position: index + 2,
+    name: crumb.name,
+    item: `${siteUrl}${crumb.href}`,
+  })),
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems,
+};
+
+const breadcrumbJsonLd = JSON.stringify(breadcrumbSchema);
+---
+
+<nav aria-label="Breadcrumb" class="flex items-center text-sm text-brand-textGray mb-4">
+  <ol class="inline-flex items-center space-x-1 md:space-x-2">
+    <li>
+      <a href="/" class="flex items-center hover:text-brand-text">
+        <svg viewBox="0 0 20 20" 
+            fill="currentColor" 
+            data-slot="icon" 
+            aria-hidden="true" 
+            class="w-4 h-4 mr-1">
+            <path d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" 
+            clip-rule="evenodd" fill-rule="evenodd"></path>
+        </svg>
+        <span class="mr-[0.5rem]">Startseite</span>
+      </a>
+    </li>
+
+    {breadcrumbs.map((crumb, index) => (
+      <li class="flex items-center" aria-current={index === breadcrumbs.length - 1 ? "page" : undefined}>
+        <svg
+          class="w-4 h-4 mx-1 text-brand-textGray"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+        {index === breadcrumbs.length - 1 ? (
+          <span class="text-brand-textGray ml-[0.5rem]">{crumb.name}</span>
+        ) : (
+          <a href={crumb.href} class="hover:text-brand-text ml-[0.5rem]">
+            {crumb.name}
+          </a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<!-- JSON-LD für SEO -->
+<!-- <script type="application/ld+json" is:inline>{breadcrumbJsonLd}</script> -->
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
