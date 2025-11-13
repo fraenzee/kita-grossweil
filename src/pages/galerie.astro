@@ -18,8 +18,8 @@ const { Content } = await galeriePage.render();
 ---
 <BaseLayout title={galeriePage.data.title}>
     <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <h1 class="text-4xl font-semibold text-gray-800 mb-4">{galeriePage.data.title}</h1>
-        <div class="text-gray-700 text-lg leading-relaxed mb-6">
+        <h1 class="mb-4">{galeriePage.data.title}</h1>
+        <div class="text-lg leading-relaxed mb-6">
             <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
         </div>
 
@@ -83,7 +83,7 @@ const { Content } = await galeriePage.render();
             
 <figure class="max-w-lg">
   <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
-  <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</figcaption>
+  <figcaption class="mt-2 text-sm text-center text-brand-textGray">Image caption</figcaption>
 </figure>
 
         </div>
