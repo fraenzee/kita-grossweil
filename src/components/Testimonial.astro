@@ -1,0 +1,19 @@
+---
+const { reviewerImage, reviewerQuote, reviewerName, reviewerNameDescription } = Astro.props;
+---
+
+<div class="flex flex-col h-full bg-brand-hoverSoft overflow-hidden rounded-2xl shadow-md p-0">
+  <p class="p-6 text-brand-text italic flex-1 pb-0">"{reviewerQuote}"</p>
+  <div class="p-6 rounded-md border-brand-hoverSoft flex flex-col items-center">
+    {reviewerImage && (
+    <img 
+      src={reviewerImage} 
+      alt={reviewerName} 
+      class="rounded-md mb-4 max-h-[150px] shrink" 
+      loading="lazy"
+    />
+  )}
+    <h3 class="text-brand-secondary text-lg font-semibold mb-1">{reviewerName}</h3>
+    <p class="text-brand-text text-brand-textGray text-sm">{reviewerNameDescription}</p>
+  </div>
+</div>

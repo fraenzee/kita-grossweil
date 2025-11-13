@@ -2,8 +2,9 @@
 //to dos:
 // SEO check/changes: meta tags, canonical, sitemaps, robots.txt, ...
 // implement error handling and 404 page
-// add structured data
-// add Eltern testimonials/reviews
+// fix heading etc. colors among all pages to be consistent
+// add structured data                    --> breadcrumb added, but path with double slashes needs fixing
+// add Eltern testimonials/reviews        --> done
 // add contact form
 // integrate newsletter signup for regular updates
 // add analytics -- GSC, GA4
@@ -23,6 +24,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
 import { getCollection } from 'astro:content';
 import Card from '../components/Card.astro';
+import Testimonial from '../components/Testimonial.astro';
+
+const testimonials = [
+  {
+    reviewerImage: '/bilder/testimonial-mama-mit-sohn.png',
+    reviewerQuote: 'Die Kita St. Georg Großweil ist ein wunderbarer Ort für Kinder. Mein Sohn liebt es hier zu sein und ich schätze die liebevolle Betreuung und das engagierte Team sehr.',
+    reviewerName: 'Anna M.',
+    reviewerNameDescription: 'Mutter eines 5-jährigen Jungen',
+  },
+  {
+    reviewerImage: '/bilder/maedchen-mit-koerperfarbe.avif',
+    reviewerQuote: 'Die Farben in der Kita sind toll! Ich mag besonders den bunten Teppich und die rosa Spielsachen. Meine Freunde und ich haben hier immer viel Spaß!',
+    reviewerName: 'Lena F.',
+    reviewerNameDescription: '4 Jahre alt',
+  },
+  {
+    reviewerImage: '/bilder/testimonial-papa-mit-tochter.png',
+    reviewerQuote: 'Als Vater bin ich beeindruckt von der pädagogischen Arbeit in der Kita. Mein Kind hat sich hier toll entwickelt und ich fühle mich als Elternteil gut informiert und eingebunden.',
+    reviewerName: 'Thomas K.',
+    reviewerNameDescription: 'Vater eines 2-jährigen Mädchens',
+  },
+  {
+    reviewerImage: '/bilder/laechelndes-maedchen.avif',
+    reviewerQuote: 'Ich mag die Kita, weil ich hier so viele Freunde habe und wir zusammen spielen können. Die Erzieher sind auch sehr nett und helfen uns immer.',
+    reviewerName: 'Mia T.',
+    reviewerNameDescription: '4 Jahre alt',
+  },
+  {
+    reviewerImage: '/bilder/testimonial-familie-mit-drei-kindern.png',
+    reviewerQuote: 'Unsere Familie ist sehr zufrieden mit der Kita St. Georg Großweil. Die Atmosphäre ist herzlich und die Kinder werden individuell gefördert. Wir können die Einrichtung nur empfehlen!',
+    reviewerName: 'Sabine und Markus L.',
+    reviewerNameDescription: 'Eltern von drei Kindern im Alter von 2, 4 und 6 Jahren',
+  },
+  {
+    reviewerImage: '/bilder/drei-herbstblaetter-auf-der-hand.avif',
+    reviewerQuote: 'Schaut mal, wie bunt die Blätter sind! In der Kita haben wir gelernt, wie die Natur im Herbst aussieht. Ich mag es, draußen zu spielen und die Blätter zu sammeln.',
+    reviewerName: 'Lukas R.',
+    reviewerNameDescription: '5 Jahre alt',
+  },
+  {
+    reviewerImage: '/bilder/testimonial-papa-mit-zwei-kindern.png',
+    reviewerQuote: 'Meine zwei Kinder gehen gerne in die Kita St. Georg Großweil. Die abwechslungsreichen Aktivitäten und die liebevolle Betreuung machen den Unterschied. Wir sind sehr dankbar für das tolle Team!',
+    reviewerName: 'Daniel S.',
+    reviewerNameDescription: 'Vater von zwei Kindern im Alter von 2 und 5 Jahren',
+  },
+  {
+    reviewerImage: '/bilder/kinder-mit-gummistiefeln-im-matsch.avif',
+    reviewerQuote: 'Guckt mal, wie toll der Matsch ist! In der Kita spielen wir oft draußen und ich liebe es, mit meinen Freunden im Matsch zu springen und zu lachen.',
+    reviewerName: 'Emma S.',
+    reviewerNameDescription: '4 Jahre alt, mit ihren Freunden im Matsch',
+  },
+];
 
 const cards = [
   { image: '/bilder/baukloetze-stapeln.avif', 
@@ -118,16 +171,31 @@ const { Content } = await homepage.render();
             </button>
         </div>
 
+        <div class="text-center mt-12">
+            <h2 class="mb-6">Das sagen unsere Kinder und Eltern über uns:</h2>
+
+            <div class="grid gap-6 
+                grid-cols-1 
+                sm:grid-cols-1 
+                md:grid-cols-2 
+                lg:grid-cols-3
+                xl:grid-cols-4">
+              {testimonials.map(testimonial => <Testimonial {...testimonial} />)}
+            </div>
+        </div>
+
+        
+
         <div
-          class="block rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white">
+          class="block rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white pt-6">
           <!-- <div
             class="border-b-2 border-neutral-100 px-6 py-3 dark:border-white/10">
             Quote
           </div> -->
-          <div class="p-6 m-6 border-l-4 border-brand-secondary bg-brand-hoverSoft rounded-r-xl">
+          <div class="p-6 m-6 border-l-4 border-brand-primary bg-brand-surface rounded-r-xl">
             <blockquote>
               <p class="text-2xl font-patrick italic mb-0">
-                Und am Ende eines Tages sollen deine Füße dreckig, dein Haar zerzaust und deine Augen leuchtend sein.
+                ...und am Ende eines Tages sollen deine Füße dreckig, dein Haar zerzaust und deine Augen leuchtend sein.
               </p>
             </blockquote>
           </div>
