@@ -3,65 +3,69 @@ import { siteStructure } from "../scripts/siteStructure.js";
 
 const siteUrl = "https://kita-grossweil.netlify.app/";
 
-// Astro.url.pathname ist stabiler als Astro.path:
-// const path = Astro.url.pathname;
+// Aktuelle URL-Komponenten ermitteln
 const url = new URL(Astro.request.url);
 const path = url.pathname;
-
-
-// Pfad in Segmente teilen
 const segments = path.split("/").filter(Boolean);
 
-/** 🔍 Rekursive Suche in der Struktur */
-function findBreadcrumbTrail(structure, slugSegments, parentPath = "") {
-  for (const item of structure) {
-    if (item.slug === slugSegments[0]) {
-      const currentPath = `${parentPath}/${item.slug}`;
+// -------------------------------------------
+// 🔍 1. Trail aus siteStructure automatisch finden
+// -------------------------------------------
 
-      if (slugSegments.length === 1) {
-        return [{ name: item.name, href: currentPath }];
-      } else if (item.children) {
-        const childTrail = findBreadcrumbTrail(item.children, slugSegments.slice(1), currentPath);
-        if (childTrail) {
-          return [
-            { name: item.name, href: currentPath },
-            ...childTrail,
-          ];
-        }
-      }
+/**
+ * Durchsucht die siteStructure nach einer vollständigen Breadcrumb-Kette.
+ * Die hrefs verwenden aber nur den einzelnen Slug, nicht den hierarchischen Pfad!
+ */
+function findTrail(structure, targetSlug, parents = []) {
+  for (const item of structure) {
+    const currentItem = {
+      name: item.name,
+      slug: item.slug,
+      href: "/" + item.slug // + "/" // ✅ Nur der Slug selbst, nicht der vollständige Pfad!
+    };
+
+    // Treffer: wir haben das Ziel gefunden
+    if (item.slug === targetSlug) {
+      return [...parents, currentItem];
+    }
+
+    // In die Tiefe gehen
+    if (item.children) {
+      const result = findTrail(item.children, targetSlug, [...parents, currentItem]);
+      if (result) return result;
     }
   }
+
   return null;
 }
 
+// Ziel-Slug = letztes Segment der URL
+const targetSlug = segments[segments.length - 1];
 
-function formatSegmentName(segment) {
-  return segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
+// Primärer Breadcrumb-Versuch: aus siteStructure
+let breadcrumbs = findTrail(siteStructure, targetSlug);
+
+// -------------------------------------------
+// 🔁 2. Fallback, wenn Seite NICHT in siteStructure enthalten ist
+// -------------------------------------------
+if (!breadcrumbs || breadcrumbs.length === 0) {
+  breadcrumbs = segments.map((segment, index) => {
+    const name = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
+    const href = "/" + segments.slice(0, index + 1).join("/") + "/"; // ✅ Trailing slash
+    return { name, href };
+  });
 }
 
 
-/** 1️⃣ Versuche, Trail aus siteStructure zu holen */
-let breadcrumbs =
-  findBreadcrumbTrail(siteStructure, segments) ||
-  /** 2️⃣ Fallback: automatisch aus Pfad generieren */
-  // Pfadstücke zu Links zusammensetzen
-  segments.map((segment, index) => {
-    const href = "/" + segments.slice(0, index + 1).join("/");
-    return {
-      name: formatSegmentName(segment),
-      href,
-    };
-  });
-
-
-
-/** JSON-LD für BreadcrumbList */
+// -------------------------------------------
+// 🧩 JSON-LD BreadcrumbList
+// -------------------------------------------
 const breadcrumbItems = [
   {
     "@type": "ListItem",
     position: 1,
     name: "Startseite",
-    item: siteUrl,
+    item: siteUrl + "/",  // ✅ slash hinzufügen
   },
   ...breadcrumbs.map((crumb, index) => ({
     "@type": "ListItem",
@@ -80,17 +84,17 @@ const breadcrumbSchema = {
 const breadcrumbJsonLd = JSON.stringify(breadcrumbSchema);
 ---
 
+
 <nav aria-label="Breadcrumb" class="flex items-center text-sm text-brand-textGray mb-4">
   <ol class="inline-flex items-center space-x-1 md:space-x-2">
     <li>
       <a href="/" class="flex items-center hover:text-brand-text">
-        <svg viewBox="0 0 20 20" 
-            fill="currentColor" 
-            data-slot="icon" 
-            aria-hidden="true" 
-            class="w-4 h-4 mr-1">
-            <path d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" 
-            clip-rule="evenodd" fill-rule="evenodd"></path>
+        <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 mr-1">
+          <path
+            d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z"
+            clip-rule="evenodd"
+            fill-rule="evenodd"
+          />
         </svg>
         <span class="mr-[0.5rem]">Startseite</span>
       </a>
@@ -98,15 +102,10 @@ const breadcrumbJsonLd = JSON.stringify(breadcrumbSchema);
 
     {breadcrumbs.map((crumb, index) => (
       <li class="flex items-center" aria-current={index === breadcrumbs.length - 1 ? "page" : undefined}>
-        <svg
-          class="w-4 h-4 mx-1 text-brand-textGray"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
+        <svg class="w-4 h-4 mx-1 text-brand-textGray" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
         </svg>
+
         {index === breadcrumbs.length - 1 ? (
           <span class="text-brand-textGray ml-[0.5rem]">{crumb.name}</span>
         ) : (
@@ -120,5 +119,4 @@ const breadcrumbJsonLd = JSON.stringify(breadcrumbSchema);
 </nav>
 
 <!-- JSON-LD für SEO -->
-<!-- <script type="application/ld+json" is:inline>{breadcrumbJsonLd}</script> -->
-<script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+<script type="application/ld+json" set:html={breadcrumbJsonLd}></script>
