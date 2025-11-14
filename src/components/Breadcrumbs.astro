@@ -1,7 +1,7 @@
 ---
 import { siteStructure } from "../scripts/siteStructure.js";
 
-const siteUrl = "https://kita-grossweil.netlify.app/";
+const siteUrl = "https://kita-grossweil.netlify.app";
 
 // Aktuelle URL-Komponenten ermitteln
 const url = new URL(Astro.request.url);
@@ -21,7 +21,7 @@ function findTrail(structure, targetSlug, parents = []) {
     const currentItem = {
       name: item.name,
       slug: item.slug,
-      href: "/" + item.slug // + "/" // ✅ Nur der Slug selbst, nicht der vollständige Pfad!
+      href: "/" + item.slug + "/" // ✅ Nur der Slug selbst, nicht der vollständige Pfad!
     };
 
     // Treffer: wir haben das Ziel gefunden
