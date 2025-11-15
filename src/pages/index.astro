@@ -32,7 +32,10 @@
 // ...
 
 // Importiere das Basis-Layout
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {organizationSchema, webSiteSchema, localBusinessSchema} from "../schema/homeSchema.js";
+const schema = [organizationSchema, webSiteSchema, localBusinessSchema];
+
 // Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
 import { getCollection } from 'astro:content';
 import Card from '../components/Card.astro';
@@ -122,85 +125,6 @@ const slides = [
   '/bilder/person-schaukelt.avif',
 ];
 
-const siteUrl = "https://kita-grossweil.netlify.app/";
-
-// Organization
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Kita St. Georg Großweil",
-  "description": "Kindergarten & Krippe St. Georg in Großweil - Ein Ort zum Spielen, Lernen und Wachsen für Kinder von der Krippe bis zur Einschulung.",
-  "url": siteUrl,
-  "logo": `${siteUrl}st-georg-kita-ritter-babydrache-favicon.png`,
-  "sameAs": [
-    "https://www.instagram.com/kindertagesstaettegrossweil/"
-  ],
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "telephone": "+49-8851-7173",
-    "contactType": "customer service",
-    "areaServed": "DE",
-    "availableLanguage": ["de"]
-  }]
-};
-
-// LocalBusiness: ChildCare
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "ChildCare",
-  "name": "Kita St. Georg Großweil",
-  "url": siteUrl,
-  "image": `${siteUrl}kita-st-georg-großweil-foto.jpg`,
-  "telephone": "+49-8851-7173",
-  "email": "kindergarten@grossweil.de",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Am Bad 6",
-    "postalCode": "82439",
-    "addressLocality": "Großweil",
-    "addressRegion": "BY",
-    "addressCountry": "DE"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 47.67729821285803,
-    "longitude": 11.299274726710639
-  },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    "opens": "07:15",
-    "closes": "15:30"
-  }],
-  "priceRange": "€€",
-  "parentOrganization": {
-    "@type": "Organization",
-    "name": "Gemeinde Großweil",
-    "url": "https://www.grossweil.de/",
-    "logo": "https://grossweil.de/wp-content/uploads/2020/07/favicon.png",
-    "sameAs": [
-      "https://www.facebook.com/grossweil.de",
-      "https://de.wikipedia.org/wiki/Gro%C3%9Fweil"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "telephone": "+49-8851-1210",
-      "areaServed": "DE",
-      "availableLanguage": ["de"]
-    }]
-  }
-};
-
-// WebSite (auf der Startseite oder im BaseLayout)
-const webSiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Kita Großweil",
-  "url": siteUrl,
-  "inLanguage": "de"
-};
-
 // Lade den Inhalt der Startseite aus der Markdown-Datei
 const pages = await getCollection('pages');
 const homepage = pages.find(page => page.slug === 'index'); // Finde die "index.md" Seite
@@ -212,8 +136,13 @@ if (!homepage) {
 
 // Extrahiere den gerenderten Inhalt
 const { Content } = await homepage.render();
+
+// adjust laster to be an indexed page
 ---
-<BaseLayout title={homepage.data.title}>
+<BaseLayout title="Startseite"
+  description="Willkommen in der Kita St. Georg in Großweil - Krippe und Kindergarten."
+  robots="noindex, follow"
+  schema={schema}>
     <section>
         <h1 class="leading-snug">{homepage.data.title}</h1>
         <p>{homepage.data.subtitle}</p>
@@ -330,11 +259,6 @@ const { Content } = await homepage.render();
 </section> -->
 
 
-
-<!-- JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
-    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
-    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)}></script>
 
 <!-- <script type="application/ld+json">
 {

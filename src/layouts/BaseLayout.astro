@@ -3,27 +3,31 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import SEO from "../components/SEO.astro";
 // Importiere die globalen Tailwind-Styles
 import '../styles/global.css';
 
 // Props für den Titel der Seite
-const { title } = Astro.props;
+const { title, description, robots, schema } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
+
+  <SEO
+    title={title}
+    description={description}
+    robots={robots}
+    schema={schema}
+  />
+
   <link rel="icon" href="/st-georg-kita-ritter-babydrache-favicon.png" type="image/x-icon">
   <link rel="shortcut icon" href="/st-georg-kita-ritter-babydrache-favicon.png" type="image/x-icon">
   <!-- Optional: Apple Touch Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/st-georg-kita-ritter-babydrache-favicon.png">
-  <meta property="og:title" content="Kindergarten St. Georg Großweil">
-  <meta property="og:description" content="Unsere Kita bietet Platz für 107 Kindern, mit einer Krippen- und vier Kindergartengruppen. Komm zu uns ins blaue Land!">
-  <meta property="og:image" content="/kita-grossweil-image.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kita-grossweil.netlify.app/">
+  
   <!-- Preload für kritische Fonts
    <link rel="preload" 
       href="https://fonts.gstatic.com/s/patrickhand/v24/LDI1apSQOAYtSuYWp8ZhfYeMWcjKm7sp8g.woff2" 
@@ -41,7 +45,6 @@ const { title } = Astro.props;
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   -->
   <!-- <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet"> -->
-  <title>{title ? `${title} - Kindergarten St. Georg Großweil` : 'Kindergarten & Krippe St. Georg Großweil'}</title>
 </head>
 <body class="bg-brand-surface text-brand-text flex flex-col min-h-screen">
 
