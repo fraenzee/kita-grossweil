@@ -49,7 +49,7 @@
     .footer p { @apply font-patrick text-brand-surface; }      /* Footer-Navigation */
 
     /* Buttons lieber klar und lesbar */
-    .btn       { @apply font-display; }    /* oder font-body */
+    .btn       { @apply font-body; }    /* oder font-body */
     .btn-primary { @apply bg-brand-primary hover:bg-brand-secondary hover:text-brand-primary; }
     /* @apply bg-brand-primary text-brand-secondary hover:bg-brand-accent; */
   }
@@ -125,9 +125,9 @@ a {
 
 /* ===== 10. Font-Loading-Optimierung (Optional) ===== */
 /* Verhindert Layout-Shift während Font lädt */
-@supports (font-display: optional) {
+@supports (font-body: optional) {
   @font-face {
-    font-family: 'Patrick Hand Fallback';
+    font-family: 'Patrick Hand';
     src: local('Comic Sans MS');
     ascent-override: 105%;
     descent-override: 35%;

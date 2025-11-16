@@ -4,21 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
 import { getCollection } from 'astro:content';
 
-const siteUrl = "https://kita-grossweil.netlify.app/";
-
-const webPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Über uns – Kita Großweil",
-  "url": `${siteUrl}ueber-uns/`,
-  "description": "Erfahren Sie mehr über unsere pädagogische Arbeit, unser Team und unsere Kita-Gruppen.",
-  "inLanguage": "de",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "Kita Großweil",
-    "url": siteUrl
-  }
-};
+import {createWebPageSchema} from "../schema/webPageSchema.js";
+const schema = createWebPageSchema;
 
 // Lade den Inhalt der "Über uns"-Seite aus der Markdown-Datei
 const pages = await getCollection('pages');
@@ -32,7 +19,10 @@ if (!aboutPage) {
 // Extrahiere den gerenderten Inhalt
 const { Content } = await aboutPage.render();
 ---
-<BaseLayout title={aboutPage.data.title}>
+<BaseLayout title="Über uns"
+  description="Willkommen in der Kita St. Georg in Großweil - Krippe und Kindergarten."
+  robots="noindex, follow"
+  schema={schema}>
 
     <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
         <h1>{aboutPage.data.title}</h1>
@@ -63,6 +53,6 @@ const { Content } = await aboutPage.render();
         </div>
     </section>
 
-    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)}></script>
+    <!-- <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)}></script> -->
 
 </BaseLayout>

@@ -58,9 +58,9 @@ export default {
       },
       // tailwind.config.js
       fontFamily: {
-        display: ['"Baloo 2"', 'Quicksand', 'Verdana', 'Rounded', // macOS
-          'ui-rounded', // iOS
-          'system-ui', 'sans-serif'],
+        // display: ['"Baloo 2"', 'Quicksand', 'Verdana', 'Rounded', // macOS
+        //   'ui-rounded', // iOS
+        //   'system-ui', 'sans-serif'],
         body: ['"Nunito Sans"',
           'Inter', // moderne Sans-Serif Backup
           '-apple-system',       // iOS/macOS
