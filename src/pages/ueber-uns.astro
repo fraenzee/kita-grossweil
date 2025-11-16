@@ -4,8 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
 import { getCollection } from 'astro:content';
 
-import {createWebPageSchema} from "../schema/webPageSchema.js";
-const schema = createWebPageSchema;
+
+import { createWebPageSchema } from "../schema/webPageSchema.js";
+const title = "Über uns - Kita Großweil";
+const description = "Erfahren Sie mehr über unsere pädagogische Arbeit, unser Team und unsere Kita-Gruppen.";
+
+import { createPersonListSchema } from "../schema/personListSchema.js";
+
+const schema = [createWebPageSchema({ title, description, url: Astro.url.href}), createPersonListSchema];
 
 // Lade den Inhalt der "Über uns"-Seite aus der Markdown-Datei
 const pages = await getCollection('pages');
@@ -19,9 +25,10 @@ if (!aboutPage) {
 // Extrahiere den gerenderten Inhalt
 const { Content } = await aboutPage.render();
 ---
-<BaseLayout title="Über uns"
-  description="Willkommen in der Kita St. Georg in Großweil - Krippe und Kindergarten."
+<BaseLayout title={title}
+  description={description}
   robots="noindex, follow"
+  url="https://kita-grossweil.netlify.app/ueber-uns/"
   schema={schema}>
 
     <section class="bg-white rounded-lg shadow-lg p-8 mb-8">

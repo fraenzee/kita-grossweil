@@ -2,18 +2,50 @@ export const siteUrl = "https://kita-grossweil.netlify.app/";
 
 export const teamMembers = [
   {
-    name: "Max Mustermann",
-    jobTitle: "Erzieher",
-    image: `${siteUrl}assets/team/max-mustermann.jpg`
+    name: "Maria Sanner",
+    jobTitle: "Leitung",
+    // image: `${siteUrl}assets/team/max-mustermann.jpg`
+    image: "https://placehold.co/150x150/eeeeee/333333?text=Foto",
+    description: "Seit 20XX bei uns"
   },
   {
-    name: "Erika Beispiel",
-    jobTitle: "Leitung",
-    image: `${siteUrl}assets/team/erika-beispiel.jpg`
+    name: "Max Mustermann",
+    jobTitle: "Erzieher",
+    // image: `${siteUrl}assets/team/erika-beispiel.jpg`
+    image: "https://placehold.co/150x150/eeeeee/333333?text=Foto",
+    description: "Spezialgebiet: Naturpädagogik"
+  },
+  {
+    name: "Erika Musterfrau",
+    jobTitle: "Kinderpflegerin",
+    // image: `${siteUrl}assets/team/erika-beispiel.jpg`
+    image: "https://placehold.co/150x150/eeeeee/333333?text=Foto",
+    description: "Spezialgebiet: Kreativität"
   }
 ];
 
-export const personListSchema = {
+        // <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        //     <div class="team-member-card">
+        //         <img src="https://placehold.co/150x150/eeeeee/333333?text=Foto" alt="Teammitglied Foto" class="rounded-full mx-auto mb-4">
+        //         <h3 class="text-xl font-semibold">Frau Maria Sanner</h3>
+        //         <p class="">Leitung</p>
+        //         <p class="text-brand-textGray text-sm mt-2">Seit 20XX bei uns</p>
+        //     </div>
+        //     <div class="team-member-card">
+        //         <img src="https://placehold.co/150x150/eeeeee/333333?text=Foto" alt="Teammitglied Foto" class="rounded-full mx-auto mb-4">
+        //         <h3 class="text-xl font-semibold">Max Mustermann</h3>
+        //         <p class="">Erzieher</p>
+        //         <p class="text-brand-textGray text-sm mt-2">Spezialgebiet: Naturpädagogik</p>
+        //     </div>
+        //     <div class="team-member-card">
+        //         <img src="https://placehold.co/150x150/eeeeee/333333?text=Foto" alt="Teammitglied Foto" class="rounded-full mx-auto mb-4">
+        //         <h3 class="text-xl font-semibold">Erika Musterfrau</h3>
+        //         <p class="">Kinderpflegerin</p>
+        //         <p class="text-brand-textGray text-sm mt-2">Spezialgebiet: Kreativität</p>
+        //     </div>
+        // </div>
+
+export const createPersonListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "Team – Kita Großweil",
