@@ -10,6 +10,8 @@ const title = "Über uns - Kita Großweil";
 const description = "Erfahren Sie mehr über unsere pädagogische Arbeit, unser Team und unsere Kita-Gruppen.";
 
 import { createPersonListSchema } from "../schema/personListSchema.js";
+import { teamMembers } from "../schema/personListSchema.js";
+import TeamMember from "../components/TeamMember.astro";
 
 const schema = [createWebPageSchema({ title, description, url: Astro.url.href}), createPersonListSchema];
 
@@ -39,24 +41,7 @@ const { Content } = await aboutPage.render();
 
         <!-- Beispiel Teammitglieder (Diese bleiben vorerst hier, bis wir eine dynamische Lösung über das CMS haben) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            <div class="team-member-card">
-                <img src="https://placehold.co/150x150/eeeeee/333333?text=Foto" alt="Teammitglied Foto" class="rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold">Frau Maria Sanner</h3>
-                <p class="">Leitung</p>
-                <p class="text-brand-textGray text-sm mt-2">Seit 20XX bei uns</p>
-            </div>
-            <div class="team-member-card">
-                <img src="https://placehold.co/150x150/eeeeee/333333?text=Foto" alt="Teammitglied Foto" class="rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold">Max Mustermann</h3>
-                <p class="">Erzieher</p>
-                <p class="text-brand-textGray text-sm mt-2">Spezialgebiet: Naturpädagogik</p>
-            </div>
-            <div class="team-member-card">
-                <img src="https://placehold.co/150x150/eeeeee/333333?text=Foto" alt="Teammitglied Foto" class="rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold">Erika Musterfrau</h3>
-                <p class="">Kinderpflegerin</p>
-                <p class="text-brand-textGray text-sm mt-2">Spezialgebiet: Kreativität</p>
-            </div>
+            {teamMembers.map(m => <TeamMember {...m} />)}
         </div>
     </section>
 
