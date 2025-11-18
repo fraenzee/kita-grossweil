@@ -2,16 +2,14 @@
 //to dos:
 // SEO check/changes: meta tags, canonical, sitemaps, robots.txt, ...
       // robots.txt: https://app.langdock.com/chat/4725e8ff-7351-4439-839e-0fe1b28e5e24
-// implement error handling and 404 page       --> done, custom 404 page created
 // fix heading etc. colors among all pages to be consistent  --> done
 // add structured data                         
       // --> breadcrumbs added correctly
       //  add organization data -> in progress
       //  add local business data -> in progress
       //  add webpage data -> in progress
+      //  add person data (for team members page) -> in progress
       //  --> check how to improve here https://app.langdock.com/chat/e782773f-bf06-4900-84d1-cd29005a38c9
-      //
-      //  add person data (for team members page)
 // add more content to pages (paedagogik, anmeldung-kosten, aktuelles, galerie, kontakt)  --> in progress
 // add team members page with dynamic content from CMS
 // check how to add search action schema
@@ -22,9 +20,10 @@
 // add analytics -- GSC, GA4
 // add social media cards
 // add favicons
+// image optimization: https://chatgpt.com/c/691a2b6c-6154-8325-af40-30c6d1d7dd02
+// !!!! optimize images (responsive, modern formats, compression)
 // add loading indicators for images
 // add alt text for all images
-// !!!! optimize images (responsive, modern formats, compression)
 // implement lazy loading for images and videos
 // accessibility check
 // performance check
@@ -139,8 +138,8 @@ const { Content } = await homepage.render();
 
 // adjust laster to be an indexed page
 ---
-<BaseLayout title="Startseite"
-  description="Willkommen in der Kita St. Georg in Großweil - Krippe und Kindergarten."
+<BaseLayout title="Krippe & Kindergarten in Großweil"
+  description="Willkommen in der Kita St. Georg in Großweil: Krippe & Kindergarten. Ein Ort zum Spielen, Lernen und Wachsen für Kinder von ganz jung bis zur Einschulung."
   robots="noindex, follow"
   schema={schema}>
     <section>
