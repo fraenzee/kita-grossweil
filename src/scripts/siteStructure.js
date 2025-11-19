@@ -4,7 +4,9 @@ export const siteStructure = [
         children: [
             { name: "Unser Team", slug: "team" },
             { name: "Unsere Kita-Gruppen", slug: "gruppen" },
+            { name: "Elternbeirat", slug: "elternbeirat" },
             { name: "Unser Konzept", slug: "paedagogik" },
+            { name: "FAQ", slug: "faq" },
         ],
     },
     { name: "Kontakt", slug: "kontakt", },

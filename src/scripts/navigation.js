@@ -6,7 +6,9 @@ export const navItems = [
     children: [
       { title: "Unser Team", href: "/team/" },
       { title: "Unsere Kita-Gruppen", href: "/gruppen/" },
+      { title: "Elternbeirat", href: "/elternbeirat/" },
       { title: "Pädagogik-Konzept", href: "/paedagogik/" },
+      { title: "FAQ", href: "/faq/" },
     ],
   },
   { title: "Anmeldung", href: "/anmeldung-kosten/" },

@@ -75,4 +75,10 @@ export const webSiteSchema = {
   "name": "Kita St. Georg Großweil",
   "url": siteUrl,
   "inLanguage": "de"
+  // ,  // Suchfunktion auskommentiert, noch nicht implementiert
+//   "potentialAction": {
+//     "@type": "SearchAction",
+//     "target": `${siteUrl}suche/?q={search_term_string}`,
+//     "query-input": "required name=search_term_string"
+//   }
 };

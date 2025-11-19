@@ -37,6 +37,18 @@
     @apply text-lg leading-relaxed text-brand-text mb-4;
   }
 
+  section p a {
+    @apply text-brand-secondary underline;
+  }
+
+  section ul li {
+    @apply list-inside text-lg before:content-['•'] before:text-brand-secondary before:mr-2 before:ml-4;
+  }
+
+  section ul :last-child {
+    @apply mb-4;
+  }
+
   section {
   @apply bg-white rounded-lg shadow-lg p-8 mb-8 text-center;
 }
