@@ -5,19 +5,19 @@ Im Kindergarten & Krippe St. Georg Großweil orientieren wir uns an einem ganzhe
 
 Unser Konzept basiert auf den folgenden Säulen:
 
-### Spielerisches Lernen
+## Spielerisches Lernen
 
 Wir sind davon überzeugt, dass Spielen die wichtigste Form des Lernens im Kindesalter ist. Durch freies Spiel und angeleitete Aktivitäten fördern wir Kreativität, Problemlösungsfähigkeiten und soziale Kompetenzen.
 
-### Individuelle Förderung
+## Individuelle Förderung
 
 Jedes Kind ist einzigartig. Wir beobachten und unterstützen die individuellen Stärken und Bedürfnisse jedes Kindes und bieten altersgerechte Angebote zur Förderung.
 
-### Naturverbundenheit
+## Naturverbundenheit
 
 Die Natur ist unser großes Klassenzimmer. Wir verbringen viel Zeit im Freien, um die Umwelt zu erkunden, die Sinne zu schärfen und die Verbundenheit zur Natur zu stärken.
 
-### Soziale Kompetenzen
+## Soziale Kompetenzen
 
 Wir legen Wert auf ein respektvolles Miteinander. Die Kinder lernen, Konflikte zu lösen, Empathie zu entwickeln und sich in die Gemeinschaft einzubringen.
 

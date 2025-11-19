@@ -55,10 +55,10 @@
 
   /* Optional: gezielt für Navbar/Footer */
   @layer components {
-    .navbar a { @apply font-patrick; }      /* Top-Navigation */
-    .footer a { @apply font-patrick; }      /* Footer-Navigation */
-    .footer { @apply font-patrick text-brand-surface; }      /* Footer-Navigation */
-    .footer p { @apply font-patrick text-brand-surface; }      /* Footer-Navigation */
+    .navbar a { @apply font-patrick tracking-wider; }      /* Top-Navigation */
+    .footer a { @apply font-patrick tracking-wider; }      /* Footer-Navigation */
+    .footer { @apply font-patrick text-brand-surface tracking-wider; }      /* Footer-Navigation */
+    .footer p { @apply font-patrick text-brand-surface tracking-wider; }      /* Footer-Navigation */
 
     /* Buttons lieber klar und lesbar */
     .btn       { @apply font-body; }    /* oder font-body */
@@ -114,14 +114,14 @@ a {
 
 /* ===== NAVIGATION ===== */
 .navbar {
-  @apply content-center items-center bg-brand-surface text-brand-secondary text-xl shadow-md;
+  @apply content-center items-center bg-brand-surface text-brand-secondary text-xl shadow-md tracking-wider;
   /* flex hover:border-adobedarkblue   */
 }
 .nav-link {
-  @apply px-4 py-2 text-brand-secondary border-b-2 border-transparent hover:border-brand-primary font-semibold transition-colors duration-200;
+  @apply px-4 py-2 text-brand-secondary border-b-2 border-transparent hover:border-brand-primary font-semibold transition-colors duration-200 tracking-wider;
 }
 .nav-link.btn {
-  @apply hover:border-transparent; /*hover:bg-brand-hoverSurface */
+  @apply hover:border-transparent tracking-wider; /*hover:bg-brand-hoverSurface */
 }
 /* .nav-link-active {
   @apply border-b-2 border-brand-primary text-brand-secondary;
@@ -129,10 +129,10 @@ a {
 
 /* ===== FOOTER ===== */
 .footer {
-  @apply bg-brand-secondary text-brand-surface py-8;
+  @apply bg-brand-secondary text-brand-surface py-8 tracking-wider;
 }
 .footer a {
-  @apply hover:text-brand-primary text-brand-surface;
+  @apply hover:text-brand-primary text-brand-surface tracking-wider;
 }
 
 /* ===== 10. Font-Loading-Optimierung (Optional) ===== */
