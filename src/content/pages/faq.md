@@ -37,7 +37,7 @@ Das ausführliche pädagogische Konzept der Kindertagesstätte St. Georg finden 
 ## 7. Erhalte ich einen Zuschuss für einen Krippenplatz?
 
 Ja, seit dem 01.01.2020 wird an Familien mit Krippenkindern ein Zuschuss von 100 € gezahlt (bayerisches Krippengeld).
-Informationen und den Antrag dazu finden Sie auf der Webseite des ZBFS (Zentrum Bayern Familie und Soziales): https://www.zbfs.bayern.de/familie/krippengeld.
+Informationen und den Antrag dazu finden Sie auf der [Webseite des ZBFS](https://www.zbfs.bayern.de/familie/krippengeld) (Zentrum Bayern Familie und Soziales).
 
 ## 8. Wie lauten die Kontaktdaten der Einrichtung?
 

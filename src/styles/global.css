@@ -41,8 +41,12 @@
     @apply text-brand-secondary underline;
   }
 
+  section ul {
+    @apply list-outside mb-4;
+  }
+
   section ul li {
-    @apply list-inside text-lg before:content-['•'] before:text-brand-secondary before:mr-2 before:ml-4;
+    @apply list-outside text-lg before:content-['•'] before:text-brand-secondary before:mr-2 before:ml-4;
   }
 
   section ul :last-child {

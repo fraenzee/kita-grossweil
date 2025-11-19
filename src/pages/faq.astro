@@ -7,6 +7,11 @@ import { getCollection } from 'astro:content';
 const title = "FAQ";
 const description = "Häufig gestellte Fragen zur Kita St. Georg in Großweil.";
 
+import { faqSchema } from "../schema/faq.js";
+
+const schema = [faqSchema];
+
+
 // Lade den Inhalt der "FAQ"-Seite aus der Markdown-Datei
 const pages = await getCollection('pages');
 const faqPage = pages.find(page => page.slug === 'faq'); // Finde die "faq.md" Seite
@@ -23,6 +28,7 @@ const { Content } = await faqPage.render();
   description={description}
   robots="noindex, follow"
   url="https://kita-grossweil.netlify.app/faq/"
+  schema={schema}
 >
 
     <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
