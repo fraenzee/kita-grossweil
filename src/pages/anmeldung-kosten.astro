@@ -45,38 +45,42 @@ const { Content } = await anmeldungKostenPage.render();
 ---
 <BaseLayout title={anmeldungKostenPage.data.title}>
     <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <h1 class="mb-4">{anmeldungKostenPage.data.title}</h1>
-        <div class="text-lg leading-relaxed mb-6">
-            <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+      <div class="leading-relaxed bg-white">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto max-w-2xl md:text-center">
+            <p class="text-base/7 font-semibold font-body text-brand-textGray">{anmeldungKostenPage.data.subtitle}</p>
+            <h1 class="mt-2 text-4xl font-semibold tracking-tight font-patrick text-brand-secondary sm:text-5xl lg:text-balance leading-relaxed">{anmeldungKostenPage.data.title}</h1>
+            <div class="text-lg leading-relaxed mb-6">
+                <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+            </div>
+            <div class="mt-6 text-center">
+                <a href="https://portal.little-bird.de/" target="_blank" class="btn btn-primary">
+                    Zum Little Bird Portal
+                </a>
+            </div>
+          </div>
         </div>
-        <div class="mt-6 text-center">
-            <a href="https://portal.little-bird.de/" target="_blank" class="btn btn-primary">
-                Zum Little Bird Portal
-            </a>
-        </div>
-    </section>
+      </div>
+      <h2 class="pt-24" >Kosten / Elternbeiträge (monatlich)</h2>
 
-    <section>
-  <h2 >Kosten / Elternbeiträge (monatlich)</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
+        <KitaCostsTable
+          title="Kindergarten (ab 3 Jahre)"
+          data={kindergartenData}
+          note="Für Kinder ab 3 Jahren wird ein Zuschuss von 100 € vom Freistaat Bayern gewährt."
+        />
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
-  <KitaCostsTable
-    title="Kindergarten (ab 3 Jahre)"
-    data={kindergartenData}
-    note="Für Kinder ab 3 Jahren wird ein Zuschuss von 100 € vom Freistaat Bayern gewährt."
-  />
+        <KitaCostsTable
+          title="Krippe (unter 3 Jahre)"
+          data={krippeData}
+          note="Seit dem 01.01.2020 wird ein Zuschuss von 100 € für Familien mit Krippenkindern gewährt."
+        />
 
-  <KitaCostsTable
-    title="Krippe (unter 3 Jahre)"
-    data={krippeData}
-    note="Seit dem 01.01.2020 wird ein Zuschuss von 100 € für Familien mit Krippenkindern gewährt."
-  />
+        <KitaCostsTable
+          title="Zusätzliche Kosten"
+          data={additionalCosts}
+        />
 
-  <KitaCostsTable
-    title="Zusätzliche Kosten"
-    data={additionalCosts}
-  />
-
-  </div>
-</section>
+      </div>
+  </section>
 </BaseLayout>

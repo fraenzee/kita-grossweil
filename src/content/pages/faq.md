@@ -1,5 +1,6 @@
 ---
-title: "Häufig gestellte Fragen (FAQ) zur Kindertagesstätte St. Georg Großweil"
+title: "FAQ zur Kita St. Georg in Großweil"
+subtitle: "Häufig gestellte Fragen"
 ---
 
 ## 1. Wie melde ich mein Kind für den Kindergarten oder die Kinderkrippe an?

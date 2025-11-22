@@ -1,5 +1,6 @@
 ---
 title: "Aktuelles"
+subtitle: "Neues von der Kita St. Georg Großweil"
 ---
 Hier finden Sie die neuesten Nachrichten, wichtige Termine und spannende Berichte aus unserem Kindergartenalltag. Bleiben Sie auf dem Laufenden über unsere Aktivitäten und Projekte!
 

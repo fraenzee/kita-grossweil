@@ -1,5 +1,6 @@
 ---
 title: "Pädagogisches Konzept"
+subtitle: "So wollen wir uns um Ihre Kinder kümmern"
 ---
 Im Kindergarten & Krippe St. Georg Großweil orientieren wir uns an einem ganzheitlichen Ansatz, der die individuelle Entwicklung jedes Kindes in den Mittelpunkt stellt. Wir schaffen eine Umgebung, in der Kinder sich sicher und geborgen fühlen, um ihre Neugier zu entfalten und ihre Potenziale zu entdecken.
 

@@ -8,6 +8,7 @@ export const navItems = [
       { title: "Unsere Kita-Gruppen", href: "/gruppen/" },
       { title: "Elternbeirat", href: "/elternbeirat/" },
       { title: "Pädagogik-Konzept", href: "/paedagogik/" },
+      { title: "Unser Träger", href: "/traeger/" },
       { title: "FAQ", href: "/faq/" },
     ],
   },

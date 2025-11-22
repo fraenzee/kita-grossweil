@@ -1,5 +1,6 @@
 ---
 title: "Galerie & Rundgang"
+subtitle: "Schauen Sie doch mal vorbei"
 ---
 Tauchen Sie ein in unseren Kindergartenalltag und sehen Sie selbst, wie viel Spaß die Kinder bei uns haben! Hier finden Sie Eindrücke von unseren Aktivitäten, Festen und unserem schönen Außengelände.
 

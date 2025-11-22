@@ -1,5 +1,6 @@
 ---
 title: "Impressum"
+subtitle: "Rechtliches"
 ---
 **Platzhalter für Ihr Impressum gemäß § 5 TMG.**
 

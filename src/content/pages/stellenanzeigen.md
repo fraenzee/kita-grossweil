@@ -1,5 +1,6 @@
 ---
-title: "Stellenangebote / Jobs & Karriere"
+title: "Jobs & Karriere"
+subtitle: "Stellenangebote"
 ---
 Wir sind immer auf der Suche nach engagierten und liebevollen Fachkräften, die unser Team im Kindergarten & Krippe St. Georg Großweil bereichern möchten. Wenn Sie eine Leidenschaft für die Arbeit mit Kindern haben und Teil einer unterstützenden Gemeinschaft sein möchten, freuen wir uns auf Ihre Bewerbung!
 
@@ -11,4 +12,4 @@ Wir suchen eine/n qualifizierte/n Erzieher/in zur Verstärkung unseres Teams in 
 Beginn: 01. September 2024
 Für unsere Krippengruppe suchen wir eine/n engagierte/n Kinderpfleger/in.
 
-Auch wenn aktuell keine passende Stelle ausgeschrieben ist, freuen wir uns über Ihre Initiativbewerbung. Senden Sie uns Ihre Unterlagen gerne an kiga.grossweil@gmx.de.
+Auch wenn aktuell keine passende Stelle ausgeschrieben ist, freuen wir uns über Ihre Initiativbewerbung. Senden Sie uns Ihre Unterlagen gerne an kindergarten@grossweil.de.

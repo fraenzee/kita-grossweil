@@ -17,10 +17,18 @@ if (!privacyPage) {
 const { Content } = await privacyPage.render();
 ---
 <BaseLayout title={privacyPage.data.title}>
-    <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <h1 class="mb-4">{privacyPage.data.title}</h1>
-        <div class="text-lg leading-relaxed mb-6">
-            <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+
+    <section class="text-left bg-white rounded-lg shadow-lg p-8 mb-8">
+        <div class="leading-relaxed bg-white">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl">
+                    <p class="text-base/7 font-semibold font-body text-brand-textGray text-center">{privacyPage.data.subtitle}</p>
+                    <h1 class="mt-2 text-center text-4xl font-semibold tracking-tight font-patrick text-brand-secondary sm:text-5xl lg:text-balance leading-relaxed">{privacyPage.data.title}</h1>
+                    <div class="text-lg leading-relaxed mb-6">
+                        <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </BaseLayout>

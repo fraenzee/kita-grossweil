@@ -32,14 +32,23 @@ const { Content } = await aboutPage.render();
   schema={schema}>
 
     <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <h1>{aboutPage.data.title}</h1>
-        <div class="leading-relaxed mb-6">
-            <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
-        </div>
+        <div class="leading-relaxed bg-white pb-24 sm:pb-32">
+          <div class="mx-auto max-w-7xl px-6 lg:px-8">
+              <div class="mx-auto max-w-2xl lg:text-center">
+                <p class="text-base/7 font-semibold font-body text-brand-textGray">{aboutPage.data.subtitle}</p>
+                <h1 class="mt-2 text-4xl font-semibold tracking-tight font-patrick text-brand-secondary sm:text-5xl lg:text-balance leading-relaxed">{aboutPage.data.title}</h1>
+                <div class="leading-relaxed mb-6">
+                  <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+                </div>
+              </div>
+          </div>
+        
 
-        <!-- Beispiel Teammitglieder (Diese bleiben vorerst hier, bis wir eine dynamische Lösung über das CMS haben) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            {teamMembers.map(m => <TeamMember {...m} />)}
+
+          <!-- Beispiel Teammitglieder (Diese bleiben vorerst hier, bis wir eine dynamische Lösung über das CMS haben) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+              {teamMembers.map(m => <TeamMember {...m} />)}
+          </div>
         </div>
     </section>
 

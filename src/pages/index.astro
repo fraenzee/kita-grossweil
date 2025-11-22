@@ -143,8 +143,17 @@ const { Content } = await homepage.render();
   robots="noindex, follow"
   schema={schema}>
     <section>
-        <h1 class="leading-snug">{homepage.data.title}</h1>
-        <p>{homepage.data.subtitle}</p>
+    <div>
+      <div>
+      <div class="mx-auto max-w-2xl lg:text-center">  
+        <div class="lg:text-center">
+          <p class="text-base/7 font-semibold font-body text-brand-textGray">{homepage.data.subtitle}</p>
+          <h1 class="leading-snug" set:html={homepage.data.title}></h1>
+          <p>{homepage.data.intro}</p>
+          <p>{homepage.data.description}</p>
+        </div>
+      </div>
+      </div>
         <div class="mb-12">
             <!-- Carousel-Komponente einbinden -->
             <Carousel slides={slides} />
@@ -178,7 +187,7 @@ const { Content } = await homepage.render();
             xl:grid-cols-4 mb-12">
           {cards.map(card => <Card {...card} />)}
         </div>
-        <div>
+        <div class="mx-auto max-w-2xl lg:text-center">
             <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
         </div>
         <div class="gap-4 flex justify-center mt-6">

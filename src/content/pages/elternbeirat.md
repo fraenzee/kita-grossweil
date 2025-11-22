@@ -1,5 +1,6 @@
 ---
 title: "Elternbeirat"
+subtitle: "Bindeglied zwischen Eltern, Kitaleitung und Träger"
 ---
 
 Der Elternbeirat ist ein wichtiges Bindeglied zwischen den Eltern, der Kindergartenleitung und dem Träger. Er vertritt die Interessen der Elternschaft und unterstützt die Einrichtung bei verschiedenen Projekten und Veranstaltungen.

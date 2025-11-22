@@ -1,0 +1,34 @@
+---
+// Importiere das Basis-Layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+// Importiere die Funktion zum Abrufen von Inhalten aus der "pages"-Sammlung
+import { getCollection } from 'astro:content';
+
+// Lade den Inhalt der "traeger"-Seite aus der Markdown-Datei
+const pages = await getCollection('pages');
+const traegerPage = pages.find(page => page.slug === 'traeger'); // Finde die "traeger.md" Seite
+
+// Stelle sicher, dass die Seite gefunden wurde, sonst leite um oder zeige Fehler
+if (!traegerPage) {
+  return Astro.redirect('/404'); // Oder eine andere Fehlerbehandlung
+}
+
+// Extrahiere den gerenderten Inhalt
+const { Content } = await traegerPage.render();
+---
+<BaseLayout title={traegerPage.data.title}>
+
+    <section class="text-left bg-white rounded-lg shadow-lg p-8 mb-8">
+        <div class="leading-relaxed bg-white">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl md:text-center">
+            <p class="text-base/7 font-semibold font-body text-brand-textGray">{traegerPage.data.subtitle}</p>
+                <h1 class="mt-2 text-4xl font-semibold tracking-tight font-patrick text-brand-secondary sm:text-5xl lg:text-balance leading-relaxed">{traegerPage.data.title}</h1>
+                <div class="text-lg leading-relaxed mb-6">
+                    <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</BaseLayout>

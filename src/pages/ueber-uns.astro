@@ -6,14 +6,12 @@ import { getCollection } from 'astro:content';
 
 
 import { createWebPageSchema } from "../schema/webPageSchema.js";
-const title = "Über uns";
 const description = "Erfahren Sie mehr über unsere pädagogische Arbeit, unser Team und unsere Kita-Gruppen.";
 
 import { createPersonListSchema } from "../schema/personListSchema.js";
 import { teamMembers } from "../schema/personListSchema.js";
 import TeamMember from "../components/TeamMember.astro";
 
-const schema = [createWebPageSchema({ title, description, url: Astro.url.href}), createPersonListSchema];
 
 // Lade den Inhalt der "Über uns"-Seite aus der Markdown-Datei
 const pages = await getCollection('pages');
@@ -26,6 +24,11 @@ if (!aboutPage) {
 
 // Extrahiere den gerenderten Inhalt
 const { Content } = await aboutPage.render();
+
+
+const { title, subtitle, gruppen } = aboutPage.data;
+
+const schema = [createWebPageSchema({ title, description, url: Astro.url.href}), createPersonListSchema];
 ---
 <BaseLayout title={title}
   description={description}
@@ -33,18 +36,70 @@ const { Content } = await aboutPage.render();
   url="https://kita-grossweil.netlify.app/ueber-uns/"
   schema={schema}>
 
-    <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <h1>{aboutPage.data.title}</h1>
-        <div class="leading-relaxed mb-6">
-            <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
-        </div>
+  <!-- <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)}></script> -->
 
+ <section class="text-left bg-white rounded-lg shadow-lg p-8 mb-8">
+    <div class="leading-relaxed bg-white pb-24 sm:pb-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:text-center">
+          <p class="text-base/7 font-semibold font-body text-brand-textGray">{aboutPage.data.subtitle}</p>
+          <h1 class="mt-2 text-4xl font-semibold tracking-tight font-patrick text-brand-secondary sm:text-5xl lg:text-balance">{aboutPage.data.title}</h1>
+          {aboutPage.data.intro
+            .trim()
+            .split(/\n\s*\n/)
+            .map((paragraph, idx) => (
+              <p class={`text-lg/8 text-brand-text ${idx === 0 ? 'mt-6' : 'mt-4'}`}>
+                {paragraph}
+              </p>
+            ))
+          }
+        </div>
+        <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+          <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
+            
+            {gruppen.map(gruppe => (
+            <div class="relative pl-16">
+              <dt class="text-brand-secondary font-patrick font-semibold text-2xl">
+                <div class="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg">
+                  {/* <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 text-white">
+                    <path d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg> */}
+                  <img width="50" height="50" src={gruppe.bild} alt={gruppe.alt? gruppe.alt : gruppe.name}/>
+                </div>
+                {gruppe.name}
+              </dt>
+              <dd class="mt-2 mb-2 text-brand-textGray font-body">{gruppe.intro}
+              </dd>
+              <a href={gruppe.link} class="lnb lnc lnk lnn">{gruppe.linkText} <span aria-hidden="true">→</span></a>
+            </div>
+            ))}
+
+          </dl>
+        </div>
+      </div>
+    </div>
+
+      <div class="text-center">
+        <Content />
         <!-- Beispiel Teammitglieder (Diese bleiben vorerst hier, bis wir eine dynamische Lösung über das CMS haben) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {teamMembers.map(m => <TeamMember {...m} />)}
         </div>
-    </section>
+      </div>
+  </section>
+<!-- 
+  <section>
 
-    <!-- <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)}></script> -->
+  <a class="text-blue-600 after:content-['_↗']" href="...">
+Pro Display XDR</a>
+
+
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE5ElEQVR4nO2dTYgcRRTHexPxA0VRL+pFEQ+6sk69nWzc9HuzLTjZfm8WP1DnoiIIIt4ED3oMelIREURBckj0puDJBTFGEQTRGBE8ieIlQsCL+fATYlTeZja7zjC7M3ZNV/X0+8Mflpnq6nrv11NVs1u1lSQVl+O0A4I/qp2ghG5P7QVrMOgftRM8Fro9tRf0YKw7dHtqLzAgcQkMSFwCAxKXwIDEJTAgYbXQya6ZZ3rcCb3hGD/vB6Kv6XtaRsuGbu+0asZ1WvcA08eO8a9+CMOsZR3jR5Cnd2sdoYOYCkGnteQEvxoVwnA4dHQ+T1uh46msbmK+CARfBKazRWGcN9NZx/iC1h06vkppNssuA6ZD3kAMGD/ZzbsvDx1nJTS7vHiVjy5qlC5sboWuDB1v1Mqy7AIneHjSMDZ1YYf0nqHjjlZO8OXSYGxAeSl03FEKJN01zpTW50Df7NDtoeOPTTNljBswfDz50r6nDPzVLwyM8+4Qh85DNAKhD0IDcYzvh86DyWQymUZXt9vdqd+WY3K3292Z1FHA9LBjOh16MIfBKfDpBqcPJXWSPoUxwoB1KIInk33JjqRWQIROhU48GJANabcQIxQndMoJPpjUUvuSHf0JmesbZMt+v3afjH4NJCSy92un0AkHAxJXwsGAxJVwMCBxJRwMSFwJBwMSV8LBgMSVcDAgcSUcDIjnhDLu1xUra2bc77v+2mnSCQMDMpmEOcHjupBu3Pr1Gr3WgIyo7bskerPB6XKRv+TptVqH1jXu/WunIglpytIcML3S+/Qc15/1tbLuP5Xa1CWddEyvble+2W5fAZI+AUJH+pO5yUe0jJbdrj69p97bgPSkyzidtB67be/eS7coNtPI8Q7H+JZj+n0LEP+xltVr9NqtlorqvbUNvSWlpmGCdnodMD3jhL4fFcJQOILHnNDzjTy7IXRcldJsd/ZCYLwLhN5xgmeKghjwuS1yHzrBRxa7i5eEjjdaQWfpFn2CQegn7xCGw/lZt1A3OqkLHX8U0n1++qTqE1saBBk63hx1gk8u3LlwdVI3za9QU59MEPw1NAgYHGv+WOsuc2pP9Z4RnwM0lAdnuiYCawvicmpPbICWkrw+EWDq6qQjqZqay3tuLn2AltLgVGMiENMADSVPBHRvfRLhAP1L6ARBXScCzbx1rQ7QwPhd6GRApBMB6Oy5ftIcZhpC94LgapD95FItn8sRrmrOJvKpAcHXQwcJlTW+5h1Ir5+MIDiqnDV33oGEDgoqbgMicdmASFw2IBKXDYjEZQMicdmAyNQD2Tg4xUxjeSIHzehxQlpx6OCgkr/bsqOYTCaTyRSxQg+WELkNiMRlAyJx2YBIXDYgEpdrCgT1UOJVEDwAQgf1oBZgPBG+XfUC8rdjeruZt+aHHpWU430g+IUBmbQZT/ROXBtpXTEIPRVqTXFStsoO0DH91hDCcdvpmB4IASUpWwGeukf/f1vxWQPi89Mh9GmRtmZZdrFj+sGAeHPrfg/tfdqAeDH+6WO37K4VutGAeLAT+sxfm8vbMuGrzTECeddjm781IMV90Fubmb42IIWNB7y12YAYkNJkQMiAFJUBMSDlyYCQASkqA2JAypMBIQNSVFMOpKT9IkzP+WqzY3yvsvtBQu8XcYJnnOBhn/9pp5HjrY7xm0nDKLIf5F+8YkOqoKDe+AAAAABJRU5ErkJggg==" alt="Gemeinde">
+
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAALfElEQVR4nO1da5BcRRW+G98v1FJ8v0WxItnp3iFLds4ZRmV35/RsEB8svgqwtEqU0rIU0VAWLpYC4SHlm4hVSjCipizEFL5QBC1FwCQVUV6BSCK+CFQSCIvktWudvneX2Z67M/fRt+/M7v2qump/3J1zTp++3ae/Pqev5xUoUKBAgQI9hKXjS58sVeVdUsGVUuGdUsEjfkP++8qBBpzEz2Ql/+jR6stL9eqZUuH1kvCfknCfJPyvINwoFK4u16sD3mKBVNV3CsJtUuF0uyYU3iPr8A6bsvtHRp4hCL4kFTwWQf5V/SPVV3sLFePj40+QhBd36gjZ2i7yJrwlaeWXV8IrpMItcWQLhQ+W6vAmbyEioTOmdccQXJBG9rIxfK4k2JpItoL/lUarg95Cm6aSOkMGraTwbUnlC4Ub0smH+458a+VZ3kIAL856PUjpEKng70kWep5y0svW8j/vLQT40ZSNDsFpQTgeWz7hz63IJ9hdLpef5PU6hIIf2HKIVLgujmyeZqJEVJEHhIIRr9eRdDGV4e3OOLJLCsGibHbIWV6vQyrYa69TYG8c2YLwRMsO+arX67DpEKHwIdfRnTEgvuL1OiTBXRYdckcc2aJRrVh1COFnvF5HwFfZmjK+F0f20lrtmbyxs+iQ47xeBxOF1hxCeGJc+UXYa4CNEArvtuCMbTlvDM/xFgqYtU3tkEb1hKTyhcKfppwq/8HTn7eQwKxt8g7B1RbIxUTBBa9BgoaWewsOE94SqeDC+FMVXGCPfofNMWU/IAhr3kIGs7ZR1hSh8O4001QYyivLT+dBESHymhIEP5aNoVd6iwF6oSccZ26K9xb+5hH2+n/jOo6msoxoSmMrXioUnCEU/IapdT7CFQT/kQpvkYTnlRoVkZXsAgUK9Br6BuqVqr/Aww2c7cEUuSCcFIQ7hMLfS4JzB1T1LTYW87CISyg4RRB8RxDcylOVUHCAebJgbVs/QPghQXi4t9ARJDpE3zkT3CUIP1Kr1Z5oI/VHEF4apBtF2QjyOcr5Xi9gkAYPY0qEuSWh8EbeOOn8Jl4UFa4v1avvL6+sPT/sf+Vw5SU8MuOFn7hREvYnVLdPEJ4uCB+OKXP7snrlSNv2WwUrIgi/EGWUCYX7BeHX+0eGXmD+TrlefXGU3Cw5t4MmBxSujKMvR2pS4eUJ9j4P9Ct8fVb2W0G5gccIhf+KbZyCPaV6dcz8PTEKpbhMrFBwYIDg7ZE3ogRXx9VXEh7S61fG9qfPNkxDYxMekoQfM39XEHwq/u/B3lId3thJZ6Hgi0l0FQoucWV/Ivgjw8KZAuEhM7fKz/HlfN7Yv7eFA4QOB1NTCZy9szw8/GxX9seGnjMTvKbtRjdzSs0yeAFMZiB8YB61+wTBTQk77bOu7Y8FfwGzpcys0WubZdRqtadyDm3c3xEK7+HON3XmU70kevEibC7ALuyPDB4d0WP2WAodkqMrjjA6cW2iTmxUKy0OUfDdRL9FcF1e9jvPOAxpn26WVaLK+2IYtE/v5hWcI8aOfV2L3o3qsYJwQij4ZZwkOUGwKi/7I0EQXJGVQoLgd82y+seGjorgiF1MqSxv1F4U1QaegnhdCDZt7XVSoPKyP5pDFP4pM4UU/NtcR9o8PyUUrkmTfb5ifMXT+MRSEBycT465EXRpfzSHEO7IcIQcNPmpsOlF8ImdMXLTgENYff4RopP55rm2vyOivOYp2pSZQSIIHzWeuZ+nMttcUqlee1VYeYQZYbm2v7NDfOMyUgh2hmwQp2dHkMIHBeHSrLgkn+DE7XP+x4z8HNofCYLwR1kpxBu3Zlk8fzePHhFylm6bS5L1yhA7bfa5Og7nZX8kJN5BR1IIJ+bPUodvOOTSVjU998m87I8EnoObR5DVZpxtcBTlj2Z8iE/0XHJpTYv3z/KyPzIE4desjw6FG5plcLTRNBWd75pL4hPJYNQ+ahKLLuyPBV4QeQ62qMx+c7Hm8w2/Q+DgUccf80LXXNIRRE+ZsVEo+Lhr+2ODF0Q9B1tRqvLhkOPVP4ctdIMOuSSdFOe/JTt4E+nQ/mTgBdGCUheZvysITp2v7Fg65JIEwQcfH8Vwtiv7U4EXxCTlaXphrMNpobm2BLtnnjNDU+GQS+JFtukN2hd2+Yxt+61gGdVeJhR+qx0nZLRfh0UUzEsJBZuanzU7QSQ9ZErAJWkScs4zcB/bmpX91sFzML/2PNLYuNnX2U96u5nj7PkU0WVmBNeZynPelJcXlzThLeEECuOZW+djltPY7wRsXFRuhpOZwzopby5JEE62PEf4Zdv2dyWYGjG5JPOwSTrkkoL8raa3A7eVqDLq9QLKVHmtv5ni6lrYrIlAP76elAru1XM/4VrOn+W0/w5VTT+Z6QSzA0R+XNp6c4MYUspwCifg+esc24yTug90bgBsloTf5z46egxf42UBTrkRdXyPJPhDgvSa63XGYXjiNO9DPqcdUq+emSOXNt62sNNPujteXwkYc2rUfUb47nZpS7HAF64kzJ0y29/47pEwGTrOV/ir3Lg0wkvNXfqsHgQoCG5PPQgU3mEyyvGPPQkus9wRhzgzkI9sWxxPsMosAXDFpUkFHzX18dOT4BJ7u/RZ+WvC7G8L7pgZSiOLxuFiyDzdZ9b0ueCSgs6Zk9/FurGOWdkfhMaHR3eGX+uXkTIznQOboihVcswlsU5xq3UTDsrbO9rP01SWb0bISLkhymG/dMQl6aOATN+MFvtvbjt9MS3gTpl4N46WHHBJaW5OTeGUb7aLpqZzaFMcyUTpsLImJHFt1LeFF/Co5w98QUCyjPn0raUeRe8zHKwb8zaCP3oxIO1zSX38f7nZr+C2OfsUvenLTZlgNKe4taGWkkuyfRVgorekASc9rpDCG/NWiKtzvZwgCa/N235OIJ/lpvKaOw2F9i8/bvnzOnUeP8NUB28a+WqMoLb8/uCimG0cuengpIEnc3Fpp98L9jpzqPec2hRnVfLrenoXKKPbQJsq21Kj8mZNRvKnJeLlY10bpP+0FPcwOHc4b7tnG0eDNu9ETNfgwtAO09W6XA+S7veFgr9w7cg8Tjkrf/t1W+e52JV27ixc09JLE94SZoItTydTnO/LqT9RD86c9gPhRi9JfZ/VRvhb8yqmsn+v1TXZGQ43tWTH62NcvCpfp8BOL9acbN8ZuzgT3XSGsDBFJeGS/EOzTI+OOznkMS/XEdHAk81RKjN8M0LaLWZiXN6LfG4OYRLTjHxEcHrotBFc1rLIE/xi0TlkoF6th9x9ciAXfRpIzbrwFX+LyiE8f7e8HQ7WDTlfI9jaWvMY+/y8hx1inF/rTV9ezlCzg+RUh7nFXeWQKbNGozkdSOblEAWbMr3Iv4sdssXkpnINvVWTU4yzE2sX+cdxSEs1quNduc2vJ8jUusEZc9c1ONvxgNjuCao0bGZ2dGp842fWqT4yaSO4uiXBwt1g2MO+0IK5lIzPtl3QKC0po/p26a5xyNZm3cqjQ2/I3BH6tgpcHXo3o/+tD1B61BL+NZNzktYK3NTfFpH2dNs35w05ofacDORMcd/yB8Z4/xPrSnVWSH96rg6n+V9ZxnUcn/uplXBvcEOProLSmzrCXbquw79vd2Pw7BUBa/te/qZsS7yvz8G7wBnKb2ZaDofkuuSN4FxB+EP/UhrYzIdhukJY2xwU8HBfcJ9w3yi4jYlT3WeEF+vLmRvVSrtE7q5Ac1mb7ILGg9BbzCgc0mUoHNJlKBzSZSgc0mUoHNJlKBzSZQg2oNPd0ISCPdZqAXsV/CXO3DNfFDd4hIsz8+6PrkBAwZ/HvI7zt4LwYaaKzJskCsx+Tq/S0DfMWfzsd4gT+NqOyznr3cw6KdApEbqOw5LwE37pMm7g1J0ZDmle8pNgt/9dQs7KhGskwbd1PYkCFXapTAHLGKTBwxZ9dFSgQIECnnP8H2xvXGllfcRKAAAAAElFTkSuQmCC" alt="Team">
+
+    <img src="data:image/png;base64,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" alt="Elternbeirat">
+    
+  </section> -->
 
 </BaseLayout>

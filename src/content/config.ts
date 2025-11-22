@@ -8,12 +8,18 @@ const pagesCollection = defineCollection({
     // Hier könnten weitere Felder für deine Seiten definiert werden, falls nötig
     // z.B. description: z.string().optional(),
     subtitle: z.string().optional(),
+    intro: z.string().optional(),
+    description: z.string().optional(),
     gruppen: z
       .array(
         z.object({
           name: z.string(),
           bild: z.string(),
+          alt: z.string().optional(),
+          svg: z.string().optional(),
           intro: z.string(),
+          link: z.string().optional(),
+          linkText: z.string().optional(),
         })
       )
       .optional(),

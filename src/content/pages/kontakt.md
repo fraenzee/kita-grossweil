@@ -1,17 +1,15 @@
 ---
 title: "Kontakt"
+subtitle: "Melden Sie sich bei uns"
 ---
 Haben Sie Fragen, Anregungen oder möchten Sie einen Termin vereinbaren? Wir freuen uns auf Ihre Kontaktaufnahme!
 
 ### Unsere Kontaktdaten
 
-**St. Georg Kindergarten und Krippe**
-Am Bad 6
-82439 Großweil
-
-**Telefon:** 08851 / 71 73
-**E-Mail:** kindergarten@grossweil.de
-**Leitung:** Frau Maria Sanner
+* **St. Georg Kindergarten und Krippe**, Am Bad 6 82439 Großweil
+* **Telefon:** 08851 / 71 73
+* **E-Mail:** kindergarten@grossweil.de
+* **Leitung:** Frau Maria Sanner
 
 ### Öffnungszeiten
 

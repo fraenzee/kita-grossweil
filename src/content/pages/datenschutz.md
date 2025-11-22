@@ -1,5 +1,6 @@
 ---
 title: "Datenschutzerklärung"
+subtitle: "Rechtliches"
 ---
 Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. In dieser Datenschutzerklärung informieren wir Sie über die Art, den Umfang und den Zweck der Erhebung und Verwendung personenbezogener Daten auf unserer Website.
 

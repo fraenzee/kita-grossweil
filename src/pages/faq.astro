@@ -30,11 +30,17 @@ const { Content } = await faqPage.render();
   url="https://kita-grossweil.netlify.app/faq/"
   schema={schema}
 >
-
-    <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <h1 class="leading-snug">{faqPage.data.title}</h1>
-        <div class="leading-relaxed mb-6 text-left ">
-            <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+<section class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="leading-relaxed bg-white">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl md:text-center">
+              <p class="text-base/7 font-semibold font-body text-brand-textGray">{faqPage.data.subtitle}</p>
+              <h1 class="text-balance leading-relaxed">{faqPage.data.title}</h1>
+              <div class="leading-relaxed mb-6 text-left ">
+                  <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+              </div>
+            </div>
         </div>
-    </section>
+      </div>
+  </section>
 </BaseLayout>

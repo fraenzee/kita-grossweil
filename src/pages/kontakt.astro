@@ -17,11 +17,17 @@ if (!contactPage) {
 const { Content } = await contactPage.render();
 ---
 <BaseLayout title={contactPage.data.title}>
-    <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <h1 class="mb-4">{contactPage.data.title}</h1>
-        <div class="text-lg leading-relaxed mb-6">
-            <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
-        </div>
+
+<section class="text-left bg-white rounded-lg shadow-lg p-8 mb-8">
+        <div class="leading-relaxed bg-white">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl md:text-center">
+            <p class="text-base/7 font-semibold font-body text-brand-textGray">{contactPage.data.subtitle}</p>
+            <h1 class="mt-2 text-4xl font-semibold tracking-tight font-patrick text-brand-secondary sm:text-5xl lg:text-balance leading-relaxed">{contactPage.data.title}</h1>
+
+            <div class="text-lg leading-relaxed mb-6">
+                <Content /> <!-- Hier wird der Inhalt aus der Markdown-Datei eingefügt -->
+            </div>
 
         <!-- Kontaktformular (Platzhalter) - bleibt hier als HTML, da es nicht Teil des Markdown-Inhalts ist -->
         <div class="mt-12 bg-brand-hoverSoft p-8 rounded-lg shadow-md">
@@ -48,6 +54,9 @@ const { Content } = await contactPage.render();
             <p class="text-brand-textGray-600 text-sm mt-4">
                 Hinweis: Dies ist ein Platzhalter für ein Kontaktformular. Für eine funktionierende Version ist serverseitiger Code erforderlich. Alternativ können Sie direkt die oben genannte E-Mail-Adresse nutzen.
             </p>
+        </div>
+            </div>
+        </div>
         </div>
     </section>
 </BaseLayout>
