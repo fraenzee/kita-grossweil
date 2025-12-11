@@ -26,7 +26,7 @@ const bildMapping = {
 
 
 const { Content } = await gruppenPage.render();
-const { title, subtitle, gruppen } = gruppenPage.data;
+const { title, gruppen } = gruppenPage.data;
 ---
 
 <BaseLayout title={title}>
@@ -40,7 +40,7 @@ const { title, subtitle, gruppen } = gruppenPage.data;
       </div>
     </div>
     <div class="max-w-3xl mx-auto mb-16 md:text-center">
-      <Content />
+      {gruppenPage.data.subheadlinedescription}
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
@@ -63,5 +63,10 @@ const { title, subtitle, gruppen } = gruppenPage.data;
         </div>
       ))}
     </div>
+
+    <div class="mt-12 max-w-3xl mx-auto md:text-center">
+      <Content/>
+    </div>
+
   </section>
 </BaseLayout>
