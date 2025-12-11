@@ -1,5 +1,9 @@
 export const siteUrl = "https://kita-grossweil.netlify.app/";
 
+// import { Image } from 'astro:assets';
+const favicon = 'st-georg-kita-ritter-babydrache-favicon.png';
+//public/st-georg-kita-ritter-babydrache-favicon.png
+
 // Organization
 export const organizationSchema = {
   "@context": "https://schema.org",
@@ -7,7 +11,7 @@ export const organizationSchema = {
   "name": "Kita St. Georg Großweil",
   "description": "Kindergarten & Krippe St. Georg in Großweil - Ein Ort zum Spielen, Lernen und Wachsen für Kinder von der Krippe bis zur Einschulung.",
   "url": siteUrl,
-  "logo": `${siteUrl}st-georg-kita-ritter-babydrache-favicon.png`,
+  "logo": `${siteUrl}${favicon}`,
   "sameAs": [
     "https://www.instagram.com/kindertagesstaettegrossweil/"
   ],
