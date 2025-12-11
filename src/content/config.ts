@@ -8,7 +8,6 @@ const pagesCollection = defineCollection({
     // Hier könnten weitere Felder für deine Seiten definiert werden, falls nötig
     // z.B. description: z.string().optional(),
     subtitle: z.string().optional(),
-    subheadlinedescription: z.string().optional(),
     intro: z.string().optional(),
     description: z.string().optional(),
     gruppen: z

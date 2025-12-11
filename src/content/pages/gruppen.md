@@ -1,7 +1,7 @@
 ---
 title: "Unsere Kita-Gruppen"
 subtitle: "Lernen Sie unsere Kita-Gruppen kennen!"
-subheadlinedescription: "In unserer Kita Großweil bieten wir altersgerechte Gruppen, die individuell auf die Bedürfnisse der Kinder eingehen."
+intro: "In unserer Kita Großweil bieten wir altersgerechte Gruppen, die individuell auf die Bedürfnisse der Kinder eingehen."
 
 gruppen:
   - name: "Sonnenkäfer"
