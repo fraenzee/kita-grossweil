@@ -9,5 +9,9 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap()
-  ]
+  ],
+  image: {
+    responsiveStyles: true,
+    layout: 'constrained',
+  },
 });

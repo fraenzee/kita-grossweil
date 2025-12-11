@@ -1,12 +1,17 @@
 ---
 const slides = Astro.props.slides ?? [];
+import { Image } from 'astro:assets';
 ---
 <div class="carousel relative w-full overflow-hidden rounded-2xl shadow-md">
   <!-- Slides -->
   <div class="slides w-full h-64 md:h-96 relative">
     {slides.map((slide, idx) => (
       <div class={`slide absolute inset-0 transition-opacity duration-700 ease-in-out ${idx === 0 ? 'opacity-100' : 'opacity-0'}`}>
-        <img src={slide} alt={`Slide ${idx + 1}`} class="w-full h-full object-cover rounded-2xl" />
+        <Image  src={slide} 
+                alt={`Slide ${idx + 1}`} 
+                class="w-full h-full object-cover rounded-2xl"
+                priority
+        />
       </div>
     ))}
   </div>

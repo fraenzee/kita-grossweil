@@ -1,25 +1,29 @@
 export const siteUrl = "https://kita-grossweil.netlify.app/";
 
+import { Image } from 'astro:assets';
+const fallbackimage = 'https://placehold.co/150x150/eeeeee/333333?text=Foto';
+import annaM from '../assets/bilder/testimonial-mama-mit-sohn.png';
+
 export const teamMembers = [
   {
     name: "Maria Sanner",
     jobTitle: "Leitung",
     // image: `${siteUrl}assets/team/max-mustermann.jpg`
-    image: "https://placehold.co/150x150/eeeeee/333333?text=Foto",
+    image: fallbackimage,
     description: "Seit 20XX bei uns"
   },
   {
     name: "Max Mustermann",
     jobTitle: "Erzieher",
     // image: `${siteUrl}assets/team/erika-beispiel.jpg`
-    image: "https://placehold.co/150x150/eeeeee/333333?text=Foto",
+    image: fallbackimage,
     description: "Spezialgebiet: Naturpädagogik"
   },
   {
     name: "Erika Musterfrau",
     jobTitle: "Kinderpflegerin",
     // image: `${siteUrl}assets/team/erika-beispiel.jpg`
-    image: "https://placehold.co/150x150/eeeeee/333333?text=Foto",
+    image: annaM,
     description: "Spezialgebiet: Kreativität"
   }
 ];

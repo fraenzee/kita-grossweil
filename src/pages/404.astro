@@ -1,6 +1,8 @@
 ---
 // optional: Layout import
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import fernglas from '../assets/bilder/kind-mit-fernglas.jpg';
 ---
 
 <BaseLayout title="404 - Seite nicht gefunden">
@@ -8,7 +10,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h1 class="text-5xl font-bold mb-4">Oh weh! Wir konnten die Seite leider nicht finden.</h1>
     <p class="text-lg mb-6">Vielleicht gehen wir nochmal zurück zur Startseite und sehen dort nach.</p>
     <div><a href="/">
-    <img src="/bilder/kind-mit-fernglas.jpg" alt="404 - Seite nicht gefunden - Kind sucht mit Fernglas" class="mb-6 rounded-lg shadow-lg max-h-[450px]" />
+    <Image src={fernglas} alt="404 - Seite nicht gefunden - Kind sucht mit Fernglas" 
+    class="mb-6 rounded-lg shadow-lg max-h-[450px]" height={450} />
     <button class="btn btn-primary">Zurück zur Startseite</button></a></div>
   </main>
 </BaseLayout>

@@ -5,7 +5,8 @@
 // SEO check/changes: meta tags, canonical, sitemaps, robots.txt, ...
       // robots.txt: https://app.langdock.com/chat/4725e8ff-7351-4439-839e-0fe1b28e5e24
 // fix heading etc. colors among all pages to be consistent  --> done
-// add structured data                         
+// add structured data
+      // add job posting data (for job listings page) https://developers.google.com/search/docs/appearance/structured-data/job-posting?hl=de                    
       // --> breadcrumbs added correctly
       //  add organization data -> in progress
       //  add local business data -> in progress
@@ -46,51 +47,75 @@ import { getCollection } from 'astro:content';
 import Card from '../components/Card.astro';
 import Testimonial from '../components/Testimonial.astro';
 
+// Importiere die Bilder für die Karten
+import baukloetze from '../assets/bilder/baukloetze-stapeln.avif';
+import maedchen from '../assets/bilder/kleines-maedchen-haelt-teddybaeren-auf-dem-arm.avif';
+import basteln from '../assets/bilder/basteln-mit-steinen.avif';
+import fasching from '../assets/bilder/kinder-in-spiderman-und-captain-america-kostuemen-zum-fasching.avif';
+
+// Importiere die Bilder für die Testimonials
+import annaM from '../assets/bilder/testimonial-mama-mit-sohn.png';
+import lenaF from '../assets/bilder/maedchen-mit-koerperfarbe.avif';
+import thomasK from '../assets/bilder/testimonial-papa-mit-tochter.png';
+import miaT from '../assets/bilder/laechelndes-maedchen.avif';
+import sabineMarkusL from '../assets/bilder/testimonial-familie-mit-drei-kindern.png';
+import lukasR from '../assets/bilder/drei-herbstblaetter-auf-der-hand.avif';
+import danielS from '../assets/bilder/testimonial-papa-mit-zwei-kindern.png';
+import emmaS from '../assets/bilder/kinder-mit-gummistiefeln-im-matsch.avif';
+
+// Importiere Bilder für Carousel (Slider)
+import kitagruppe from '../assets/bilder/kitagruppe-macht-ausflug.avif';
+import draussen from '../assets/bilder/kita-draussen-spielen.avif';
+import wachsstifte from '../assets/bilder/kleiner-junge-malt-mit-wachsstiften.avif';
+import pfuetze from '../assets/bilder/kleinkind-haelt-hand-in-pfuetze.avif';
+import schaukel from '../assets/bilder/person-schaukelt.avif';
+// import c from '../assets/bilder/xxx';
+
 const testimonials = [
   {
-    reviewerImage: '/bilder/testimonial-mama-mit-sohn.png',
+    reviewerImage: annaM,
     reviewerQuote: 'Die Kita St. Georg Großweil ist ein wunderbarer Ort für Kinder. Mein Sohn liebt es hier zu sein und ich schätze die liebevolle Betreuung und das engagierte Team sehr.',
     reviewerName: 'Anna M.',
     reviewerNameDescription: 'Mutter eines 5-jährigen Jungen',
   },
   {
-    reviewerImage: '/bilder/maedchen-mit-koerperfarbe.avif',
+    reviewerImage: lenaF,
     reviewerQuote: 'Die Farben in der Kita sind toll! Ich mag besonders den bunten Teppich und die rosa Spielsachen. Meine Freunde und ich haben hier immer viel Spaß!',
     reviewerName: 'Lena F.',
     reviewerNameDescription: '4 Jahre alt',
   },
   {
-    reviewerImage: '/bilder/testimonial-papa-mit-tochter.png',
+    reviewerImage: thomasK,
     reviewerQuote: 'Als Vater bin ich beeindruckt von der pädagogischen Arbeit in der Kita. Mein Kind hat sich hier toll entwickelt und ich fühle mich als Elternteil gut informiert und eingebunden.',
     reviewerName: 'Thomas K.',
     reviewerNameDescription: 'Vater eines 2-jährigen Mädchens',
   },
   {
-    reviewerImage: '/bilder/laechelndes-maedchen.avif',
+    reviewerImage: miaT,
     reviewerQuote: 'Ich mag die Kita, weil ich hier so viele Freunde habe und wir zusammen spielen können. Die Erzieher sind auch sehr nett und helfen uns immer.',
     reviewerName: 'Mia T.',
     reviewerNameDescription: '4 Jahre alt',
   },
   {
-    reviewerImage: '/bilder/testimonial-familie-mit-drei-kindern.png',
+    reviewerImage: sabineMarkusL,
     reviewerQuote: 'Unsere Familie ist sehr zufrieden mit der Kita St. Georg Großweil. Die Atmosphäre ist herzlich und die Kinder werden individuell gefördert. Wir können die Einrichtung nur empfehlen!',
     reviewerName: 'Sabine & Markus L.',
     reviewerNameDescription: 'Eltern von drei Kindern im Alter von 2, 4 und 6 Jahren',
   },
   {
-    reviewerImage: '/bilder/drei-herbstblaetter-auf-der-hand.avif',
+    reviewerImage: lukasR,
     reviewerQuote: 'Schaut mal, wie bunt die Blätter sind! In der Kita haben wir gelernt, wie die Natur im Herbst aussieht. Ich mag es, draußen zu spielen und die Blätter zu sammeln.',
     reviewerName: 'Lukas R.',
     reviewerNameDescription: '5 Jahre alt',
   },
   {
-    reviewerImage: '/bilder/testimonial-papa-mit-zwei-kindern.png',
+    reviewerImage: danielS,
     reviewerQuote: 'Meine zwei Kinder gehen gerne in die Kita St. Georg Großweil. Die abwechslungsreichen Aktivitäten und die liebevolle Betreuung machen den Unterschied. Wir sind sehr dankbar für das tolle Team!',
     reviewerName: 'Daniel S.',
     reviewerNameDescription: 'Vater von zwei Kindern im Alter von 2 und 5 Jahren',
   },
   {
-    reviewerImage: '/bilder/kinder-mit-gummistiefeln-im-matsch.avif',
+    reviewerImage: emmaS,
     reviewerQuote: 'Guckt mal, wie toll der Matsch ist! In der Kita spielen wir oft draußen und ich liebe es, mit meinen Freunden im Matsch zu springen und zu lachen.',
     reviewerName: 'Emma S.',
     reviewerNameDescription: '4 Jahre alt, mit ihren Freunden im Matsch',
@@ -98,22 +123,22 @@ const testimonials = [
 ];
 
 const cards = [
-  { image: '/bilder/baukloetze-stapeln.avif', 
+  { image: baukloetze, 
     title: 'Unser Konzept', 
     description: 'Erfahren Sie mehr über unsere pädagogischen Schwerpunkte und Werte.',
     buttonText: 'Zum Konzept',
     buttonLink: '/paedagogik/',},
-  { image: '/bilder/kleines-maedchen-haelt-teddybaeren-auf-dem-arm.avif', 
+  { image: maedchen, 
     title: 'Anmeldung', 
     description: 'Alle Informationen zur Anmeldung und den Elternbeiträgen.' ,
     buttonText: 'Anmelde-Infos',
     buttonLink: '/anmeldung-kosten/',},
-  { image: '/bilder/basteln-mit-steinen.avif', 
+  { image: basteln, 
     title: 'Aktuelles', 
     description: 'Bleiben Sie auf dem Laufenden über Termine und Veranstaltungen.',
     buttonText: 'Zu den News',
     buttonLink: '/aktuelles/', },
-  { image: '/bilder/kinder-in-spiderman-und-captain-america-kostuemen-zum-fasching.avif', 
+  { image: fasching, 
     title: 'Bildergalerie', 
     description: 'Eindrücke aus unserem Kindergartenalltag und von besonderen Ereignissen.',
     buttonText: 'Galerie ansehen',
@@ -122,13 +147,7 @@ const cards = [
 
 import Carousel from '../components/Carousel.astro';
 
-const slides = [
-  '/bilder/kitagruppe-macht-ausflug.avif',
-  '/bilder/kita-draussen-spielen.avif',
-  '/bilder/kleiner-junge-malt-mit-wachsstiften.avif',
-  '/bilder/kleinkind-haelt-hand-in-pfuetze.avif',
-  '/bilder/person-schaukelt.avif',
-];
+const slides = [ kitagruppe, draussen, wachsstifte, pfuetze, schaukel,];
 
 // Lade den Inhalt der Startseite aus der Markdown-Datei
 const pages = await getCollection('pages');

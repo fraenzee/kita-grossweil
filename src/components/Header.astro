@@ -1,11 +1,13 @@
 ---
 import { navItems } from '../scripts/navigation.js';
+import { Image } from 'astro:assets';
+import kitaLogo from '../assets/st-georg-kita-ritter-babydrache-transparenter-hintergrund.png';
 ---
 
 <header id="main-header" class="navbar sticky top-0 z-50">
   <div class="container mx-auto flex justify-between items-center py-4 px-6">
     <a href="/" class="flex items-center space-x-3">
-      <img src="/st-georg-kita-ritter-babydrache-transparenter-hintergrund.png" alt="Kita Großweil" class="h-14 w-auto" />
+      <Image src={kitaLogo} alt="Kita Großweil" class="h-14 w-auto" priority />
     </a>
 
     <!-- Desktop Navigation -->

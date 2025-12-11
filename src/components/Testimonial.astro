@@ -1,5 +1,6 @@
 ---
 const { reviewerImage, reviewerQuote, reviewerName, reviewerNameDescription } = Astro.props;
+import { Image } from 'astro:assets';
 // const testimonials = [
 //   {
 //     reviewerImage: '/bilder/testimonial-mama-mit-sohn.png',
@@ -13,11 +14,12 @@ const { reviewerImage, reviewerQuote, reviewerName, reviewerNameDescription } = 
   <p class="p-6 text-brand-text italic flex-1 pb-0">„{reviewerQuote}“</p>
   <div class="p-6 rounded-md border-brand-hoverSoft flex flex-col sm:flex-row items-center sm:items-center gap-4">
     {reviewerImage && (
-      <img
+      <Image
       src={reviewerImage}
       alt={reviewerName}
       class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
       loading="lazy"
+      decoding="async"
       />
     )}
     <div class="text-center sm:text-left">
